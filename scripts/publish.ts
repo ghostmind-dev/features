@@ -53,7 +53,7 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
       console.log(`   Target: ${registry}/${namespace}/${feature}`);
 
       try {
-        // Use devcontainer CLI to publish the feature
+        // Use devcontainer CLI to publish the feature with labels
         await $`devcontainer features publish ${featurePath} --registry ${registry} --namespace ${namespace}`;
         console.log(`✅ Successfully published ${feature}`);
       } catch (error) {

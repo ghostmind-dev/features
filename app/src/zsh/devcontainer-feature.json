@@ -1,0 +1,48 @@
+{
+    "id": "zsh",
+    "version": "1.0.0",
+    "name": "ZSH with Oh My Zsh",
+    "description": "Installs ZSH with Oh My Zsh, themes, and useful plugins",
+    "documentationURL": "https://github.com/ohmyzsh/ohmyzsh",
+    "options": {
+        "theme": {
+            "type": "string",
+            "default": "spaceship",
+            "description": "Oh My Zsh theme to install",
+            "enum": [
+                "spaceship",
+                "powerlevel10k",
+                "agnoster",
+                "robbyrussell"
+            ]
+        },
+        "plugins": {
+            "type": "string",
+            "default": "git,ssh-agent,zsh-autosuggestions,zsh-completions",
+            "description": "Comma-separated list of plugins to install"
+        },
+        "installAutosuggestions": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install zsh-autosuggestions plugin"
+        },
+        "installSyntaxHighlighting": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install zsh-syntax-highlighting plugin"
+        },
+        "installCompletions": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install zsh-completions plugin"
+        },
+        "setAsDefaultShell": {
+            "type": "boolean",
+            "default": true,
+            "description": "Set ZSH as the default shell for the user"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

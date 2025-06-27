@@ -1,0 +1,35 @@
+{
+    "name": "Ghostmind Dev Container Features",
+    "description": "A collection of development container features for enhanced development environments",
+    "documentationURL": "https://github.com/ghostmind-dev/features",
+    "maintainer": "Ghostmind Dev",
+    "sourceURL": "https://github.com/ghostmind-dev/features",
+    "features": {
+        "gcloud": {
+            "name": "Google Cloud CLI",
+            "description": "Installs the Google Cloud CLI (gcloud) and related components",
+            "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/app/src/gcloud",
+            "tags": [
+                "google-cloud",
+                "gcloud",
+                "cli",
+                "cloud",
+                "google"
+            ]
+        },
+        "zsh": {
+            "name": "ZSH with Oh My Zsh",
+            "description": "Installs ZSH with Oh My Zsh, themes, and useful plugins for enhanced terminal experience",
+            "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/app/src/zsh",
+            "tags": [
+                "zsh",
+                "oh-my-zsh",
+                "shell",
+                "terminal",
+                "productivity",
+                "themes",
+                "plugins"
+            ]
+        }
+    }
+}

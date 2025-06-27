@@ -4,37 +4,15 @@ import { $ } from 'npm:zx';
 export default async function (args: CustomArgs, opts: CustomOptions) {
   const { has, extract, env } = opts;
 
-  // Get the feature name from arguments
+  // Get the feature name from arguments (optional)
   const featureName = args[0];
 
-  if (!featureName) {
-    console.error('❌ Error: Feature name required');
-    console.log('Usage: run test <feature-name> [scenario] [options]');
-    console.log('');
-    console.log('Examples:');
-    console.log(
-      '  run test gcloud                    # Test all scenarios for gcloud'
-    );
-    console.log('  run test gcloud debian11_default  # Test specific scenario');
-    console.log(
-      '  run test gcloud --list-scenarios  # List available scenarios'
-    );
-    console.log('');
-    console.log('Options:');
-    console.log(
-      '  --list-scenarios    List all available scenarios for the feature'
-    );
-    console.log('  --verbose          Show detailed output');
-    console.log('  --no-cleanup       Keep containers after test');
-    console.log('  --no-common-utils  Skip installing common utilities');
-    Deno.exit(1);
-  }
-
-  // Handle both scenario name and flags in arguments
+  // Handle flags
   let scenario = args[1];
   let verbose = has('verbose');
   let noCleanup = has('no-cleanup');
   let listScenarios = has('list-scenarios');
+  let listFeatures = has('list-features');
   let noCommonUtils = has('no-common-utils');
 
   // Also check if flags are passed as arguments (fallback)
@@ -43,6 +21,7 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
     if (arg === 'verbose') verbose = true;
     if (arg === 'no-cleanup') noCleanup = true;
     if (arg === 'list-scenarios') listScenarios = true;
+    if (arg === 'list-features') listFeatures = true;
     if (arg === 'no-common-utils') noCommonUtils = true;
   });
 
@@ -52,6 +31,7 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
     (scenario === 'verbose' ||
       scenario === 'no-cleanup' ||
       scenario === 'list-scenarios' ||
+      scenario === 'list-features' ||
       scenario === 'no-common-utils')
   ) {
     scenario = undefined;
@@ -59,20 +39,85 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
 
   const { currentPath } = opts;
 
-  // Verify feature exists
-  const featurePath = `${currentPath}/app/src/${featureName}`;
+  // Discover available features
+  const availableFeatures: string[] = [];
   try {
-    await Deno.stat(featurePath);
-  } catch {
-    console.error(
-      `❌ Feature '${featureName}' not found in app/src/ directory`
-    );
-    console.log('Available features:');
-    for await (const entry of Deno.readDir('app/src')) {
+    for await (const entry of Deno.readDir(`${currentPath}/app/src`)) {
       if (entry.isDirectory) {
-        console.log(`  - ${entry.name}`);
+        // Check if the feature has a corresponding test directory
+        try {
+          await Deno.stat(`${currentPath}/app/test/${entry.name}`);
+          availableFeatures.push(entry.name);
+        } catch {
+          // Feature exists but no test directory - skip
+          if (verbose) {
+            console.log(
+              `⚠️  Feature '${entry.name}' has no test directory, skipping`
+            );
+          }
+        }
       }
     }
+  } catch {
+    console.error('❌ Error: Could not read features directory (app/src)');
+    Deno.exit(1);
+  }
+
+  if (availableFeatures.length === 0) {
+    console.error('❌ No testable features found');
+    console.log('Features must have both:');
+    console.log('  - app/src/<feature-name>/ directory');
+    console.log('  - app/test/<feature-name>/ directory');
+    Deno.exit(1);
+  }
+
+  // List available features if requested or no feature specified
+  if (listFeatures || !featureName) {
+    console.log('📋 Available features for testing:');
+    availableFeatures.forEach((name, index) => {
+      console.log(`  ${index + 1}. ${name}`);
+    });
+
+    if (!featureName) {
+      console.log('');
+      console.log('Usage: run test <feature-name> [scenario] [options]');
+      console.log('');
+      console.log('Examples:');
+      console.log(
+        `  run test ${availableFeatures[0]}                    # Test all scenarios for ${availableFeatures[0]}`
+      );
+      console.log(
+        `  run test ${availableFeatures[0]} debian11_default  # Test specific scenario`
+      );
+      console.log(
+        `  run test ${availableFeatures[0]} --list-scenarios  # List available scenarios`
+      );
+      console.log('');
+      console.log('Options:');
+      console.log('  --list-features     List all available features');
+      console.log(
+        '  --list-scenarios    List all available scenarios for the feature'
+      );
+      console.log('  --verbose          Show detailed output');
+      console.log('  --no-cleanup       Keep containers after test');
+      console.log('  --no-common-utils  Skip installing common utilities');
+      Deno.exit(0);
+    }
+
+    if (listFeatures) {
+      return;
+    }
+  }
+
+  // Verify feature exists and is testable
+  if (!availableFeatures.includes(featureName)) {
+    console.error(`❌ Feature '${featureName}' not found or not testable`);
+    console.log('Available features:');
+    availableFeatures.forEach((name) => console.log(`  - ${name}`));
+    console.log('');
+    console.log(
+      '💡 Features must have both app/src/<name>/ and app/test/<name>/ directories'
+    );
     Deno.exit(1);
   }
 
