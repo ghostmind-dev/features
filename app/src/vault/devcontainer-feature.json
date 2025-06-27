@@ -1,0 +1,17 @@
+{
+    "id": "vault",
+    "version": "1.0.0",
+    "name": "HashiCorp Vault",
+    "description": "Installs HashiCorp Vault CLI for secrets management and encryption as a service",
+    "documentationURL": "https://developer.hashicorp.com/vault/docs/install",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of Vault to install (default: latest from repository)"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

@@ -8,6 +8,7 @@ A collection of development container features for enhanced development environm
 | -------------------------- | ---------------------------------------------- | --------------------------------------- |
 | [aws](./app/src/aws)       | AWS v2 for managing AWS services               | `ghcr.io/ghostmind-dev/features/aws`    |
 | [gcloud](./app/src/gcloud) | Google Cloud CLI with authentication and tools | `ghcr.io/ghostmind-dev/features/gcloud` |
+| [vault](./app/src/vault)   | HashiCorp Vault CLI for secrets management     | `ghcr.io/ghostmind-dev/features/vault`  |
 | [zsh](./app/src/zsh)       | ZSH with Oh My Zsh, themes, and useful plugins | `ghcr.io/ghostmind-dev/features/zsh`    |
 
 ## 📖 Usage
@@ -25,6 +26,7 @@ Add features to your `.devcontainer/devcontainer.json`:
       "installBeta": false,
       "installGkeAuthPlugin": true
     },
+    "ghcr.io/ghostmind-dev/features/vault:1": {},
     "ghcr.io/ghostmind-dev/features/zsh:1": {
       "theme": "spaceship"
     }
@@ -82,6 +84,34 @@ Installs the Google Cloud CLI with support for:
 ```
 
 [📚 Full Documentation](./app/src/gcloud/README.md)
+
+### HashiCorp Vault (`vault`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/vault`
+
+Installs HashiCorp Vault CLI for secrets management and encryption as a service with:
+
+- Official HashiCorp APT repository
+- Multi-architecture support (amd64, arm64)
+- Configurable version installation
+- Automatic PATH configuration
+- Useful aliases and environment setup
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/vault:1": {}
+```
+
+**With Specific Version:**
+
+```json
+"ghcr.io/ghostmind-dev/features/vault:1": {
+  "version": "1.15.0"
+}
+```
+
+[📚 Full Documentation](./app/src/vault/README.md)
 
 ### ZSH with Oh My Zsh (`zsh`)
 
