@@ -7,6 +7,7 @@ A collection of development container features for enhanced development environm
 | Feature                    | Description                                    | Registry                                |
 | -------------------------- | ---------------------------------------------- | --------------------------------------- |
 | [gcloud](./app/src/gcloud) | Google Cloud CLI with authentication and tools | `ghcr.io/ghostmind-dev/features/gcloud` |
+| [zsh](./app/src/zsh)       | ZSH with Oh My Zsh, themes, and useful plugins | `ghcr.io/ghostmind-dev/features/zsh`    |
 
 ## 📖 Usage
 
@@ -21,6 +22,9 @@ Add features to your `.devcontainer/devcontainer.json`:
       "version": "405.0.0",
       "installBeta": false,
       "installGkeAuthPlugin": true
+    },
+    "ghcr.io/ghostmind-dev/features/zsh:1": {
+      "theme": "spaceship"
     }
   }
 }
@@ -57,6 +61,34 @@ Installs the Google Cloud CLI with support for:
 ```
 
 [📚 Full Documentation](./app/src/gcloud/README.md)
+
+### ZSH with Oh My Zsh (`zsh`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/zsh`
+
+Installs ZSH with Oh My Zsh and enhances your shell experience with:
+
+- Popular themes (Spaceship, Powerlevel10k, Agnoster, Robbyrussell)
+- Useful plugins (autosuggestions, syntax highlighting, completions)
+- Automatic shell configuration
+- Support for multiple architectures
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/zsh:1": {}
+```
+
+**With Custom Theme:**
+
+```json
+"ghcr.io/ghostmind-dev/features/zsh:1": {
+  "theme": "powerlevel10k",
+  "plugins": "git,docker,kubectl,aws"
+}
+```
+
+[📚 Full Documentation](./app/src/zsh/README.md)
 
 ## 🏗️ Development
 
