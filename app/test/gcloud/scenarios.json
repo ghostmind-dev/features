@@ -1,0 +1,12 @@
+{
+    "test": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "gcloud": {
+                "version": "405.0.0",
+                "installBeta": true,
+                "installGkeAuthPlugin": true
+            }
+        }
+    }
+}

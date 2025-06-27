@@ -1,0 +1,27 @@
+{
+    "id": "gcloud",
+    "version": "1.0.0",
+    "name": "Google Cloud CLI",
+    "description": "Installs the Google Cloud CLI (gcloud) and related components",
+    "documentationURL": "https://cloud.google.com/sdk/docs/install",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "405.0.0",
+            "description": "Version of Google Cloud CLI to install"
+        },
+        "installBeta": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install beta components"
+        },
+        "installGkeAuthPlugin": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install GKE gcloud auth plugin"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

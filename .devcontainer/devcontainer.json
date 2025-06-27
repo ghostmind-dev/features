@@ -1,0 +1,16 @@
+{
+    "name": "Features Development with gcloud",
+    "image": "ghcr.io/ghostmind-dev/dvc:dev",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscode.json-language-features"
+            ]
+        }
+    }
+}
