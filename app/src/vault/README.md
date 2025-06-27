@@ -1,6 +1,6 @@
 # HashiCorp Vault Feature
 
-This feature installs HashiCorp Vault CLI for secrets management and encryption as a service.
+This feature installs the HashiCorp Vault CLI using a direct binary download from HashiCorp. It provides a reliable way to get Vault into your DevContainer for secrets management.
 
 ## Usage
 
@@ -12,9 +12,20 @@ This feature installs HashiCorp Vault CLI for secrets management and encryption 
 
 ## Options
 
-| Option    | Type   | Default    | Description                                             |
-| --------- | ------ | ---------- | ------------------------------------------------------- |
-| `version` | string | `"latest"` | Version of Vault to install (default: latest from repo) |
+| Option    | Type   | Default  | Description                                              |
+| --------- | ------ | -------- | -------------------------------------------------------- |
+| `version` | string | `latest` | Version of Vault to install (e.g., "1.15.0" or "latest") |
+
+## How it Works
+
+The installation script (`install.sh`) will:
+
+1.  Detect the container's architecture (amd64 or arm64).
+2.  Download the specified version of the Vault CLI directly from HashiCorp's release server.
+3.  Unzip the archive and place the `vault` executable in `/usr/local/bin`.
+4.  Verify the installation by running `vault --version`.
+
+This method avoids using `apt` repositories, which can sometimes cause permission issues in containerized environments.
 
 ## Examples
 
