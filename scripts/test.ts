@@ -42,11 +42,11 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
   // Discover available features
   const availableFeatures: string[] = [];
   try {
-    for await (const entry of Deno.readDir(`${currentPath}/app/src`)) {
+    for await (const entry of Deno.readDir(`${currentPath}/features/src`)) {
       if (entry.isDirectory) {
         // Check if the feature has a corresponding test directory
         try {
-          await Deno.stat(`${currentPath}/app/test/${entry.name}`);
+          await Deno.stat(`${currentPath}/features/test/${entry.name}`);
           availableFeatures.push(entry.name);
         } catch {
           // Feature exists but no test directory - skip
@@ -59,15 +59,15 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
       }
     }
   } catch {
-    console.error('❌ Error: Could not read features directory (app/src)');
+    console.error('❌ Error: Could not read features directory (features/src)');
     Deno.exit(1);
   }
 
   if (availableFeatures.length === 0) {
     console.error('❌ No testable features found');
     console.log('Features must have both:');
-    console.log('  - app/src/<feature-name>/ directory');
-    console.log('  - app/test/<feature-name>/ directory');
+    console.log('  - features/src/<feature-name>/ directory');
+    console.log('  - features/test/<feature-name>/ directory');
     Deno.exit(1);
   }
 
@@ -116,13 +116,13 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
     availableFeatures.forEach((name) => console.log(`  - ${name}`));
     console.log('');
     console.log(
-      '💡 Features must have both app/src/<name>/ and app/test/<name>/ directories'
+      '💡 Features must have both features/src/<name>/ and features/test/<name>/ directories'
     );
     Deno.exit(1);
   }
 
   // Check if scenarios.json exists
-  const scenariosPath = `${currentPath}/app/test/${featureName}/scenarios.json`;
+  const scenariosPath = `${currentPath}/features/test/${featureName}/scenarios.json`;
   let scenarios: Record<string, any> = {};
 
   try {
@@ -236,7 +236,7 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
       await Deno.mkdir(tempSrcDir, { recursive: true });
 
       // Copy the entire feature directory
-      const featureSourceDir = `app/src/${featureName}`;
+      const featureSourceDir = `features/src/${featureName}`;
       const tempFeatureDir = `${tempSrcDir}/${featureName}`;
       await Deno.mkdir(tempFeatureDir, { recursive: true });
 
@@ -281,7 +281,7 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
 
       // Run the test
       console.log('🧪 Running feature test...');
-      const testScript = `app/test/${featureName}/test.sh`;
+      const testScript = `features/test/${featureName}/test.sh`;
 
       // Check if test script exists
       try {

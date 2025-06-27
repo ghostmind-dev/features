@@ -1,6 +1,6 @@
 {
     "id": "vault",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "HashiCorp Vault",
     "description": "Installs HashiCorp Vault CLI for secrets management and encryption as a service",
     "documentationURL": "https://developer.hashicorp.com/vault/docs/install",

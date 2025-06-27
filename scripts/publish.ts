@@ -7,10 +7,9 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
   const { env } = opts;
   const registry = 'ghcr.io';
   const namespace = 'ghostmind-dev/features';
-
   try {
     // Get all feature directories
-    const srcPath = './app/src';
+    const srcPath = './features/src';
 
     console.log(`🔍 Scanning for features in: ${srcPath}`);
 
