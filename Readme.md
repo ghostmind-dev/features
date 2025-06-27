@@ -6,6 +6,7 @@ A collection of development container features for enhanced development environm
 
 | Feature                    | Description                                    | Registry                                |
 | -------------------------- | ---------------------------------------------- | --------------------------------------- |
+| [aws](./app/src/aws)       | AWS v2 for managing AWS services               | `ghcr.io/ghostmind-dev/features/aws`    |
 | [gcloud](./app/src/gcloud) | Google Cloud CLI with authentication and tools | `ghcr.io/ghostmind-dev/features/gcloud` |
 | [zsh](./app/src/zsh)       | ZSH with Oh My Zsh, themes, and useful plugins | `ghcr.io/ghostmind-dev/features/zsh`    |
 
@@ -18,6 +19,7 @@ Add features to your `.devcontainer/devcontainer.json`:
   "name": "My Dev Container",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
+    "ghcr.io/ghostmind-dev/features/aws:1": {},
     "ghcr.io/ghostmind-dev/features/gcloud:1": {
       "version": "405.0.0",
       "installBeta": false,
@@ -31,6 +33,25 @@ Add features to your `.devcontainer/devcontainer.json`:
 ```
 
 ## 🔧 Features
+
+### AWS (`aws`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/aws`
+
+Installs the AWS CLI v2 for managing AWS services with:
+
+- Multi-architecture support (amd64, arm64)
+- Latest AWS v2 installation
+- Automatic PATH configuration
+- Clean installation process
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/awscli:1": {}
+```
+
+[📚 Full Documentation](./app/src/awscli/README.md)
 
 ### Google Cloud CLI (`gcloud`)
 

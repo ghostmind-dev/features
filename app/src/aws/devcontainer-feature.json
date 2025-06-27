@@ -1,0 +1,17 @@
+{
+    "id": "aws",
+    "version": "1.0.0",
+    "name": "AWS",
+    "description": "Installs the AWS CLI v2 for managing AWS services from the command line",
+    "documentationURL": "https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of AWS CLI to install (default: latest)"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
