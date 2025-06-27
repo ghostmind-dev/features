@@ -48,10 +48,10 @@ Installs the AWS CLI v2 for managing AWS services with:
 **Quick Start:**
 
 ```json
-"ghcr.io/ghostmind-dev/features/awscli:1": {}
+"ghcr.io/ghostmind-dev/features/aws:1": {}
 ```
 
-[📚 Full Documentation](./app/src/awscli/README.md)
+[📚 Full Documentation](./app/src/aws/README.md)
 
 ### Google Cloud CLI (`gcloud`)
 
