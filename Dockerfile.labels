@@ -1,0 +1,11 @@
+FROM ghcr.io/ghostmind-dev/features/act:latest
+LABEL org.opencontainers.image.title="Act"
+LABEL org.opencontainers.image.description="Installs act - a tool to run GitHub Actions locally"
+LABEL org.opencontainers.image.version="1.0.3"
+LABEL org.opencontainers.image.source="https://github.com/ghostmind-dev/features"
+LABEL org.opencontainers.image.url="https://github.com/ghostmind-dev/features"
+LABEL org.opencontainers.image.created="2025-06-28T06:22:19.493Z"
+LABEL com.github.package.type="devcontainer_feature"
+LABEL dev.containers.metadata.name="Act"
+LABEL dev.containers.metadata.version="1.0.3"
+LABEL org.opencontainers.image.documentation="https://github.com/nektos/act"
