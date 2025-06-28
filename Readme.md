@@ -4,18 +4,23 @@ A collection of development container features for enhanced development environm
 
 ## 🚀 Available Features
 
-| Feature                               | Description                                         | Registry                                   |
-| ------------------------------------- | --------------------------------------------------- | ------------------------------------------ |
-| [act](./features/src/act)             | Act - run GitHub Actions locally                    | `ghcr.io/ghostmind-dev/features/act`       |
-| [aws](./features/src/aws)             | AWS v2 for managing AWS services                    | `ghcr.io/ghostmind-dev/features/aws`       |
-| [deno](./features/src/deno)           | Deno - modern runtime for JavaScript and TypeScript | `ghcr.io/ghostmind-dev/features/deno`      |
-| [gcloud](./features/src/gcloud)       | Google Cloud CLI with authentication and tools      | `ghcr.io/ghostmind-dev/features/gcloud`    |
-| [init](./features/src/init)           | Initialize development environment with options     | `ghcr.io/ghostmind-dev/features/init`      |
-| [kustomize](./features/src/kustomize) | Kustomize for Kubernetes configuration management   | `ghcr.io/ghostmind-dev/features/kustomize` |
-| [npm](./features/src/npm)             | NPM global configuration and package management     | `ghcr.io/ghostmind-dev/features/npm`       |
-| [skaffold](./features/src/skaffold)   | Skaffold for Kubernetes development workflows       | `ghcr.io/ghostmind-dev/features/skaffold`  |
-| [vault](./features/src/vault)         | HashiCorp Vault CLI for secrets management          | `ghcr.io/ghostmind-dev/features/vault`     |
-| [zsh](./features/src/zsh)             | ZSH with Oh My Zsh, themes, and useful plugins      | `ghcr.io/ghostmind-dev/features/zsh`       |
+| Feature                                   | Description                                          | Registry                                     |
+| ----------------------------------------- | ---------------------------------------------------- | -------------------------------------------- |
+| [act](./features/src/act)                 | Act - run GitHub Actions locally                     | `ghcr.io/ghostmind-dev/features/act`         |
+| [aws](./features/src/aws)                 | AWS v2 for managing AWS services                     | `ghcr.io/ghostmind-dev/features/aws`         |
+| [bun](./features/src/bun)                 | Bun - fast all-in-one JavaScript runtime and toolkit | `ghcr.io/ghostmind-dev/features/bun`         |
+| [chromium](./features/src/chromium)       | Chromium browser for web development and testing     | `ghcr.io/ghostmind-dev/features/chromium`    |
+| [cloudflared](./features/src/cloudflared) | Cloudflare Tunnel for secure localhost tunneling     | `ghcr.io/ghostmind-dev/features/cloudflared` |
+| [deno](./features/src/deno)               | Deno - modern runtime for JavaScript and TypeScript  | `ghcr.io/ghostmind-dev/features/deno`        |
+| [gcloud](./features/src/gcloud)           | Google Cloud CLI with authentication and tools       | `ghcr.io/ghostmind-dev/features/gcloud`      |
+| [init](./features/src/init)               | Initialize development environment with options      | `ghcr.io/ghostmind-dev/features/init`        |
+| [kubernetes](./features/src/kubernetes)   | Kubernetes toolkit with kubectl, kind, k9s, and more | `ghcr.io/ghostmind-dev/features/kubernetes`  |
+| [npm](./features/src/npm)                 | NPM global configuration and package management      | `ghcr.io/ghostmind-dev/features/npm`         |
+| [postgresql](./features/src/postgresql)   | PostgreSQL client tools for database management      | `ghcr.io/ghostmind-dev/features/postgresql`  |
+| [run](./features/src/run)                 | Run CLI for development automation and scripting     | `ghcr.io/ghostmind-dev/features/run`         |
+| [uv](./features/src/uv)                   | UV - extremely fast Python package manager           | `ghcr.io/ghostmind-dev/features/uv`          |
+| [vault](./features/src/vault)             | HashiCorp Vault CLI for secrets management           | `ghcr.io/ghostmind-dev/features/vault`       |
+| [zsh](./features/src/zsh)                 | ZSH with Oh My Zsh, themes, and useful plugins       | `ghcr.io/ghostmind-dev/features/zsh`         |
 
 ## 📖 Usage
 
@@ -29,6 +34,11 @@ Add features to your `.devcontainer/devcontainer.json`:
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/ghostmind-dev/features/act:1": {},
     "ghcr.io/ghostmind-dev/features/aws:1": {},
+    "ghcr.io/ghostmind-dev/features/bun:1": {
+      "installGlobalPackages": true
+    },
+    "ghcr.io/ghostmind-dev/features/chromium:1": {},
+    "ghcr.io/ghostmind-dev/features/cloudflared:1": {},
     "ghcr.io/ghostmind-dev/features/deno:1": {},
     "ghcr.io/ghostmind-dev/features/gcloud:1": {
       "version": "405.0.0",
@@ -38,12 +48,20 @@ Add features to your `.devcontainer/devcontainer.json`:
     "ghcr.io/ghostmind-dev/features/init:1": {
       "enableFeature": true
     },
+    "ghcr.io/ghostmind-dev/features/kubernetes:1": {
+      "installSkaffold": true,
+      "installKustomize": true
+    },
     "ghcr.io/ghostmind-dev/features/npm:1": {
       "installDefaultPackages": true,
       "packages": "typescript,prettier"
     },
-    "ghcr.io/ghostmind-dev/features/kustomize:1": {},
-    "ghcr.io/ghostmind-dev/features/skaffold:1": {},
+    "ghcr.io/ghostmind-dev/features/postgresql:1": {},
+    "ghcr.io/ghostmind-dev/features/run:1": {},
+    "ghcr.io/ghostmind-dev/features/uv:1": {
+      "installPython": true,
+      "globalPackages": "ruff,black"
+    },
     "ghcr.io/ghostmind-dev/features/vault:1": {},
     "ghcr.io/ghostmind-dev/features/zsh:1": {
       "theme": "spaceship"
@@ -99,6 +117,83 @@ Installs the AWS CLI v2 for managing AWS services with:
 ```
 
 [📚 Full Documentation](./features/src/aws/README.md)
+
+### Bun (`bun`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/bun`
+
+Installs Bun, the fast all-in-one JavaScript runtime and toolkit with:
+
+- Drop-in replacement for Node.js
+- Fast npm-compatible package manager
+- Built-in bundler and transpiler
+- Built-in test runner and development server
+- Multi-architecture support (amd64, arm64)
+- Optional global package installation
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/bun:1": {}
+```
+
+**With Custom Version and Packages:**
+
+```json
+"ghcr.io/ghostmind-dev/features/bun:1": {
+  "version": "1.0.20",
+  "installGlobalPackages": true,
+  "packages": "eslint,vite,react"
+}
+```
+
+[📚 Full Documentation](./features/src/bun/README.md)
+
+### Chromium (`chromium`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/chromium`
+
+Installs Chromium browser and required libraries for headless browser automation with:
+
+- Chromium web browser
+- Network Security Services tools for certificate management
+- Support for web scraping and browser automation
+- Testing web applications
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/chromium:1": {}
+```
+
+[📚 Full Documentation](./features/src/chromium/README.md)
+
+### Cloudflared (`cloudflared`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/cloudflared`
+
+Installs Cloudflared for creating secure tunnels to your localhost with:
+
+- Multi-architecture support (amd64, arm64)
+- Configurable version installation
+- Secure tunnel creation capabilities
+- Integration with Cloudflare services
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/cloudflared:1": {}
+```
+
+**With Custom Version:**
+
+```json
+"ghcr.io/ghostmind-dev/features/cloudflared:1": {
+  "version": "2023.8.2"
+}
+```
+
+[📚 Full Documentation](./features/src/cloudflared/README.md)
 
 ### Deno (`deno`)
 
@@ -197,32 +292,37 @@ Initializes development environment with configurable options that are set as en
 
 [📚 Full Documentation](./features/src/init/README.md)
 
-### Kustomize (`kustomize`)
+### Kubernetes Toolkit (`kubernetes`)
 
-**Registry:** `ghcr.io/ghostmind-dev/features/kustomize`
+**Registry:** `ghcr.io/ghostmind-dev/features/kubernetes`
 
-Installs Kustomize for Kubernetes configuration management and customization with:
+Provides a comprehensive Kubernetes toolkit for development containers with:
 
+- **kubectl** - Kubernetes command-line tool
+- **kind** - Kubernetes in Docker for local clusters
+- **k9s** - Terminal-based UI for managing clusters
+- Optional **Skaffold** for continuous development
+- Optional **Kustomize** for configuration management
 - Multi-architecture support (amd64, arm64)
-- Official installation from GitHub releases
-- Automatic PATH configuration
-- Clean installation process
 
 **Quick Start:**
 
 ```json
-"ghcr.io/ghostmind-dev/features/kustomize:1": {}
+"ghcr.io/ghostmind-dev/features/kubernetes:1": {}
 ```
 
-**With Custom Version:**
+**With All Tools:**
 
 ```json
-"ghcr.io/ghostmind-dev/features/kustomize:1": {
-  "version": "latest"
+"ghcr.io/ghostmind-dev/features/kubernetes:1": {
+  "installSkaffold": true,
+  "installKustomize": true,
+  "skaffoldVersion": "2.8.0",
+  "kustomizeVersion": "latest"
 }
 ```
 
-[📚 Full Documentation](./features/src/kustomize/README.md)
+[📚 Full Documentation](./features/src/kubernetes/README.md)
 
 ### NPM Global Packages (`npm`)
 
@@ -255,32 +355,85 @@ Sets up NPM global configuration and installs commonly used global packages with
 
 [📚 Full Documentation](./features/src/npm/README.md)
 
-### Skaffold (`skaffold`)
+### PostgreSQL Client (`postgresql`)
 
-**Registry:** `ghcr.io/ghostmind-dev/features/skaffold`
+**Registry:** `ghcr.io/ghostmind-dev/features/postgresql`
 
-Installs Skaffold for Kubernetes development workflows with:
+Installs PostgreSQL client tools for connecting to and managing PostgreSQL databases with:
 
+- **psql** - PostgreSQL interactive terminal
+- **pg_dump** - Database backup utility
+- **pg_restore** - Database restore utility
+- Other PostgreSQL client utilities
 - Multi-architecture support (amd64, arm64)
-- Configurable version installation
-- Automatic PATH configuration
-- Clean installation process
 
 **Quick Start:**
 
 ```json
-"ghcr.io/ghostmind-dev/features/skaffold:1": {}
+"ghcr.io/ghostmind-dev/features/postgresql:1": {}
 ```
 
-**With Custom Version:**
+**With Specific Version:**
 
 ```json
-"ghcr.io/ghostmind-dev/features/skaffold:1": {
-  "version": "2.7.0"
+"ghcr.io/ghostmind-dev/features/postgresql:1": {
+  "version": "15"
 }
 ```
 
-[📚 Full Documentation](./features/src/skaffold/README.md)
+[📚 Full Documentation](./features/src/postgresql/README.md)
+
+### Run Development Utility (`run`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/run`
+
+Installs the run CLI for development automation and scripting with:
+
+- TypeScript script execution with standardized patterns
+- Rich context with environment variables and utilities
+- Built-in argument parsing and type safety
+- ZX integration for shell operations
+- Powerful development automation capabilities
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/run:1": {}
+```
+
+**Prerequisites:** Requires Deno to be installed first.
+
+[📚 Full Documentation](./features/src/run/README.md)
+
+### UV Python Package Manager (`uv`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/uv`
+
+Installs uv, an extremely fast Python package and project manager with:
+
+- 10-100x faster than pip and pip-tools
+- Drop-in replacement for pip, pip-tools, pipx, poetry, and more
+- Python version management capabilities
+- Virtual environment management
+- Project management features
+- Cross-platform support
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/uv:1": {}
+```
+
+**With Python and Global Tools:**
+
+```json
+"ghcr.io/ghostmind-dev/features/uv:1": {
+  "installPython": true,
+  "globalPackages": "ruff,black,mypy"
+}
+```
+
+[📚 Full Documentation](./features/src/uv/README.md)
 
 ### HashiCorp Vault (`vault`)
 

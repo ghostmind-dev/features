@@ -136,6 +136,21 @@
                 "proxy"
             ]
         },
+        "init": {
+            "name": "Init",
+            "description": "Initialize development environment with configurable options",
+            "version": "1.0.1",
+            "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/features/src/init",
+            "registryUrl": "ghcr.io/ghostmind-dev/features/init:1.0.1",
+            "lastUpdated": "2025-01-13T00:00:00.000Z",
+            "tags": [
+                "init",
+                "environment",
+                "configuration",
+                "setup",
+                "development"
+            ]
+        },
         "kubernetes": {
             "name": "Kubernetes Tools",
             "description": "Installs kubectl, helm, and other Kubernetes development tools",
