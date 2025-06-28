@@ -1,6 +1,6 @@
 {
     "id": "deno",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "Deno",
     "description": "Installs Deno, a modern runtime for JavaScript and TypeScript",
     "documentationURL": "https://deno.land/manual/getting_started/installation",

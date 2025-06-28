@@ -1,0 +1,16 @@
+{
+    "name": "Test PostgreSQL Feature",
+    "image": "ghcr.io/ghostmind-dev/dvc:dev",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/ghostmind-dev/features/postgresql": {}
+    },
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscode.json-language-features"
+            ]
+        }
+    }
+}

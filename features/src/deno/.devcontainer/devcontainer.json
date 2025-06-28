@@ -1,0 +1,17 @@
+{
+    "name": "Test Deno Feature",
+    "image": "ghcr.io/ghostmind-dev/dvc:dev",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/ghostmind-dev/features/deno": {}
+    },
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscode.json-language-features",
+                "denoland.vscode-deno"
+            ]
+        }
+    }
+}

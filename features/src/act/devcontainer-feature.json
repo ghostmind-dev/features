@@ -1,6 +1,6 @@
 {
     "id": "act",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "Act",
     "description": "Installs act - a tool to run GitHub Actions locally",
     "documentationURL": "https://github.com/nektos/act",

@@ -1,10 +1,10 @@
 {
     "name": "Features Development with gcloud",
-    "image": "ghcr.io/ghostmind-dev/dvc:dev-empty",
+    "image": "ghcr.io/ghostmind-dev/dvc:dev",
     "features": {
-        // "ghcr.io/devcontainers/features/common-utils:2": {},
-        // "ghcr.io/ghostmind-dev/features/deno": {},
-        // "ghcr.io/ghostmind-dev/features/run": {}
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/ghostmind-dev/features/deno": {},
+        "ghcr.io/ghostmind-dev/features/run": {}
     },
     "remoteUser": "vscode",
     "customizations": {
