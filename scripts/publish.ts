@@ -7,6 +7,10 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
   const { env } = opts;
   const registry = 'ghcr.io';
   const namespace = 'ghostmind-dev/features';
+
+  // Get the feature name from arguments (optional)
+  const targetFeature = args[0];
+
   try {
     // Get all feature directories
     const srcPath = './features/src';
@@ -14,7 +18,7 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
     console.log(`🔍 Scanning for features in: ${srcPath}`);
 
     // Read directory contents directly using Deno
-    const features = [];
+    const allFeatures = [];
     for await (const dirEntry of Deno.readDir(srcPath)) {
       if (dirEntry.isDirectory) {
         const featurePath = `${srcPath}/${dirEntry.name}`;
@@ -24,7 +28,7 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
 
         try {
           await Deno.stat(featureConfigPath);
-          features.push(dirEntry.name);
+          allFeatures.push(dirEntry.name);
           console.log(`   ✅ Found feature: ${dirEntry.name}`);
         } catch {
           console.log(
@@ -34,17 +38,33 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
       }
     }
 
-    if (features.length === 0) {
+    if (allFeatures.length === 0) {
       console.log('No devcontainer features found to publish');
       return;
     }
 
+    // Determine which features to publish
+    let featuresToPublish = allFeatures;
+
+    if (targetFeature) {
+      if (!allFeatures.includes(targetFeature)) {
+        console.error(`❌ Feature '${targetFeature}' not found`);
+        console.log('Available features:');
+        allFeatures.forEach((name) => console.log(`  - ${name}`));
+        Deno.exit(1);
+      }
+      featuresToPublish = [targetFeature];
+      console.log(`\n🎯 Publishing specific feature: ${targetFeature}`);
+    } else {
+      console.log(`\n📦 Publishing all ${featuresToPublish.length} features`);
+    }
+
     console.log(
-      `\n📦 Publishing ${features.length} devcontainer feature(s) to ${registry}/${namespace}`
+      `\n📦 Publishing ${featuresToPublish.length} devcontainer feature(s) to ${registry}/${namespace}`
     );
 
     // Publish each feature
-    for (const feature of features) {
+    for (const feature of featuresToPublish) {
       const featurePath = `${srcPath}/${feature}`;
 
       console.log(`\n🚀 Publishing feature: ${feature}`);

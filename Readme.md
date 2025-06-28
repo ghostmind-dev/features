@@ -4,13 +4,16 @@ A collection of development container features for enhanced development environm
 
 ## 🚀 Available Features
 
-| Feature                         | Description                                     | Registry                                |
-| ------------------------------- | ----------------------------------------------- | --------------------------------------- |
-| [aws](./features/src/aws)       | AWS v2 for managing AWS services                | `ghcr.io/ghostmind-dev/features/aws`    |
-| [gcloud](./features/src/gcloud) | Google Cloud CLI with authentication and tools  | `ghcr.io/ghostmind-dev/features/gcloud` |
-| [npm](./features/src/npm)       | NPM global configuration and package management | `ghcr.io/ghostmind-dev/features/npm`    |
-| [vault](./features/src/vault)   | HashiCorp Vault CLI for secrets management      | `ghcr.io/ghostmind-dev/features/vault`  |
-| [zsh](./features/src/zsh)       | ZSH with Oh My Zsh, themes, and useful plugins  | `ghcr.io/ghostmind-dev/features/zsh`    |
+| Feature                               | Description                                       | Registry                                   |
+| ------------------------------------- | ------------------------------------------------- | ------------------------------------------ |
+| [act](./features/src/act)             | Act - run GitHub Actions locally                  | `ghcr.io/ghostmind-dev/features/act`       |
+| [aws](./features/src/aws)             | AWS v2 for managing AWS services                  | `ghcr.io/ghostmind-dev/features/aws`       |
+| [gcloud](./features/src/gcloud)       | Google Cloud CLI with authentication and tools    | `ghcr.io/ghostmind-dev/features/gcloud`    |
+| [kustomize](./features/src/kustomize) | Kustomize for Kubernetes configuration management | `ghcr.io/ghostmind-dev/features/kustomize` |
+| [npm](./features/src/npm)             | NPM global configuration and package management   | `ghcr.io/ghostmind-dev/features/npm`       |
+| [skaffold](./features/src/skaffold)   | Skaffold for Kubernetes development workflows     | `ghcr.io/ghostmind-dev/features/skaffold`  |
+| [vault](./features/src/vault)         | HashiCorp Vault CLI for secrets management        | `ghcr.io/ghostmind-dev/features/vault`     |
+| [zsh](./features/src/zsh)             | ZSH with Oh My Zsh, themes, and useful plugins    | `ghcr.io/ghostmind-dev/features/zsh`       |
 
 ## 📖 Usage
 
@@ -22,6 +25,7 @@ Add features to your `.devcontainer/devcontainer.json`:
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/ghostmind-dev/features/act:1": {},
     "ghcr.io/ghostmind-dev/features/aws:1": {},
     "ghcr.io/ghostmind-dev/features/gcloud:1": {
       "version": "405.0.0",
@@ -32,6 +36,8 @@ Add features to your `.devcontainer/devcontainer.json`:
       "installDefaultPackages": true,
       "packages": "typescript,prettier"
     },
+    "ghcr.io/ghostmind-dev/features/kustomize:1": {},
+    "ghcr.io/ghostmind-dev/features/skaffold:1": {},
     "ghcr.io/ghostmind-dev/features/vault:1": {},
     "ghcr.io/ghostmind-dev/features/zsh:1": {
       "theme": "spaceship"
@@ -41,6 +47,33 @@ Add features to your `.devcontainer/devcontainer.json`:
 ```
 
 ## 🔧 Features
+
+### Act (`act`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/act`
+
+Installs [act](https://github.com/nektos/act) - a tool to run GitHub Actions locally for testing and development with:
+
+- Multi-architecture support (amd64, arm64)
+- Configurable version installation
+- Automatic PATH configuration
+- Clean installation process
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/act:1": {}
+```
+
+**With Custom Version:**
+
+```json
+"ghcr.io/ghostmind-dev/features/act:1": {
+  "version": "0.2.60"
+}
+```
+
+[📚 Full Documentation](./features/src/act/README.md)
 
 ### AWS (`aws`)
 
@@ -91,6 +124,33 @@ Installs the Google Cloud CLI with support for:
 
 [📚 Full Documentation](./features/src/gcloud/README.md)
 
+### Kustomize (`kustomize`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/kustomize`
+
+Installs Kustomize for Kubernetes configuration management and customization with:
+
+- Multi-architecture support (amd64, arm64)
+- Official installation from GitHub releases
+- Automatic PATH configuration
+- Clean installation process
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/kustomize:1": {}
+```
+
+**With Custom Version:**
+
+```json
+"ghcr.io/ghostmind-dev/features/kustomize:1": {
+  "version": "latest"
+}
+```
+
+[📚 Full Documentation](./features/src/kustomize/README.md)
+
 ### NPM Global Packages (`npm`)
 
 **Registry:** `ghcr.io/ghostmind-dev/features/npm`
@@ -121,6 +181,33 @@ Sets up NPM global configuration and installs commonly used global packages with
 **Prerequisites:** Requires Node.js (use `ghcr.io/devcontainers/features/node:1`)
 
 [📚 Full Documentation](./features/src/npm/README.md)
+
+### Skaffold (`skaffold`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/skaffold`
+
+Installs Skaffold for Kubernetes development workflows with:
+
+- Multi-architecture support (amd64, arm64)
+- Configurable version installation
+- Automatic PATH configuration
+- Clean installation process
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/skaffold:1": {}
+```
+
+**With Custom Version:**
+
+```json
+"ghcr.io/ghostmind-dev/features/skaffold:1": {
+  "version": "2.7.0"
+}
+```
+
+[📚 Full Documentation](./features/src/skaffold/README.md)
 
 ### HashiCorp Vault (`vault`)
 

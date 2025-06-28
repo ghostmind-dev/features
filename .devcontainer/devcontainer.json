@@ -4,13 +4,19 @@
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
         "ghcr.io/ghostmind-dev/features/gcloud:1": {},
         "ghcr.io/ghostmind-dev/features/zsh:1": {},
         "ghcr.io/ghostmind-dev/features/aws:1": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/ghostmind-dev/features/vault:1": {},
         "ghcr.io/devcontainers/features/node:1": {},
-        "ghcr.io/ghostmind-dev/features/npm:1": {}
+        "ghcr.io/ghostmind-dev/features/npm:1": {},
+        "ghcr.io/ghostmind-dev/features/kustomize:1": {},
+        "ghcr.io/devcontainers/features/go:1": {},
+        "ghcr.io/devcontainers/features/terraform:1": {},
+        "ghcr.io/ghostmind-dev/features/act:1": {},
+        "ghcr.io/ghostmind-dev/features/skaffold:1": {}
     },
     "remoteUser": "vscode",
     "customizations": {

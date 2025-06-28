@@ -148,7 +148,6 @@ if [ "${INSTALL_DEFAULT_PACKAGES}" = "true" ]; then
     
     DEFAULT_PACKAGES=(
         "zx@8.1.1"
-        "npm-run-all@4.1.5"
         "nodemon@3.1.1"
         "@anthropic-ai/claude-code"
     )

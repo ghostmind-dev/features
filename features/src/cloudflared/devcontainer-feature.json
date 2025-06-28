@@ -1,0 +1,17 @@
+{
+    "id": "cloudflared",
+    "version": "1.0.0",
+    "name": "Cloudflared",
+    "description": "Installs Cloudflared (cloudflare tunnel daemon) for creating secure tunnels to your localhost",
+    "documentationURL": "https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of Cloudflared to install (default: latest from repository)"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2"
+    ]
+}
