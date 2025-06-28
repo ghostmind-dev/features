@@ -1,0 +1,86 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Run Custom Development Utility System
+
+This project uses a powerful development utility system called **`run custom`** for automating project tasks. This is the primary tool for running scripts and should be used for most development automation needs.
+
+## How Run Custom Works
+
+The `run custom` system executes TypeScript scripts from the [scripts/](mdc:scripts) directory using a standardized pattern:
+
+```bash
+run custom <script_name> [arguments...] [--flags]
+```
+
+## Script Structure Pattern
+
+All custom scripts follow this exact pattern:
+
+```typescript
+import type { CustomArgs, CustomOptions } from 'jsr:@ghostmind/run';
+import { $ } from 'npm:zx';
+
+export default async function (args: CustomArgs, opts: CustomOptions) {
+  // Script logic here
+  // args[0] = first argument, args[1] = second argument, etc.
+  // opts.has('flag-name') = check for boolean flags
+  // opts.extract('key') = extract key-value flags
+  // opts.env = environment variables
+  // opts.currentPath = current working directory
+}
+```
+
+## Current Scripts in This Project
+
+### Test Script ([scripts/test.ts](mdc:scripts/test.ts))
+```bash
+# Test all features
+run custom test
+
+# Test specific feature
+run custom test aws
+
+# Test specific scenario
+run custom test aws debian11_default
+
+# List available features
+run custom test --list-features
+
+# List scenarios for a feature
+run custom test aws --list-scenarios
+```
+
+### Publish Script ([scripts/publish.ts](mdc:scripts/publish.ts))
+```bash
+# Publish all DevContainer features to registry
+run custom publish
+```
+
+## Key Features of Run Custom
+
+- **Rich Context**: Scripts receive environment variables, current path, and utility functions
+- **Argument Parsing**: Easy access to positional arguments and flags
+- **ZX Integration**: Built-in shell command execution with `$` from npm:zx
+- **Type Safety**: Full TypeScript support with proper type definitions
+- **Development Utility**: This is the main development tool - most scripts you create should use this system
+
+## When to Use Run Custom
+
+Use `run custom` for:
+- Build automation
+- Testing workflows
+- Publishing and deployment
+- Development setup tasks
+- Complex multi-step operations
+- Project-specific utilities
+
+## Important Notes
+
+- All scripts must be in the [scripts/](mdc:scripts) directory
+- Scripts must export a default async function
+- Always import types from `jsr:@ghostmind/run`
+- Use `npm:zx` for shell operations
+- This is the preferred way to create development automation in this project

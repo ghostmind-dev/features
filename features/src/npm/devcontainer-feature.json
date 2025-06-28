@@ -1,0 +1,23 @@
+{
+    "id": "npm",
+    "version": "1.0.0",
+    "name": "NPM Global Packages",
+    "description": "Sets up NPM global configuration and installs commonly used global packages",
+    "documentationURL": "https://docs.npmjs.com/cli/v10/configuring-npm/npmrc",
+    "options": {
+        "installDefaultPackages": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install default global packages (zx, npm-run-all, nodemon, @anthropic-ai/claude-code)"
+        },
+        "packages": {
+            "type": "string",
+            "default": "",
+            "description": "Comma-separated list of additional global packages to install"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2",
+        "ghcr.io/devcontainers/features/node:1"
+    ]
+}

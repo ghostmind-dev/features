@@ -1,0 +1,42 @@
+{
+    "test_default": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {},
+            "ghcr.io/devcontainers/features/node:1": {},
+            "npm": {}
+        }
+    },
+    "test_no_default_packages": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {},
+            "ghcr.io/devcontainers/features/node:1": {},
+            "npm": {
+                "installDefaultPackages": false
+            }
+        }
+    },
+    "test_custom_packages": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {},
+            "ghcr.io/devcontainers/features/node:1": {},
+            "npm": {
+                "installDefaultPackages": false,
+                "packages": "typescript,prettier"
+            }
+        }
+    },
+    "test_all_options": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {},
+            "ghcr.io/devcontainers/features/node:1": {},
+            "npm": {
+                "installDefaultPackages": true,
+                "packages": "create-react-app,@angular/cli"
+            }
+        }
+    }
+}

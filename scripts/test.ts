@@ -202,7 +202,46 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
         };
       }
 
-      // Add the feature being tested (use relative path for local features)
+      // Read the feature's devcontainer-feature.json to get installsAfter dependencies
+      const featureConfigPath = `${currentPath}/features/src/${featureName}/devcontainer-feature.json`;
+      try {
+        const featureConfigContent = await Deno.readTextFile(featureConfigPath);
+        const featureConfig = JSON.parse(featureConfigContent);
+
+        // Add installsAfter dependencies
+        if (
+          featureConfig.installsAfter &&
+          Array.isArray(featureConfig.installsAfter)
+        ) {
+          for (const dependency of featureConfig.installsAfter) {
+            // Skip if already added (like common-utils)
+            if (!features[dependency]) {
+              features[dependency] = {};
+              if (verbose) {
+                console.log(`📦 Adding dependency: ${dependency}`);
+              }
+            }
+          }
+        }
+      } catch (error) {
+        if (verbose) {
+          console.warn(
+            `⚠️  Could not read feature config for installsAfter dependencies: ${error.message}`
+          );
+        }
+      }
+
+      // Add features from the scenario configuration (these can override dependencies)
+      const scenarioFeatures = scenarios[scenarioName].features || {};
+      for (const [featureKey, featureOptions] of Object.entries(
+        scenarioFeatures
+      )) {
+        if (featureKey !== featureName) {
+          features[featureKey] = featureOptions;
+        }
+      }
+
+      // Add the feature being tested last (use relative path for local features)
       features[`./src/${featureName}`] =
         scenarios[scenarioName].features[featureName] || {};
 
