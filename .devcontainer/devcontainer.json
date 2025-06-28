@@ -1,16 +1,85 @@
 {
-    "name": "Features Development with gcloud",
-    "image": "ghcr.io/ghostmind-dev/dvc:dev-empty",
-    "features": {
-        // "ghcr.io/devcontainers/features/common-utils:2": {},
-        // "ghcr.io/ghostmind-dev/features/deno": {},
-        // "ghcr.io/ghostmind-dev/features/run": {}
+    "name": "features",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "PROJECT_DIR": "${env:HOME}${env:USERPROFILE}/projects/container/features"
+        }
     },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/ghostmind-dev/features/zsh": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "overrideCommand": true,
+    "containerUser": "vscode",
+    "postCreateCommand": "deno run --allow-all --reload https://raw.githubusercontent.com/ghostmind-dev/init/main/init/main.ts",
+    "postStartCommand": "deno run --allow-all /usr/local/share/post-start.ts",
     "remoteUser": "vscode",
+    "remoteEnv": {
+        "SRC": "${containerWorkspaceFolder}",
+        "LOCALHOST_SRC": "${env:HOME}${env:USERPROFILE}/projects/container/features",
+        "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+        "VAULT_ROOT_TOKEN": "${localEnv:VAULT_ROOT_TOKEN}",
+        "VAULT_ADDR": "${localEnv:VAULT_ADDR}"
+    },
+    "containerEnv": {
+        "INIT_RESET_LIVE": "true",
+        "INIT_LOGIN_NPM": "true",
+        "INIT_LOGIN_GCP": "true",
+        "INIT_LOGIN_CLOUDFLARED": "true",
+        "INIT_LOGIN_VAULT": "true",
+        "INIT_QUOTE_AI": "true"
+    },
+    "appPort": [
+        "5050"
+    ],
+    "mounts": [
+        "source=ghostmind-features-zsh-history,target=/commandhistory,type=volume",
+        "source=${env:HOME}${env:USERPROFILE}/projects/container/features,target=/Users/francoisseguin/projects/container/features,type=bind"
+    ],
+    "runArgs": [
+        "--cap-add=CAP_IPC_LOCK",
+        "--cap-add=NET_ADMIN",
+        "--name=features-container",
+        "--network=host"
+    ],
     "customizations": {
         "vscode": {
             "extensions": [
-                "vscode.json-language-features"
+                "vscode.json-language-features",
+                "ms-azuretools.vscode-docker",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "esbenp.prettier-vscode",
+                "humao.rest-client",
+                "sdras.inbedby7pm",
+                "william-voyek.vscode-nginx",
+                "foxundermoon.shell-format",
+                "hashicorp.terraform",
+                "mikestead.dotenv",
+                "hashicorp.hcl",
+                "equinusocio.vsc-material-theme",
+                "wesbos.theme-cobalt2",
+                "sumneko.lua",
+                "ghostmind.hide-unhide",
+                "tinkertrain.theme-panda",
+                "golang.go",
+                "yinfei.luahelper",
+                "graphql.vscode-graphql",
+                "graphql.vscode-graphql-syntax",
+                "jdinhlife.gruvbox",
+                "styled-components.vscode-styled-components",
+                "be5invis.vscode-icontheme-nomo-dark",
+                "pkief.material-icon-theme",
+                "mtxr.sqltools",
+                "ghostmind.mode-context",
+                "github.copilot-chat",
+                "github.copilot-nightly",
+                "ms-python.python",
+                "prisma.prisma",
+                "bradlc.vscode-tailwindcss",
+                "mariorodeghiero.vue-theme",
+                "denoland.vscode-deno"
             ]
         }
     }

@@ -93,6 +93,29 @@ export PATH="$NODE_DIR:$PATH"
 echo "✅ Node.js version: $(node --version)"
 echo "✅ NPM version: $(npm --version)"
 
+# Set up NPM global directory
+echo "Setting up NPM global directory..."
+NPM_GLOBAL_DIR="${USER_HOME}/.npm-global"
+mkdir -p "${NPM_GLOBAL_DIR}/lib"
+
+# Get user ID and group ID
+USER_ID=$(id -u "${USERNAME}" 2>/dev/null || echo "1000")
+GROUP_ID=$(id -g "${USERNAME}" 2>/dev/null || echo "1000")
+
+# Set proper ownership of NPM directories
+chown -R "${USER_ID}:${GROUP_ID}" "${NPM_GLOBAL_DIR}"
+# Also fix ownership of NPM cache directory if it exists
+if [ -d "${USER_HOME}/.npm" ]; then
+    chown -R "${USER_ID}:${GROUP_ID}" "${USER_HOME}/.npm"
+fi
+
+# Configure NPM global prefix
+runuser -l "${USERNAME}" -c "npm config set prefix '${NPM_GLOBAL_DIR}'"
+
+# Update PATH to include global bin directory
+export PATH="${NPM_GLOBAL_DIR}/bin:$PATH"
+echo "✅ NPM global directory configured: ${NPM_GLOBAL_DIR}"
+
 # Install default packages if requested
 if [ "${INSTALL_DEFAULT_PACKAGES}" = "true" ]; then
     echo "Installing default global packages..."
@@ -105,7 +128,7 @@ if [ "${INSTALL_DEFAULT_PACKAGES}" = "true" ]; then
     
     for package in "${DEFAULT_PACKAGES[@]}"; do
         echo "Installing ${package}..."
-        runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
+        runuser -l "${USERNAME}" -c "export PATH=\"${NPM_GLOBAL_DIR}/bin:${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
     done
     
     echo "✅ Default packages installed successfully"
@@ -125,7 +148,7 @@ if [ -n "${PACKAGES}" ] && [ "${PACKAGES}" != "" ]; then
         package=$(echo "${package}" | xargs)
         if [ -n "${package}" ]; then
             echo "Installing ${package}..."
-            runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
+            runuser -l "${USERNAME}" -c "export PATH=\"${NPM_GLOBAL_DIR}/bin:${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
         fi
     done
     
@@ -134,7 +157,7 @@ fi
 
 # Verify installation
 echo "Verifying NPM installation..."
-runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm list --global --depth=0" || true
+runuser -l "${USERNAME}" -c "export PATH=\"${NPM_GLOBAL_DIR}/bin:${NODE_DIR}:\${PATH}\" && npm list --global --depth=0" || true
 
 echo "NPM global packages installation completed successfully!"
 echo "Global packages are installed in NPM's default global location" 

@@ -1,0 +1,34 @@
+{
+    "test_default": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "init": {}
+        }
+    },
+    "test_enabled": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "init": {
+                "enableFeature": true
+            }
+        }
+    },
+    "test_component_enabled": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "init": {
+                "enableFeature": true,
+                "installComponent": true
+            }
+        }
+    },
+    "test_component_disabled": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "init": {
+                "enableFeature": true,
+                "installComponent": false
+            }
+        }
+    }
+}

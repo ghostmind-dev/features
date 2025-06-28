@@ -36,22 +36,72 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
 ## Current Scripts in This Project
 
 ### Test Script ([scripts/test.ts](mdc:scripts/test.ts))
+
+The test script is used to test DevContainer features locally. It supports multiple modes and options:
+
+#### Basic Usage
 ```bash
-# Test all features
+# List all available features (no arguments)
 run custom test
 
-# Test specific feature
-run custom test aws
+# Test all scenarios for a specific feature
+run custom test <feature-name>
 
-# Test specific scenario
-run custom test aws debian11_default
+# Test a specific scenario for a feature
+run custom test <feature-name> <scenario-name>
+```
 
-# List available features
-run custom test --list-features
+#### Information Commands
+```bash
+# List available scenarios for a feature (as argument, not flag)
+run custom test <feature-name> list-scenarios
+
+# Examples:
+run custom test aws list-scenarios
+run custom test init list-scenarios
+```
+
+#### Testing Options (as arguments, not flags)
+```bash
+# Run with verbose output
+run custom test <feature> verbose
+run custom test <feature> <scenario> verbose
+
+# Keep containers after test (for debugging)
+run custom test <feature> no-cleanup
+
+# Skip installing common utilities
+run custom test <feature> no-common-utils
+
+# Combine options
+run custom test <feature> verbose no-cleanup
+```
+
+#### Complete Examples
+```bash
+# List all testable features
+run custom test
+
+# Test all scenarios for the init feature
+run custom test init
+
+# Test specific scenario with verbose output
+run custom test init test_enabled verbose
 
 # List scenarios for a feature
-run custom test aws --list-scenarios
+run custom test init list-scenarios
+
+# Test with debugging (keep containers)
+run custom test aws no-cleanup verbose
 ```
+
+#### Important Notes for Test Script
+- Features must have both `features/src/<name>/` and `features/test/<name>/` directories to be testable
+- Each feature needs a `scenarios.json` file in its test directory
+- Options are passed as **arguments**, not as `--flags`
+- The test system automatically includes common-utils unless `no-common-utils` is specified
+- Use `list-scenarios` as an argument (not `--list-scenarios` flag)
+- Available features are shown when running `run custom test` with no arguments
 
 ### Publish Script ([scripts/publish.ts](mdc:scripts/publish.ts))
 ```bash

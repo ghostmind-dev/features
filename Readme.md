@@ -10,6 +10,7 @@ A collection of development container features for enhanced development environm
 | [aws](./features/src/aws)             | AWS v2 for managing AWS services                    | `ghcr.io/ghostmind-dev/features/aws`       |
 | [deno](./features/src/deno)           | Deno - modern runtime for JavaScript and TypeScript | `ghcr.io/ghostmind-dev/features/deno`      |
 | [gcloud](./features/src/gcloud)       | Google Cloud CLI with authentication and tools      | `ghcr.io/ghostmind-dev/features/gcloud`    |
+| [init](./features/src/init)           | Initialize development environment with options     | `ghcr.io/ghostmind-dev/features/init`      |
 | [kustomize](./features/src/kustomize) | Kustomize for Kubernetes configuration management   | `ghcr.io/ghostmind-dev/features/kustomize` |
 | [npm](./features/src/npm)             | NPM global configuration and package management     | `ghcr.io/ghostmind-dev/features/npm`       |
 | [skaffold](./features/src/skaffold)   | Skaffold for Kubernetes development workflows       | `ghcr.io/ghostmind-dev/features/skaffold`  |
@@ -33,6 +34,9 @@ Add features to your `.devcontainer/devcontainer.json`:
       "version": "405.0.0",
       "installBeta": false,
       "installGkeAuthPlugin": true
+    },
+    "ghcr.io/ghostmind-dev/features/init:1": {
+      "enableFeature": true
     },
     "ghcr.io/ghostmind-dev/features/npm:1": {
       "installDefaultPackages": true,
@@ -154,6 +158,44 @@ Installs the Google Cloud CLI with support for:
 ```
 
 [📚 Full Documentation](./features/src/gcloud/README.md)
+
+### Init (`init`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/init`
+
+Initializes development environment with configurable options that are set as environment variables with:
+
+- Boolean option to enable/disable features
+- Boolean option to install additional components
+- Environment variable `INIT_FEATURE_ENABLED` available system-wide
+- Environment variable `INIT_INSTALL_COMPONENT` available system-wide
+- Multi-shell support (bash, zsh, system-wide)
+- Persistent environment variable configuration
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/init:1": {}
+```
+
+**Enable the feature:**
+
+```json
+"ghcr.io/ghostmind-dev/features/init:1": {
+  "enableFeature": true
+}
+```
+
+**Enable with component installation:**
+
+```json
+"ghcr.io/ghostmind-dev/features/init:1": {
+  "enableFeature": true,
+  "installComponent": true
+}
+```
+
+[📚 Full Documentation](./features/src/init/README.md)
 
 ### Kustomize (`kustomize`)
 
