@@ -8,16 +8,16 @@ PACKAGES=${PACKAGES:-""}
 
 echo "==========================================================================="
 echo "Feature       : NPM Global Packages"
-echo "Description   : Sets up NPM global configuration and installs commonly used global packages"
+echo "Description   : Installs commonly used global NPM packages"
 echo "Id            : $(basename "$(dirname "$0")" 2>/dev/null || echo "Unknown")"
 echo "Version       : 1.0.0"
-echo "Documentation : https://docs.npmjs.com/cli/v10/configuring-npm/npmrc"
+echo "Documentation : https://docs.npmjs.com/cli/v10/commands/npm-install"
 echo "Options       :"
 echo "    INSTALLDEFAULTPACKAGES=\"${INSTALL_DEFAULT_PACKAGES}\""
 echo "    PACKAGES=\"${PACKAGES}\""
 echo "==========================================================================="
 
-echo "Setting up NPM global configuration..."
+echo "Installing NPM global packages..."
 
 # Determine the user to configure
 if [ -n "${_REMOTE_USER}" ]; then
@@ -30,7 +30,7 @@ fi
 
 # Get user home directory
 USER_HOME=$(eval echo "~${USERNAME}")
-echo "Configuring NPM for user: ${USERNAME} (home: ${USER_HOME})"
+echo "Installing NPM packages for user: ${USERNAME} (home: ${USER_HOME})"
 
 # Check if Node.js and NPM are installed
 # Try to find node in common installation paths
@@ -93,55 +93,6 @@ export PATH="$NODE_DIR:$PATH"
 echo "✅ Node.js version: $(node --version)"
 echo "✅ NPM version: $(npm --version)"
 
-# Create npm global directory
-NPM_GLOBAL_DIR="${USER_HOME}/.npm-global"
-echo "Creating NPM global directory: ${NPM_GLOBAL_DIR}"
-runuser -l "${USERNAME}" -c "mkdir -p \"${NPM_GLOBAL_DIR}/lib\""
-
-# Set NPM configuration
-echo "Configuring NPM global prefix..."
-runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm config set prefix \"${NPM_GLOBAL_DIR}\""
-
-# Add environment variables to user's shell profile
-echo "Adding NPM environment variables to shell profile..."
-
-# Add to .bashrc if it exists
-if [ -f "${USER_HOME}/.bashrc" ]; then
-    echo "Updating .bashrc..."
-    cat >> "${USER_HOME}/.bashrc" << EOF
-
-# NPM Global Configuration
-export NPM_CONFIG_PREFIX=\${HOME}/.npm-global
-export PATH=\${NPM_CONFIG_PREFIX}/bin:\${PATH}
-EOF
-fi
-
-# Add to .zshrc if it exists
-if [ -f "${USER_HOME}/.zshrc" ]; then
-    echo "Updating .zshrc..."
-    cat >> "${USER_HOME}/.zshrc" << EOF
-
-# NPM Global Configuration
-export NPM_CONFIG_PREFIX=\${HOME}/.npm-global
-export PATH=\${NPM_CONFIG_PREFIX}/bin:\${PATH}
-EOF
-fi
-
-# Add to .profile as fallback
-if [ -f "${USER_HOME}/.profile" ]; then
-    echo "Updating .profile..."
-    cat >> "${USER_HOME}/.profile" << EOF
-
-# NPM Global Configuration
-export NPM_CONFIG_PREFIX=\${HOME}/.npm-global
-export PATH=\${NPM_CONFIG_PREFIX}/bin:\${PATH}
-EOF
-fi
-
-# Set environment variables for current session
-export NPM_CONFIG_PREFIX="${NPM_GLOBAL_DIR}"
-export PATH="${NPM_CONFIG_PREFIX}/bin:${PATH}"
-
 # Install default packages if requested
 if [ "${INSTALL_DEFAULT_PACKAGES}" = "true" ]; then
     echo "Installing default global packages..."
@@ -154,7 +105,7 @@ if [ "${INSTALL_DEFAULT_PACKAGES}" = "true" ]; then
     
     for package in "${DEFAULT_PACKAGES[@]}"; do
         echo "Installing ${package}..."
-        runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && export NPM_CONFIG_PREFIX=\"${NPM_GLOBAL_DIR}\" && export PATH=\"${NPM_CONFIG_PREFIX}/bin:\${PATH}\" && npm install --global \"${package}\""
+        runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
     done
     
     echo "✅ Default packages installed successfully"
@@ -174,24 +125,16 @@ if [ -n "${PACKAGES}" ] && [ "${PACKAGES}" != "" ]; then
         package=$(echo "${package}" | xargs)
         if [ -n "${package}" ]; then
             echo "Installing ${package}..."
-            runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && export NPM_CONFIG_PREFIX=\"${NPM_GLOBAL_DIR}\" && export PATH=\"${NPM_CONFIG_PREFIX}/bin:\${PATH}\" && npm install --global \"${package}\""
+            runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
         fi
     done
     
     echo "✅ Additional packages installed successfully"
 fi
 
-# Fix ownership
-chown -R "${USERNAME}:${USERNAME}" "${NPM_GLOBAL_DIR}"
-chown "${USERNAME}:${USERNAME}" "${USER_HOME}/.npmrc" 2>/dev/null || true
-
 # Verify installation
-echo "Verifying NPM global configuration..."
-runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && export NPM_CONFIG_PREFIX=\"${NPM_GLOBAL_DIR}\" && npm config get prefix"
+echo "Verifying NPM installation..."
+runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm list --global --depth=0" || true
 
-echo "Listing installed global packages..."
-runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && export NPM_CONFIG_PREFIX=\"${NPM_GLOBAL_DIR}\" && export PATH=\"${NPM_CONFIG_PREFIX}/bin:\${PATH}\" && npm list --global --depth=0" || true
-
-echo "NPM global configuration completed successfully!"
-echo "Global packages are installed in: ${NPM_GLOBAL_DIR}"
-echo "Remember to restart your shell or source your profile to use the new PATH" 
+echo "NPM global packages installation completed successfully!"
+echo "Global packages are installed in NPM's default global location" 

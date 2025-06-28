@@ -4,16 +4,17 @@ A collection of development container features for enhanced development environm
 
 ## 🚀 Available Features
 
-| Feature                               | Description                                       | Registry                                   |
-| ------------------------------------- | ------------------------------------------------- | ------------------------------------------ |
-| [act](./features/src/act)             | Act - run GitHub Actions locally                  | `ghcr.io/ghostmind-dev/features/act`       |
-| [aws](./features/src/aws)             | AWS v2 for managing AWS services                  | `ghcr.io/ghostmind-dev/features/aws`       |
-| [gcloud](./features/src/gcloud)       | Google Cloud CLI with authentication and tools    | `ghcr.io/ghostmind-dev/features/gcloud`    |
-| [kustomize](./features/src/kustomize) | Kustomize for Kubernetes configuration management | `ghcr.io/ghostmind-dev/features/kustomize` |
-| [npm](./features/src/npm)             | NPM global configuration and package management   | `ghcr.io/ghostmind-dev/features/npm`       |
-| [skaffold](./features/src/skaffold)   | Skaffold for Kubernetes development workflows     | `ghcr.io/ghostmind-dev/features/skaffold`  |
-| [vault](./features/src/vault)         | HashiCorp Vault CLI for secrets management        | `ghcr.io/ghostmind-dev/features/vault`     |
-| [zsh](./features/src/zsh)             | ZSH with Oh My Zsh, themes, and useful plugins    | `ghcr.io/ghostmind-dev/features/zsh`       |
+| Feature                               | Description                                         | Registry                                   |
+| ------------------------------------- | --------------------------------------------------- | ------------------------------------------ |
+| [act](./features/src/act)             | Act - run GitHub Actions locally                    | `ghcr.io/ghostmind-dev/features/act`       |
+| [aws](./features/src/aws)             | AWS v2 for managing AWS services                    | `ghcr.io/ghostmind-dev/features/aws`       |
+| [deno](./features/src/deno)           | Deno - modern runtime for JavaScript and TypeScript | `ghcr.io/ghostmind-dev/features/deno`      |
+| [gcloud](./features/src/gcloud)       | Google Cloud CLI with authentication and tools      | `ghcr.io/ghostmind-dev/features/gcloud`    |
+| [kustomize](./features/src/kustomize) | Kustomize for Kubernetes configuration management   | `ghcr.io/ghostmind-dev/features/kustomize` |
+| [npm](./features/src/npm)             | NPM global configuration and package management     | `ghcr.io/ghostmind-dev/features/npm`       |
+| [skaffold](./features/src/skaffold)   | Skaffold for Kubernetes development workflows       | `ghcr.io/ghostmind-dev/features/skaffold`  |
+| [vault](./features/src/vault)         | HashiCorp Vault CLI for secrets management          | `ghcr.io/ghostmind-dev/features/vault`     |
+| [zsh](./features/src/zsh)             | ZSH with Oh My Zsh, themes, and useful plugins      | `ghcr.io/ghostmind-dev/features/zsh`       |
 
 ## 📖 Usage
 
@@ -27,6 +28,7 @@ Add features to your `.devcontainer/devcontainer.json`:
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/ghostmind-dev/features/act:1": {},
     "ghcr.io/ghostmind-dev/features/aws:1": {},
+    "ghcr.io/ghostmind-dev/features/deno:1": {},
     "ghcr.io/ghostmind-dev/features/gcloud:1": {
       "version": "405.0.0",
       "installBeta": false,
@@ -93,6 +95,35 @@ Installs the AWS CLI v2 for managing AWS services with:
 ```
 
 [📚 Full Documentation](./features/src/aws/README.md)
+
+### Deno (`deno`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/deno`
+
+Installs Deno, a modern runtime for JavaScript and TypeScript with:
+
+- Secure by default (no file, network, or environment access unless explicitly enabled)
+- TypeScript support out of the box
+- Built-in utilities like bundler, formatter, test runner, and linter
+- V8 JavaScript engine with Rust implementation
+- Configurable version installation
+- Environment variables setup (DENO_INSTALL, DENO_DIR, PATH)
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/deno:1": {}
+```
+
+**With Custom Version:**
+
+```json
+"ghcr.io/ghostmind-dev/features/deno:1": {
+  "version": "v1.45.5"
+}
+```
+
+[📚 Full Documentation](./features/src/deno/README.md)
 
 ### Google Cloud CLI (`gcloud`)
 

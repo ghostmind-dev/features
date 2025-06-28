@@ -1,0 +1,17 @@
+{
+    "id": "deno",
+    "version": "1.0.0",
+    "name": "Deno",
+    "description": "Installs Deno, a modern runtime for JavaScript and TypeScript",
+    "documentationURL": "https://deno.land/manual/getting_started/installation",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "v2.0.3",
+            "description": "Version of Deno to install (default: v2.0.3)"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2"
+    ]
+}

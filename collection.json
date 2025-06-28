@@ -45,6 +45,21 @@
                 "typescript",
                 "performance"
             ]
+        },
+        "deno": {
+            "name": "Deno",
+            "description": "Installs Deno, a modern runtime for JavaScript and TypeScript",
+            "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/app/src/deno",
+            "tags": [
+                "deno",
+                "javascript",
+                "typescript",
+                "runtime",
+                "v8",
+                "rust",
+                "security",
+                "modern"
+            ]
         }
     }
 }
