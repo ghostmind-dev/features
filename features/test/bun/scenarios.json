@@ -1,0 +1,9 @@
+{
+    "debian11_default": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {},
+            "bun": {}
+        }
+    }
+}

@@ -16,7 +16,12 @@
         "ghcr.io/devcontainers/features/go:1": {},
         "ghcr.io/devcontainers/features/terraform:1": {},
         "ghcr.io/ghostmind-dev/features/act:1": {},
-        "ghcr.io/ghostmind-dev/features/skaffold:1": {}
+        "ghcr.io/ghostmind-dev/features/skaffold:1": {},
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.11.7",
+            "installJupyterLab": true
+        },
+        "ghcr.io/ghostmind-dev/features/bun:1": {}
     },
     "remoteUser": "vscode",
     "customizations": {

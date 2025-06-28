@@ -30,6 +30,21 @@
                 "themes",
                 "plugins"
             ]
+        },
+        "bun": {
+            "name": "Bun JavaScript Runtime",
+            "description": "Installs Bun, the fast all-in-one JavaScript runtime and toolkit",
+            "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/app/src/bun",
+            "tags": [
+                "bun",
+                "javascript",
+                "runtime",
+                "nodejs",
+                "package-manager",
+                "bundler",
+                "typescript",
+                "performance"
+            ]
         }
     }
 }

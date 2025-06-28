@@ -1,0 +1,27 @@
+{
+    "id": "bun",
+    "version": "1.0.0",
+    "name": "Bun JavaScript Runtime",
+    "description": "Installs Bun, the fast all-in-one JavaScript runtime and toolkit",
+    "documentationURL": "https://bun.sh/docs",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select or enter a Bun version to install"
+        },
+        "installGlobalPackages": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install commonly used global packages"
+        },
+        "packages": {
+            "type": "string",
+            "default": "",
+            "description": "Comma-separated list of additional global packages to install"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2"
+    ]
+}
