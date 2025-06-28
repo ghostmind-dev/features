@@ -1,0 +1,32 @@
+{
+    "default_tools": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "kubernetes": {}
+        }
+    },
+    "all_tools": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "kubernetes": {
+                "installKubectl": true,
+                "installKind": true,
+                "installK9s": true,
+                "installSkaffold": true,
+                "installKustomize": true
+            }
+        }
+    },
+    "minimal": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "kubernetes": {
+                "installKubectl": true,
+                "installKind": false,
+                "installK9s": false,
+                "installSkaffold": false,
+                "installKustomize": false
+            }
+        }
+    }
+}

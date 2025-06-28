@@ -1,0 +1,53 @@
+{
+    "id": "kubernetes",
+    "version": "1.0.0",
+    "name": "Kubernetes Toolkit",
+    "description": "Comprehensive Kubernetes toolkit including kubectl, kind, k9s, and optional tools like skaffold and kustomize",
+    "documentationURL": "https://kubernetes.io/docs/",
+    "options": {
+        "installKubectl": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install kubectl CLI tool"
+        },
+        "installKind": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install kind (Kubernetes in Docker)"
+        },
+        "kindVersion": {
+            "type": "string",
+            "default": "v0.26.0",
+            "description": "Version of kind to install (default: v0.26.0)"
+        },
+        "installK9s": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install k9s (Kubernetes cluster management tool)"
+        },
+        "installSkaffold": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install Skaffold for Kubernetes development workflows"
+        },
+        "skaffoldVersion": {
+            "type": "string",
+            "default": "2.8.0",
+            "description": "Version of Skaffold to install (default: 2.8.0)"
+        },
+        "installKustomize": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install Kustomize for Kubernetes configuration management"
+        },
+        "kustomizeVersion": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of Kustomize to install (default: latest)"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2",
+        "ghcr.io/devcontainers/features/go:1"
+    ]
+}

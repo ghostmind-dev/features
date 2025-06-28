@@ -1,0 +1,11 @@
+{
+    "id": "chromium",
+    "version": "1.0.0",
+    "name": "Chromium",
+    "description": "Installs Chromium browser and required libraries for headless browser automation",
+    "documentationURL": "https://www.chromium.org/",
+    "options": {},
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2"
+    ]
+}

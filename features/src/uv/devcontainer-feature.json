@@ -1,0 +1,27 @@
+{
+    "id": "uv",
+    "version": "1.0.0",
+    "name": "uv Python Package Manager",
+    "description": "Installs uv, an extremely fast Python package and project manager",
+    "documentationURL": "https://docs.astral.sh/uv/",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select or enter a uv version to install"
+        },
+        "installPython": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install Python using uv if not already available"
+        },
+        "globalPackages": {
+            "type": "string",
+            "default": "",
+            "description": "Comma-separated list of global packages to install with uv"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2"
+    ]
+}
