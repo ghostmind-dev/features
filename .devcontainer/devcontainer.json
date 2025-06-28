@@ -25,7 +25,8 @@
         },
         "ghcr.io/ghostmind-dev/features/bun:1": {},
         "ghcr.io/ghostmind-dev/features/chromium:1": {},
-        "ghcr.io/ghostmind-dev/features/uv:1": {}
+        "ghcr.io/ghostmind-dev/features/uv:1": {},
+        "ghcr.io/ghostmind-dev/features/postgresql:1": {}
     },
     "remoteUser": "vscode",
     "customizations": {

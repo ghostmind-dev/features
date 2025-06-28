@@ -1,0 +1,17 @@
+{
+    "id": "postgresql",
+    "version": "1.0.0",
+    "name": "PostgreSQL Client",
+    "description": "Installs the PostgreSQL client tools for connecting to and managing PostgreSQL databases",
+    "documentationURL": "https://www.postgresql.org/docs/current/app-psql.html",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of PostgreSQL client to install (default: latest from apt)"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2"
+    ]
+}
