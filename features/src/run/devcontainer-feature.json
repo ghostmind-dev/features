@@ -1,14 +1,12 @@
 {
     "id": "run",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "Run CLI",
     "description": "Installs the run command line utility for development automation",
     "documentationURL": "https://github.com/ghostmind-dev/run",
     "options": {},
     "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils:2"
-    ],
-    "dependsOn": {
-        "ghcr.io/ghostmind-dev/features/deno": {}
-    }
+        "ghcr.io/devcontainers/features/common-utils:2",
+        "ghcr.io/ghostmind-dev/features/deno"
+    ]
 }
