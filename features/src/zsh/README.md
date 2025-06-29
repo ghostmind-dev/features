@@ -1,6 +1,12 @@
-# ZSH with Oh My Zsh Feature
+# ZSH Plugin Manager Feature
 
-This devcontainer feature installs ZSH with Oh My Zsh, popular themes, and useful plugins to enhance your shell experience.
+This devcontainer feature manages ZSH themes and plugins, assuming ZSH and Oh My Zsh are already installed. It installs non-built-in plugins and themes, and sets environment variables for use by other initialization systems.
+
+## Prerequisites
+
+- ZSH must be already installed
+- Oh My Zsh must be already installed
+- The Oh My Zsh custom directory (`~/.oh-my-zsh/custom`) must exist
 
 ## Usage
 
@@ -14,81 +20,101 @@ This devcontainer feature installs ZSH with Oh My Zsh, popular themes, and usefu
 
 ## Options
 
-| Option                      | Type    | Default                                             | Description                                                                         |
-| --------------------------- | ------- | --------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `theme`                     | string  | `spaceship`                                         | Oh My Zsh theme to install (`spaceship`, `powerlevel10k`, `agnoster`, `codespaces`) |
-| `plugins`                   | string  | `git,ssh-agent,zsh-autosuggestions,zsh-completions` | Comma-separated list of plugins to install                                          |
-| `installAutosuggestions`    | boolean | `true`                                              | Install zsh-autosuggestions plugin                                                  |
-| `installSyntaxHighlighting` | boolean | `true`                                              | Install zsh-syntax-highlighting plugin                                              |
-| `installCompletions`        | boolean | `true`                                              | Install zsh-completions plugin                                                      |
-| `setAsDefaultShell`         | boolean | `true`                                              | Set ZSH as the default shell for the user                                           |
+| Option           | Type    | Default      | Description                                                                         |
+| ---------------- | ------- | ------------ | ----------------------------------------------------------------------------------- |
+| `installFeature` | boolean | `true`       | Install themes and plugins (`true`) or only set environment variables (`false`)     |
+| `theme`          | string  | `codespaces` | Theme to use (`spaceship`, `agnoster`, `codespaces`)                                |
+| `initZshTheme`   | string  | `""`         | Override theme for environment variable (takes precedence over `theme`)             |
+| `initZshPlugins` | string  | `""`         | Override plugins for environment variable (takes precedence over hardcoded plugins) |
+
+## Behavior
+
+### When `installFeature=true` (default)
+
+- Installs non-built-in themes (e.g., Spaceship)
+- Installs non-built-in plugins: `zsh-autosuggestions`, `zsh-syntax-highlighting`, `zsh-completions`
+- Sets environment variables `INIT_ZSH_THEME` and `INIT_ZSH_PLUGINS`
+
+### When `installFeature=false`
+
+- Only sets environment variables `INIT_ZSH_THEME` and `INIT_ZSH_PLUGINS`
+- Does not install any themes or plugins
+
+## Environment Variables
+
+The feature always sets these environment variables:
+
+- `INIT_ZSH_THEME`: Theme name (from `initZshTheme` or `theme` option)
+- `INIT_ZSH_PLUGINS`: Plugin list (from `initZshPlugins` or hardcoded list: `git zsh-autosuggestions zsh-syntax-highlighting zsh-completions`)
+
+These variables can be used by other initialization systems to configure ZSH without direct `.zshrc` modification.
 
 ## Examples
 
-### Basic installation with Spaceship theme
+### Full installation with Spaceship theme
 
 ```json
 {
   "features": {
     "ghcr.io/your-org/features/zsh:1": {
+      "installFeature": true,
       "theme": "spaceship"
     }
   }
 }
 ```
 
-### Powerlevel10k theme with custom plugins
+### Environment variables only
 
 ```json
 {
   "features": {
     "ghcr.io/your-org/features/zsh:1": {
-      "theme": "powerlevel10k",
-      "plugins": "git,docker,kubectl,aws"
+      "installFeature": false,
+      "theme": "agnoster"
     }
   }
 }
 ```
 
-### Minimal installation
+### Custom environment variable values
 
 ```json
 {
   "features": {
     "ghcr.io/your-org/features/zsh:1": {
-      "theme": "codespaces",
-      "installAutosuggestions": false,
-      "installSyntaxHighlighting": false,
-      "plugins": "git"
+      "installFeature": true,
+      "initZshTheme": "spaceship",
+      "initZshPlugins": "git docker kubectl aws zsh-autosuggestions"
     }
   }
 }
 ```
 
-## Included Themes
+## Supported Themes
 
-- **spaceship** (default): A minimalist, powerful and extremely customizable Zsh prompt
-- **powerlevel10k**: A fast reimplementation of Powerlevel9k with additional features
-- **agnoster**: A ZSH theme optimized for people who use Git and Unicode-compatible fonts
-- **codespaces**: The default Oh My Zsh theme
+- **spaceship**: Minimalist, powerful and extremely customizable Zsh prompt (requires installation)
+- **agnoster**: ZSH theme optimized for Git and Unicode-compatible fonts (built-in)
+- **codespaces**: Default Oh My Zsh theme (built-in)
 
-## Included Plugins
+## Installed Plugins
 
-The feature automatically installs these popular plugins:
+When `installFeature=true`, these plugins are installed:
 
-- **git**: Git aliases and functions
-- **ssh-agent**: SSH agent management
 - **zsh-autosuggestions**: Fish-like autosuggestions for zsh
-- **zsh-completions**: Additional completion definitions for zsh
 - **zsh-syntax-highlighting**: Syntax highlighting for the shell zsh
+- **zsh-completions**: Additional completion definitions for zsh
+
+The `git` plugin is always included but doesn't require installation (built-in).
 
 ## Notes
 
-- The feature will automatically detect the appropriate user (`vscode`, `_REMOTE_USER`, or `USERNAME`)
-- ZSH will be set as the default shell unless `setAsDefaultShell` is set to `false`
-- All plugins and themes are installed in the user's home directory under `~/.oh-my-zsh/custom/`
-- The Spaceship theme includes custom configuration for a clean, single-line prompt
+- This feature assumes ZSH and Oh My Zsh are already installed
+- The feature will fail if Oh My Zsh custom directory doesn't exist
+- Environment variables are set in `/etc/environment` for system-wide availability
+- All installed files are owned by the appropriate user (`vscode`, `_REMOTE_USER`, or `USERNAME`)
+- The feature does not modify `.zshrc` files directly
 
 ## OS Support
 
-This feature supports Debian/Ubuntu-based containers.
+This feature supports Debian/Ubuntu-based containers with existing ZSH and Oh My Zsh installations.

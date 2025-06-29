@@ -1,6 +1,6 @@
 {
     "id": "zsh",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "name": "ZSH with Oh My Zsh",
     "description": "Installs ZSH with Oh My Zsh, themes, and hardcoded useful plugins",
     "documentationURL": "https://github.com/ohmyzsh/ohmyzsh",

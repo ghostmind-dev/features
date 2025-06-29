@@ -469,7 +469,7 @@ Installs HashiCorp Vault CLI for secrets management and encryption as a service 
 
 Installs ZSH with Oh My Zsh and enhances your shell experience with:
 
-- Popular themes (Spaceship, Powerlevel10k, Agnoster, codespaces)
+- Popular themes (Spaceship, Agnoster, codespaces)
 - Useful plugins (autosuggestions, syntax highlighting, completions)
 - Automatic shell configuration
 - Support for multiple architectures
@@ -484,7 +484,7 @@ Installs ZSH with Oh My Zsh and enhances your shell experience with:
 
 ```json
 "ghcr.io/ghostmind-dev/features/zsh:1": {
-  "theme": "powerlevel10k",
+  "theme": "agnoster",
   "plugins": "git,docker,kubectl,aws"
 }
 ```

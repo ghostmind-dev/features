@@ -8,7 +8,7 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
-        "ghcr.io/ghostmind-dev/features/zsh": {
+        "ghcr.io/ghostmind-dev/features/zsh:1": {
             "theme": "spaceship"
         },
         "ghcr.io/devcontainers/features/docker-in-docker:1": {}
