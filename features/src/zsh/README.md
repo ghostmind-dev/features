@@ -14,14 +14,14 @@ This devcontainer feature installs ZSH with Oh My Zsh, popular themes, and usefu
 
 ## Options
 
-| Option                      | Type    | Default                                             | Description                                                                           |
-| --------------------------- | ------- | --------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `theme`                     | string  | `spaceship`                                         | Oh My Zsh theme to install (`spaceship`, `powerlevel10k`, `agnoster`, `robbyrussell`) |
-| `plugins`                   | string  | `git,ssh-agent,zsh-autosuggestions,zsh-completions` | Comma-separated list of plugins to install                                            |
-| `installAutosuggestions`    | boolean | `true`                                              | Install zsh-autosuggestions plugin                                                    |
-| `installSyntaxHighlighting` | boolean | `true`                                              | Install zsh-syntax-highlighting plugin                                                |
-| `installCompletions`        | boolean | `true`                                              | Install zsh-completions plugin                                                        |
-| `setAsDefaultShell`         | boolean | `true`                                              | Set ZSH as the default shell for the user                                             |
+| Option                      | Type    | Default                                             | Description                                                                         |
+| --------------------------- | ------- | --------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `theme`                     | string  | `spaceship`                                         | Oh My Zsh theme to install (`spaceship`, `powerlevel10k`, `agnoster`, `codespaces`) |
+| `plugins`                   | string  | `git,ssh-agent,zsh-autosuggestions,zsh-completions` | Comma-separated list of plugins to install                                          |
+| `installAutosuggestions`    | boolean | `true`                                              | Install zsh-autosuggestions plugin                                                  |
+| `installSyntaxHighlighting` | boolean | `true`                                              | Install zsh-syntax-highlighting plugin                                              |
+| `installCompletions`        | boolean | `true`                                              | Install zsh-completions plugin                                                      |
+| `setAsDefaultShell`         | boolean | `true`                                              | Set ZSH as the default shell for the user                                           |
 
 ## Examples
 
@@ -56,7 +56,7 @@ This devcontainer feature installs ZSH with Oh My Zsh, popular themes, and usefu
 {
   "features": {
     "ghcr.io/your-org/features/zsh:1": {
-      "theme": "robbyrussell",
+      "theme": "codespaces",
       "installAutosuggestions": false,
       "installSyntaxHighlighting": false,
       "plugins": "git"
@@ -70,7 +70,7 @@ This devcontainer feature installs ZSH with Oh My Zsh, popular themes, and usefu
 - **spaceship** (default): A minimalist, powerful and extremely customizable Zsh prompt
 - **powerlevel10k**: A fast reimplementation of Powerlevel9k with additional features
 - **agnoster**: A ZSH theme optimized for people who use Git and Unicode-compatible fonts
-- **robbyrussell**: The default Oh My Zsh theme
+- **codespaces**: The default Oh My Zsh theme
 
 ## Included Plugins
 

@@ -1,50 +1,19 @@
 {
-    "default": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
-        "features": {
-            "zsh": {}
-        }
-    },
-    "spaceship_theme": {
+    "install_full": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
             "zsh": {
-                "theme": "spaceship",
-                "plugins": "git,ssh-agent,zsh-autosuggestions,zsh-completions"
+                "installFeature": true,
+                "theme": "spaceship"
             }
         }
     },
-    "powerlevel10k_theme": {
+    "env_vars_only": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
             "zsh": {
-                "theme": "powerlevel10k",
-                "plugins": "git,docker,kubectl",
-                "installSyntaxHighlighting": true
-            }
-        }
-    },
-    "minimal_setup": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
-        "features": {
-            "zsh": {
-                "theme": "robbyrussell",
-                "plugins": "git",
-                "installAutosuggestions": false,
-                "installSyntaxHighlighting": false,
-                "installCompletions": false,
-                "setAsDefaultShell": false
-            }
-        }
-    },
-    "agnoster_theme": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
-        "features": {
-            "zsh": {
-                "theme": "agnoster",
-                "plugins": "git,ssh-agent,aws,docker",
-                "installAutosuggestions": true,
-                "installSyntaxHighlighting": true
+                "installFeature": false,
+                "theme": "codespace"
             }
         }
     }

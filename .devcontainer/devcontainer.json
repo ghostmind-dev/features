@@ -8,8 +8,10 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
-        "ghcr.io/ghostmind-dev/features/zsh": {},
-        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+        "ghcr.io/ghostmind-dev/features/zsh": {
+            "theme": "spaceship"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {}
     },
     "postCreateCommand": "deno run --allow-all --reload https://raw.githubusercontent.com/ghostmind-dev/init/main/init/main.ts",
     "postStartCommand": "deno run --allow-all /usr/local/share/post-start.ts",
