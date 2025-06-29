@@ -176,11 +176,13 @@ echo "Setting environment variables..."
 # Set theme environment variable
 THEME_TO_SET="${INIT_ZSH_THEME:-${THEME}}"
 echo "INIT_ZSH_THEME=\"${THEME_TO_SET}\"" >> /etc/environment
+echo "export INIT_ZSH_THEME=\"${THEME_TO_SET}\"" >> /etc/zsh/zshenv
 echo "Environment variable INIT_ZSH_THEME set to: ${THEME_TO_SET}"
 
 # Set plugins environment variable
 PLUGINS_TO_SET="${INIT_ZSH_PLUGINS:-${HARDCODED_PLUGINS}}"
 echo "INIT_ZSH_PLUGINS=\"${PLUGINS_TO_SET}\"" >> /etc/environment
+echo "export INIT_ZSH_PLUGINS=\"${PLUGINS_TO_SET}\"" >> /etc/zsh/zshenv
 echo "Environment variable INIT_ZSH_PLUGINS set to: ${PLUGINS_TO_SET}"
 
 # Ensure environment variables are available in current session

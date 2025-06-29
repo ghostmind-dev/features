@@ -11,7 +11,7 @@
         "ghcr.io/ghostmind-dev/features/zsh:1": {
             "theme": "spaceship"
         },
-        "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "postCreateCommand": "deno run --allow-all --reload https://raw.githubusercontent.com/ghostmind-dev/init/main/init/main.ts",
     "postStartCommand": "deno run --allow-all /usr/local/share/post-start.ts",
@@ -30,9 +30,6 @@
         "INIT_LOGIN_VAULT": "true",
         "INIT_QUOTE_AI": "true"
     },
-    "appPort": [
-        "5050"
-    ],
     "mounts": [
         "source=ghostmind-features-zsh-history,target=/commandhistory,type=volume",
         "source=${env:HOME}${env:USERPROFILE}/projects/container/features,target=/Users/francoisseguin/projects/container/features,type=bind"
