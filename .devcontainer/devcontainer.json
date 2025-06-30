@@ -8,10 +8,10 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/ghostmind-dev/features/zsh:1": {
             "theme": "spaceship"
-        },
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        }
     },
     "postCreateCommand": "deno run --allow-all --reload https://raw.githubusercontent.com/ghostmind-dev/init/main/init/main.ts",
     "postStartCommand": "deno run --allow-all /usr/local/share/post-start.ts",
@@ -38,7 +38,9 @@
         "--cap-add=CAP_IPC_LOCK",
         "--cap-add=NET_ADMIN",
         "--name=features-container",
-        "--network=host"
+        "--network=host",
+        "--restart=always",
+        "--privileged"
     ],
     "customizations": {
         "vscode": {
