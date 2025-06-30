@@ -10,7 +10,8 @@
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/ghostmind-dev/features/zsh:1": {
+        "ghcr.io/ghostmind-dev/features/extensions:1.0.0": {},
+        "ghcr.io/ghostmind-dev/features/zsh:1.0.6": {
             "theme": "spaceship"
         }
     },
@@ -43,41 +44,7 @@
     ],
     "customizations": {
         "vscode": {
-            "extensions": [
-                "vscode.json-language-features",
-                "ms-azuretools.vscode-docker",
-                "ms-kubernetes-tools.vscode-kubernetes-tools",
-                "esbenp.prettier-vscode",
-                "humao.rest-client",
-                "sdras.inbedby7pm",
-                "william-voyek.vscode-nginx",
-                "foxundermoon.shell-format",
-                "hashicorp.terraform",
-                "mikestead.dotenv",
-                "hashicorp.hcl",
-                "equinusocio.vsc-material-theme",
-                "wesbos.theme-cobalt2",
-                "sumneko.lua",
-                "ghostmind.hide-unhide",
-                "tinkertrain.theme-panda",
-                "golang.go",
-                "yinfei.luahelper",
-                "graphql.vscode-graphql",
-                "graphql.vscode-graphql-syntax",
-                "jdinhlife.gruvbox",
-                "styled-components.vscode-styled-components",
-                "be5invis.vscode-icontheme-nomo-dark",
-                "pkief.material-icon-theme",
-                "mtxr.sqltools",
-                "ghostmind.mode-context",
-                "github.copilot-chat",
-                "github.copilot-nightly",
-                "ms-python.python",
-                "prisma.prisma",
-                "bradlc.vscode-tailwindcss",
-                "mariorodeghiero.vue-theme",
-                "denoland.vscode-deno"
-            ]
+            "extensions": []
         }
     }
 }

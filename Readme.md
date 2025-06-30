@@ -21,6 +21,7 @@ A collection of development container features for enhanced development environm
 | [uv](./features/src/uv)                   | UV - extremely fast Python package manager           | `ghcr.io/ghostmind-dev/features/uv`          |
 | [vault](./features/src/vault)             | HashiCorp Vault CLI for secrets management           | `ghcr.io/ghostmind-dev/features/vault`       |
 | [zsh](./features/src/zsh)                 | ZSH with Oh My Zsh, themes, and useful plugins       | `ghcr.io/ghostmind-dev/features/zsh`         |
+| [extensions](./features/src/extensions)   | VS Code Extensions Pack for development productivity | `ghcr.io/ghostmind-dev/features/extensions`  |
 
 ## 📖 Usage
 
@@ -65,7 +66,8 @@ Add features to your `.devcontainer/devcontainer.json`:
     "ghcr.io/ghostmind-dev/features/vault:1": {},
     "ghcr.io/ghostmind-dev/features/zsh:1": {
       "theme": "spaceship"
-    }
+    },
+    "ghcr.io/ghostmind-dev/features/extensions:1": {}
   }
 }
 ```
@@ -490,6 +492,21 @@ Installs ZSH with Oh My Zsh and enhances your shell experience with:
 ```
 
 [📚 Full Documentation](./features/src/zsh/README.md)
+
+### VS Code Extensions Pack (`extensions`)
+
+**Registry:** `ghcr.io/ghostmind-dev/features/extensions`
+
+Adds a curated set of VS Code extensions for development productivity.
+
+**Quick Start:**
+
+```json
+"ghcr.io/ghostmind-dev/features/extensions:1": {}
+```
+
+[📚 Full Documentation](./features/src/extensions/README.md)
+
 
 ## 🏗️ Development
 

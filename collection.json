@@ -240,6 +240,20 @@
                 "security",
                 "secret-management"
             ]
+        },
+        "extensions": {
+            "name": "VS Code Extensions Pack",
+            "description": "Adds a curated set of VS Code extensions for development productivity",
+            "version": "1.0.0",
+            "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/features/src/extensions",
+            "registryUrl": "ghcr.io/ghostmind-dev/features/extensions:1.0.0",
+            "lastUpdated": "2025-01-13T00:00:00.000Z",
+            "tags": [
+                "vscode",
+                "extensions",
+                "productivity",
+                "ides"
+            ]
         }
     }
 }
