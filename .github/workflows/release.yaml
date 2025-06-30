@@ -1,6 +1,11 @@
 name: 'release'
 on:
   workflow_dispatch:
+env:
+  SRC: ${{github.workspace}}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  VAULT_ROOT_TOKEN: ${{ secrets.VAULT_ROOT_TOKEN }}
+  VAULT_ADDR: ${{ secrets.VAULT_ADDR}}
 jobs:
   release:
     if: ${{ github.ref == 'refs/heads/main' }}
