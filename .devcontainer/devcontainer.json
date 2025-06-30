@@ -32,6 +32,7 @@
         "INIT_QUOTE_AI": "true"
     },
     "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
         "source=ghostmind-features-history,target=/commandhistory,type=volume",
         "source=${env:HOME}${env:USERPROFILE}/projects/container/features,target=/Users/francoisseguin/projects/container/features,type=bind"
     ],
