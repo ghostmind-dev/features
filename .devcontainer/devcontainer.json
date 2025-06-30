@@ -31,7 +31,7 @@
         "INIT_QUOTE_AI": "true"
     },
     "mounts": [
-        "source=ghostmind-features-zsh-history,target=/commandhistory,type=volume",
+        "source=ghostmind-features-history,target=/commandhistory,type=volume",
         "source=${env:HOME}${env:USERPROFILE}/projects/container/features,target=/Users/francoisseguin/projects/container/features,type=bind"
     ],
     "runArgs": [
