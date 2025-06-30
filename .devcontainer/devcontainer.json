@@ -9,6 +9,7 @@
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/ghostmind-dev/features/zsh:1": {
             "theme": "spaceship"
         }
@@ -37,10 +38,7 @@
     "runArgs": [
         "--cap-add=CAP_IPC_LOCK",
         "--cap-add=NET_ADMIN",
-        "--name=features-container",
-        "--network=host",
-        "--restart=always",
-        "--privileged"
+        "--name=features-container"
     ],
     "customizations": {
         "vscode": {
