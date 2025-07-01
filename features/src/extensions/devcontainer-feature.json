@@ -1,9 +1,9 @@
 {
     "id": "extensions",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "VS Code Extensions Pack",
     "description": "Adds a curated set of VS Code extensions for development productivity",
-    "documentationURL": "https://github.com/ghostmind-dev/features",
+    "documentationURL": "https://github.com/ghostmind-dev/features/blob/main/features/src/extensions/README.md",
     "options": {},
     "customizations": {
         "vscode": {
