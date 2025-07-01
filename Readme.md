@@ -4,24 +4,25 @@ A collection of development container features for enhanced development environm
 
 ## 🚀 Available Features
 
-| Feature                                   | Description                                          | Registry                                     |
-| ----------------------------------------- | ---------------------------------------------------- | -------------------------------------------- |
-| [act](./features/src/act)                 | Act - run GitHub Actions locally                     | `ghcr.io/ghostmind-dev/features/act`         |
-| [aws](./features/src/aws)                 | AWS v2 for managing AWS services                     | `ghcr.io/ghostmind-dev/features/aws`         |
-| [bun](./features/src/bun)                 | Bun - fast all-in-one JavaScript runtime and toolkit | `ghcr.io/ghostmind-dev/features/bun`         |
-| [chromium](./features/src/chromium)       | Chromium browser for web development and testing     | `ghcr.io/ghostmind-dev/features/chromium`    |
-| [cloudflared](./features/src/cloudflared) | Cloudflare Tunnel for secure localhost tunneling     | `ghcr.io/ghostmind-dev/features/cloudflared` |
-| [deno](./features/src/deno)               | Deno - modern runtime for JavaScript and TypeScript  | `ghcr.io/ghostmind-dev/features/deno`        |
-| [gcloud](./features/src/gcloud)           | Google Cloud CLI with authentication and tools       | `ghcr.io/ghostmind-dev/features/gcloud`      |
-| [init](./features/src/init)               | Initialize development environment with options      | `ghcr.io/ghostmind-dev/features/init`        |
-| [kubernetes](./features/src/kubernetes)   | Kubernetes toolkit with kubectl, kind, k9s, and more | `ghcr.io/ghostmind-dev/features/kubernetes`  |
-| [npm](./features/src/npm)                 | NPM global configuration and package management      | `ghcr.io/ghostmind-dev/features/npm`         |
-| [postgresql](./features/src/postgresql)   | PostgreSQL client tools for database management      | `ghcr.io/ghostmind-dev/features/postgresql`  |
-| [run](./features/src/run)                 | Run CLI for development automation and scripting     | `ghcr.io/ghostmind-dev/features/run`         |
-| [uv](./features/src/uv)                   | UV - extremely fast Python package manager           | `ghcr.io/ghostmind-dev/features/uv`          |
-| [vault](./features/src/vault)             | HashiCorp Vault CLI for secrets management           | `ghcr.io/ghostmind-dev/features/vault`       |
-| [zsh](./features/src/zsh)                 | ZSH with Oh My Zsh, themes, and useful plugins       | `ghcr.io/ghostmind-dev/features/zsh`         |
-| [extensions](./features/src/extensions)   | VS Code Extensions Pack for development productivity | `ghcr.io/ghostmind-dev/features/extensions`  |
+| Feature                                   | Description                                            | Registry                                     |
+| ----------------------------------------- | ------------------------------------------------------ | -------------------------------------------- |
+| [act](./features/src/act)                 | Act - run GitHub Actions locally                       | `ghcr.io/ghostmind-dev/features/act`         |
+| [aws](./features/src/aws)                 | AWS v2 for managing AWS services                       | `ghcr.io/ghostmind-dev/features/aws`         |
+| [bun](./features/src/bun)                 | Bun - fast all-in-one JavaScript runtime and toolkit   | `ghcr.io/ghostmind-dev/features/bun`         |
+| [chromium](./features/src/chromium)       | Chromium browser for web development and testing       | `ghcr.io/ghostmind-dev/features/chromium`    |
+| [cloudflared](./features/src/cloudflared) | Cloudflare Tunnel for secure localhost tunneling       | `ghcr.io/ghostmind-dev/features/cloudflared` |
+| [config](./features/src/config)           | Configure VS Code settings for development environment | `ghcr.io/ghostmind-dev/features/config`      |
+| [deno](./features/src/deno)               | Deno - modern runtime for JavaScript and TypeScript    | `ghcr.io/ghostmind-dev/features/deno`        |
+| [gcloud](./features/src/gcloud)           | Google Cloud CLI with authentication and tools         | `ghcr.io/ghostmind-dev/features/gcloud`      |
+| [init](./features/src/init)               | Initialize development environment with options        | `ghcr.io/ghostmind-dev/features/init`        |
+| [kubernetes](./features/src/kubernetes)   | Kubernetes toolkit with kubectl, kind, k9s, and more   | `ghcr.io/ghostmind-dev/features/kubernetes`  |
+| [npm](./features/src/npm)                 | NPM global configuration and package management        | `ghcr.io/ghostmind-dev/features/npm`         |
+| [postgresql](./features/src/postgresql)   | PostgreSQL client tools for database management        | `ghcr.io/ghostmind-dev/features/postgresql`  |
+| [run](./features/src/run)                 | Run CLI for development automation and scripting       | `ghcr.io/ghostmind-dev/features/run`         |
+| [uv](./features/src/uv)                   | UV - extremely fast Python package manager             | `ghcr.io/ghostmind-dev/features/uv`          |
+| [vault](./features/src/vault)             | HashiCorp Vault CLI for secrets management             | `ghcr.io/ghostmind-dev/features/vault`       |
+| [zsh](./features/src/zsh)                 | ZSH with Oh My Zsh, themes, and useful plugins         | `ghcr.io/ghostmind-dev/features/zsh`         |
+| [extensions](./features/src/extensions)   | VS Code Extensions Pack for development productivity   | `ghcr.io/ghostmind-dev/features/extensions`  |
 
 ## 📖 Usage
 
@@ -40,6 +41,9 @@ Add features to your `.devcontainer/devcontainer.json`:
     },
     "ghcr.io/ghostmind-dev/features/chromium:1": {},
     "ghcr.io/ghostmind-dev/features/cloudflared:1": {},
+    "ghcr.io/ghostmind-dev/features/config:1": {
+      "enableFeature": true
+    },
     "ghcr.io/ghostmind-dev/features/deno:1": {},
     "ghcr.io/ghostmind-dev/features/gcloud:1": {
       "version": "405.0.0",
@@ -506,7 +510,6 @@ Adds a curated set of VS Code extensions for development productivity.
 ```
 
 [📚 Full Documentation](./features/src/extensions/README.md)
-
 
 ## 🏗️ Development
 

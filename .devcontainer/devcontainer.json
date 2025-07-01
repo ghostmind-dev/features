@@ -11,8 +11,9 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/ghostmind-dev/features/extensions:1.0.0": {},
+        "ghcr.io/ghostmind-dev/features/config:1.0.1": {},
         "ghcr.io/ghostmind-dev/features/zsh:1.0.6": {
-            "theme": "spaceship"
+            "theme": "codespaces"
         }
     },
     "postCreateCommand": "deno run --allow-all --reload https://raw.githubusercontent.com/ghostmind-dev/init/main/init/main.ts",
@@ -40,7 +41,8 @@
     "runArgs": [
         "--cap-add=CAP_IPC_LOCK",
         "--cap-add=NET_ADMIN",
-        "--name=features-container"
+        "--name=features-container",
+        "--privileged"
     ],
     "customizations": {
         "vscode": {
