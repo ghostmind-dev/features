@@ -1,0 +1,21 @@
+{
+    "id": "themes",
+    "version": "1.0.0",
+    "name": "VS Code Themes Pack",
+    "description": "Adds a curated set of VS Code themes and icon packs for visual customization",
+    "documentationURL": "https://github.com/ghostmind-dev/features/blob/main/features/src/themes/README.md",
+    "options": {},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "equinusocio.vsc-material-theme",
+                "wesbos.theme-cobalt2",
+                "tinkertrain.theme-panda",
+                "jdinhlife.gruvbox",
+                "be5invis.vscode-icontheme-nomo-dark",
+                "pkief.material-icon-theme",
+                "mariorodeghiero.vue-theme"
+            ]
+        }
+    }
+}

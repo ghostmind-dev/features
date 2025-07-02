@@ -2,11 +2,11 @@
 
 **Registry:** `ghcr.io/ghostmind-dev/features/extensions`
 
-Adds a curated set of VS Code extensions for development productivity.
+Adds a curated set of VS Code extensions for development productivity and functionality.
 
 ## 📦 Included Extensions
 
-This feature installs the following VS Code extensions:
+This feature installs the following VS Code utility extensions for enhanced development productivity:
 
 | Name                      | Description                                                           | Marketplace URL                                                                                                   |
 | ------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -21,18 +21,12 @@ This feature installs the following VS Code extensions:
 | HashiCorp Terraform       | Syntax highlighting and autocompletion for Terraform                  | [View Extension](https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform)                         |
 | DotENV                    | Support for dotenv file syntax                                        | [View Extension](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)                            |
 | HashiCorp HCL             | HashiCorp HCL syntax support                                          | [View Extension](https://marketplace.visualstudio.com/items?itemName=hashicorp.hcl)                               |
-| Material Theme            | Beautiful Material Design themes                                      | [View Extension](https://marketplace.visualstudio.com/items?itemName=equinusocio.vsc-material-theme)              |
-| Cobalt2 Theme Official    | Cobalt2 theme for VS Code                                             | [View Extension](https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2)                        |
 | Lua                       | Lua language support                                                  | [View Extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua)                                 |
-| Panda Theme               | A superminimal, dark syntax theme                                     | [View Extension](https://marketplace.visualstudio.com/items?itemName=tinkertrain.theme-panda)                     |
 | Go                        | Rich Go language support for Visual Studio Code                       | [View Extension](https://marketplace.visualstudio.com/items?itemName=golang.go)                                   |
 | LuaHelper                 | Lua language support and debugging                                    | [View Extension](https://marketplace.visualstudio.com/items?itemName=yinfei.luahelper)                            |
 | GraphQL                   | GraphQL extension for VSCode                                          | [View Extension](https://marketplace.visualstudio.com/items?itemName=graphql.vscode-graphql)                      |
 | GraphQL Syntax            | GraphQL syntax highlighting                                           | [View Extension](https://marketplace.visualstudio.com/items?itemName=graphql.vscode-graphql-syntax)               |
-| Gruvbox Theme             | Gruvbox theme for Visual Studio Code                                  | [View Extension](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox)                           |
 | vscode-styled-components  | Syntax highlighting for styled-components                             | [View Extension](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components)  |
-| Nomo Dark Icon Theme      | Dark icon theme for Visual Studio Code                                | [View Extension](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-icontheme-nomo-dark)         |
-| Material Icon Theme       | Material Design Icons for Visual Studio Code                          | [View Extension](https://marketplace.visualstudio.com/items?itemName=pkief.material-icon-theme)                   |
 | SQLTools                  | Database management done right                                        | [View Extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)                               |
 | Mode Context              | Context-aware mode switching for VS Code                              | [View Extension](https://marketplace.visualstudio.com/items?itemName=ghostmind.mode-context)                      |
 | GitHub Copilot Chat       | AI pair programmer chat interface                                     | [View Extension](https://marketplace.visualstudio.com/items?itemName=github.copilot-chat)                         |
@@ -40,7 +34,6 @@ This feature installs the following VS Code extensions:
 | Python                    | IntelliSense, linting, debugging & more for Python                    | [View Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)                            |
 | Prisma                    | Adds syntax highlighting, formatting, auto-completion for Prisma      | [View Extension](https://marketplace.visualstudio.com/items?itemName=prisma.prisma)                               |
 | Tailwind CSS IntelliSense | Intelligent Tailwind CSS tooling for VS Code                          | [View Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)                   |
-| Vue Theme                 | Vue.js theme for Visual Studio Code                                   | [View Extension](https://marketplace.visualstudio.com/items?itemName=mariorodeghiero.vue-theme)                   |
 | Deno                      | A language server client for Deno                                     | [View Extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)                        |
 
 ## 📖 Usage
@@ -54,3 +47,16 @@ To use this feature, add it to your `.devcontainer/devcontainer.json`:
   }
 }
 ```
+
+## 🔧 Extension Categories
+
+The included extensions cover various development areas:
+
+- **Language Support**: JSON, Python, Go, Lua, GraphQL, Deno
+- **DevOps & Infrastructure**: Docker, Kubernetes, Terraform, nginx
+- **Development Tools**: Prettier, REST Client, SQLTools
+- **Frameworks & Libraries**: Styled Components, Prisma, Tailwind CSS
+- **AI Assistance**: GitHub Copilot Chat & Nightly
+- **File Format Support**: DotENV, HCL, shell scripts
+
+For visual customization and themes, consider using the separate `themes` feature.

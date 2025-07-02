@@ -1,1 +1,8 @@
-{ "id": "0_B1NXbql_S1", "name": "features", "type": "app" }
+{
+  "id": "0_B1NXbql_S1",
+  "name": "features",
+  "type": "app",
+  "routines": {
+    "release": "run action remote release"
+  }
+}

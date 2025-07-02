@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Test script for the extensions feature
+# Test script for the themes feature
 
 set -e
 
-echo "🧪 Testing Extensions Feature (Utility Extensions)"
+echo "🎨 Testing Themes Feature"
 echo ""
 
 # Test 1: Basic container functionality
 echo "✓ Container is running"
 
 # Test 2: Verify the feature install script ran successfully
-# Since this feature only configures VS Code utility extensions and doesn't install system packages,
+# Since this feature only configures VS Code themes/icons and doesn't install system packages,
 # we mainly test that the container built successfully and is working
 echo "✓ Feature installation completed without errors"
 
@@ -30,8 +30,8 @@ else
 fi
 
 echo ""
-echo "✅ Extensions feature test completed successfully!"
-echo "📝 Note: VS Code utility extensions will be installed when VS Code connects to this container"
-echo "🔧 For themes and visual customization, use the separate 'themes' feature"
+echo "✅ Themes feature test completed successfully!"
+echo "📝 Note: VS Code themes and icon packs will be installed when VS Code connects to this container"
+echo "🎨 You can then select themes via: Preferences > Color Theme or File Icon Theme"
 
 exit 0 
