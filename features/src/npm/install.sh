@@ -140,11 +140,11 @@ fi
 if [ -n "${PACKAGES}" ] && [ "${PACKAGES}" != "" ]; then
     echo "Installing additional global packages..."
     
-    # Convert comma-separated list to array
-    IFS=',' read -ra PACKAGE_ARRAY <<< "${PACKAGES}"
+    # Convert space-separated list to array
+    read -ra PACKAGE_ARRAY <<< "${PACKAGES}"
     
     for package in "${PACKAGE_ARRAY[@]}"; do
-        # Trim whitespace
+        # Trim whitespace and skip empty entries
         package=$(echo "${package}" | xargs)
         if [ -n "${package}" ]; then
             echo "Installing ${package}..."

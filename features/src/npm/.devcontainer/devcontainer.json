@@ -1,9 +1,12 @@
 {
     "name": "Test NPM Feature",
-    "image": "ghcr.io/ghostmind-dev/dvc:dev",
+    "image": "ghcr.io/ghostmind-dev/dvc:base",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
-        "ghcr.io/ghostmind-dev/features/npm": {}
+        "./feature": {
+            "installDefaultPackages": false,
+            "packages": "vsce"
+        }
     },
     "remoteUser": "vscode",
     "customizations": {

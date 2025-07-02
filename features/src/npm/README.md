@@ -41,7 +41,7 @@ When `installDefaultPackages` is enabled (default: `true`), the following packag
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/ghostmind-dev/features/npm:1": {
       "installDefaultPackages": false,
-      "packages": "typescript,prettier,eslint"
+      "packages": "typescript prettier eslint"
     }
   }
 }
@@ -55,7 +55,7 @@ When `installDefaultPackages` is enabled (default: `true`), the following packag
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/ghostmind-dev/features/npm:1": {
       "installDefaultPackages": true,
-      "packages": "create-react-app,@angular/cli,vue-cli"
+      "packages": "create-react-app @angular/cli vue-cli"
     }
   }
 }
@@ -74,7 +74,7 @@ When `installDefaultPackages` is enabled (default: `true`), the following packag
     },
     "ghcr.io/ghostmind-dev/features/npm:1": {
       "installDefaultPackages": true,
-      "packages": "typescript,@types/node,ts-node,prettier,eslint"
+      "packages": "typescript @types/node ts-node prettier eslint"
     }
   }
 }
@@ -85,7 +85,7 @@ When `installDefaultPackages` is enabled (default: `true`), the following packag
 | Option                   | Type    | Default | Description                                                                           |
 | ------------------------ | ------- | ------- | ------------------------------------------------------------------------------------- |
 | `installDefaultPackages` | boolean | `true`  | Install default global packages (zx, npm-run-all, nodemon, @anthropic-ai/claude-code) |
-| `packages`               | string  | `""`    | Comma-separated list of additional global packages to install                         |
+| `packages`               | string  | `""`    | Space-separated list of additional global packages to install                         |
 
 ## 🔧 Environment Variables
 

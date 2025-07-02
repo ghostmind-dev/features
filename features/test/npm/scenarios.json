@@ -24,7 +24,7 @@
             "ghcr.io/devcontainers/features/node:1": {},
             "npm": {
                 "installDefaultPackages": false,
-                "packages": "typescript,prettier"
+                "packages": "typescript prettier"
             }
         }
     },
@@ -35,7 +35,7 @@
             "ghcr.io/devcontainers/features/node:1": {},
             "npm": {
                 "installDefaultPackages": true,
-                "packages": "create-react-app,@angular/cli"
+                "packages": "create-react-app @angular/cli"
             }
         }
     }

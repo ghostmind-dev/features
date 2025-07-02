@@ -13,7 +13,7 @@
         "packages": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of additional global packages to install"
+            "description": "Space-separated list of additional global packages to install"
         }
     },
     "installsAfter": [

@@ -1,5 +1,19 @@
 {
-  "files.exclude": {},
+  "files.exclude": {
+    "**/.gitignore": true,
+    "**/.git": true,
+    "**/.terraform": true,
+    "**/.tfstate": true,
+    "**/.npmrc": true,
+    "**/.dockerignore": true,
+    "**/package-lock.json": true,
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/.terraform.lock.hcl": true,
+    "**/.npmignore": true
+  },
   "deno.disablePaths": [],
   "material-icon-theme.folders.associations": {},
   "material-icon-theme.files.associations": {},
