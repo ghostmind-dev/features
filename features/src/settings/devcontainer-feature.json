@@ -1,6 +1,6 @@
 {
     "id": "settings",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "Settings",
     "description": "Configure VS Code settings for development environment",
     "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/features/src/settings",
