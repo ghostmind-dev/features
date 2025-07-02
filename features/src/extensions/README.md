@@ -1,12 +1,25 @@
-# VS Code Extensions Pack
 
-**Registry:** `ghcr.io/ghostmind-dev/features/extensions`
+# VS Code Extensions Pack (extensions)
 
-Adds a curated set of VS Code extensions for development productivity.
+Adds a curated set of VS Code extensions for development productivity
 
-## 📦 Included Extensions
+## Example Usage
 
-This feature installs the following VS Code extensions:
+```json
+"features": {
+    "ghcr.io/ghostmind-dev/features/extensions:1": {}
+}
+```
+
+## Options
+
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+
+
+## Customizations
+
+### VS Code Extensions
 
 - `vscode.json-language-features`
 - `ms-azuretools.vscode-docker`
@@ -22,7 +35,6 @@ This feature installs the following VS Code extensions:
 - `equinusocio.vsc-material-theme`
 - `wesbos.theme-cobalt2`
 - `sumneko.lua`
-- `ghostmind.hide-unhide`
 - `tinkertrain.theme-panda`
 - `golang.go`
 - `yinfei.luahelper`
@@ -42,14 +54,8 @@ This feature installs the following VS Code extensions:
 - `mariorodeghiero.vue-theme`
 - `denoland.vscode-deno`
 
-## 📖 Usage
 
-To use this feature, add it to your `.devcontainer/devcontainer.json`:
 
-```json
-{
-  "features": {
-    "ghcr.io/ghostmind-dev/features/extensions:1": {}
-  }
-}
-```
+---
+
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ghostmind-dev/features/blob/main/features/src/extensions/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
