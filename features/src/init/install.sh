@@ -2,75 +2,104 @@
 
 set -e
 
-# Import feature options
-ENABLE_FEATURE=${ENABLEFEATURE:-"false"}
-INSTALL_COMPONENT=${INSTALLCOMPONENT:-"false"}
-
 echo "==========================================================================="
 echo "Feature       : Init"
 echo "Description   : Initialize development environment with configurable options"
 echo "Id            : $(basename "$(dirname "$0")" 2>/dev/null || echo "Unknown")"
-echo "Version       : 1.0.0"
+echo "Version       : 1.0.1"
 echo "Documentation : https://github.com/ghostmind-dev/features/tree/main/features/src/init"
-echo "Options       :"
-echo "    ENABLEFEATURE=\"${ENABLE_FEATURE}\""
-echo "    INSTALLCOMPONENT=\"${INSTALL_COMPONENT}\""
 echo "==========================================================================="
 
 echo "Installing Init feature..."
 
-# Set the environment variable for the container
-ENV_VAR_NAME="INIT_FEATURE_ENABLED"
-ENV_VAR_VALUE="${ENABLE_FEATURE}"
+# Function to convert camelCase to UPPER_SNAKE_CASE
+camel_to_snake() {
+    echo "$1" | sed -E 's/([a-z])([A-Z])/\1_\2/g' | tr '[:lower:]' '[:upper:]'
+}
 
-echo "Setting environment variable ${ENV_VAR_NAME}=${ENV_VAR_VALUE}..."
+# Function to set environment variable in all shell profiles
+set_env_var() {
+    local var_name="$1"
+    local var_value="$2"
 
-# Add environment variable to bash profile
-echo "export ${ENV_VAR_NAME}=\"${ENV_VAR_VALUE}\"" >> /etc/bash.bashrc
+    echo "Setting environment variable ${var_name}=${var_value}..."
 
-# Add environment variable to profile for compatibility
-echo "export ${ENV_VAR_NAME}=\"${ENV_VAR_VALUE}\"" >> /etc/profile
+    # Add environment variable to bash profile
+    echo "export ${var_name}=\"${var_value}\"" >>/etc/bash.bashrc
 
-# Add to ZSH profile if it exists
-if [ -f /etc/zsh/zshrc ]; then
-    echo "export ${ENV_VAR_NAME}=\"${ENV_VAR_VALUE}\"" >> /etc/zsh/zshrc
-fi
+    # Add environment variable to profile for compatibility
+    echo "export ${var_name}=\"${var_value}\"" >>/etc/profile
 
-# Also add to /etc/environment for system-wide availability
-echo "${ENV_VAR_NAME}=${ENV_VAR_VALUE}" >> /etc/environment
+    # Add to ZSH profile if it exists
+    if [ -f /etc/zsh/zshrc ]; then
+        echo "export ${var_name}=\"${var_value}\"" >>/etc/zsh/zshrc
+    fi
 
-echo "✅ Environment variable ${ENV_VAR_NAME} set to ${ENV_VAR_VALUE}"
-echo "✅ Available in bash, zsh, and system-wide"
+    # Also add to /etc/environment for system-wide availability
+    echo "${var_name}=${var_value}" >>/etc/environment
 
-# Handle installComponent option
-COMPONENT_ENV_VAR_NAME="INIT_INSTALL_COMPONENT"
-COMPONENT_ENV_VAR_VALUE="${INSTALL_COMPONENT}"
+    echo "✅ Environment variable ${var_name} set to ${var_value}"
+}
 
-echo "Setting environment variable ${COMPONENT_ENV_VAR_NAME}=${COMPONENT_ENV_VAR_VALUE}..."
+# Import and process all feature options
+RESET_LIVE=${RESETLIVE:-"false"}
+BASE_ZSHRC=${BASEZSHRC:-"true"}
+DENO_CONFIG=${DENOCONFIG:-"true"}
+DENO_JUPYTER=${DENOJUPYTER:-"false"}
+CORE_SECRETS=${CORESECRETS:-"true"}
+LOGIN_NPM=${LOGINNPM:-"false"}
+LOGIN_GCP=${LOGINGCP:-"true"}
+LOGIN_GHCR=${LOGINGHCR:-"true"}
+LOGIN_NVCR=${LOGINNVCR:-"true"}
+LOGIN_VAULT=${LOGINVAULT:-"true"}
+LOGIN_CLOUDFLARE=${LOGINCLOUDFLARE:-"true"}
+PYTHON_VERSION=${PYTHONVERSION:-"3.9.7"}
+RESET_DOCS=${RESETDOCS:-"false"}
+RESET_DOCS_NAME=${RESETDOCSNAME:-"docs"}
+TMUX_CONFIG=${TMUXCONFIG:-"false"}
+QUOTE_AI=${QUOTEAI:-"true"}
 
-# Add component environment variable to bash profile
-echo "export ${COMPONENT_ENV_VAR_NAME}=\"${COMPONENT_ENV_VAR_VALUE}\"" >> /etc/bash.bashrc
+echo "Processing feature options:"
+echo "    RESETLIVE=\"${RESET_LIVE}\""
+echo "    BASEZSHRC=\"${BASE_ZSHRC}\""
+echo "    DENOCONFIG=\"${DENO_CONFIG}\""
+echo "    DENOJUPYTER=\"${DENO_JUPYTER}\""
+echo "    CORESECRETS=\"${CORE_SECRETS}\""
+echo "    LOGINNPM=\"${LOGIN_NPM}\""
+echo "    LOGINGCP=\"${LOGIN_GCP}\""
+echo "    LOGINGHCR=\"${LOGIN_GHCR}\""
+echo "    LOGINNVCR=\"${LOGIN_NVCR}\""
+echo "    LOGINVAULT=\"${LOGIN_VAULT}\""
+echo "    LOGINCLOUDFLARE=\"${LOGIN_CLOUDFLARE}\""
+echo "    PYTHONVERSION=\"${PYTHON_VERSION}\""
+echo "    RESETDOCS=\"${RESET_DOCS}\""
+echo "    RESETDOCSNAME=\"${RESET_DOCS_NAME}\""
+echo "    TMUXCONFIG=\"${TMUX_CONFIG}\""
+echo "    QUOTEAI=\"${QUOTE_AI}\""
 
-# Add component environment variable to profile for compatibility
-echo "export ${COMPONENT_ENV_VAR_NAME}=\"${COMPONENT_ENV_VAR_VALUE}\"" >> /etc/profile
+# Set environment variables with INIT_ prefix
+set_env_var "INIT_RESET_LIVE" "${RESET_LIVE}"
+set_env_var "INIT_BASE_ZSHRC" "${BASE_ZSHRC}"
+set_env_var "INIT_DENO_CONFIG" "${DENO_CONFIG}"
+set_env_var "INIT_DENO_JUPYTER" "${DENO_JUPYTER}"
+set_env_var "INIT_CORE_SECRETS" "${CORE_SECRETS}"
+set_env_var "INIT_LOGIN_NPM" "${LOGIN_NPM}"
+set_env_var "INIT_LOGIN_GCP" "${LOGIN_GCP}"
+set_env_var "INIT_LOGIN_GHCR" "${LOGIN_GHCR}"
+set_env_var "INIT_LOGIN_NVCR" "${LOGIN_NVCR}"
+set_env_var "INIT_LOGIN_VAULT" "${LOGIN_VAULT}"
+set_env_var "INIT_LOGIN_CLOUDFLARE" "${LOGIN_CLOUDFLARE}"
+set_env_var "INIT_PYTHON_VERSION" "${PYTHON_VERSION}"
+set_env_var "INIT_RESET_DOCS" "${RESET_DOCS}"
+set_env_var "INIT_RESET_DOCS_NAME" "${RESET_DOCS_NAME}"
+set_env_var "INIT_TMUX_CONFIG" "${TMUX_CONFIG}"
+set_env_var "INIT_QUOTE_AI" "${QUOTE_AI}"
 
-# Add to ZSH profile if it exists
-if [ -f /etc/zsh/zshrc ]; then
-    echo "export ${COMPONENT_ENV_VAR_NAME}=\"${COMPONENT_ENV_VAR_VALUE}\"" >> /etc/zsh/zshrc
-fi
-
-# Also add to /etc/environment for system-wide availability
-echo "${COMPONENT_ENV_VAR_NAME}=${COMPONENT_ENV_VAR_VALUE}" >> /etc/environment
-
-echo "✅ Environment variable ${COMPONENT_ENV_VAR_NAME} set to ${COMPONENT_ENV_VAR_VALUE}"
-
-# Conditional component installation logic
-if [ "${INSTALL_COMPONENT}" = "true" ]; then
-    echo "🔧 Installing additional components..."
-    echo "📦 Init feature components are being installed!"
-    echo "✅ Component installation completed"
-else
-    echo "⏭️  Skipping component installation (installComponent=false)"
-fi
-
-echo "Init feature installation completed successfully!" 
+echo ""
+echo "✅ All INIT_* environment variables have been configured"
+echo "✅ Variables are available in bash, zsh, and system-wide"
+echo "✅ Init feature installation completed successfully!"
+echo ""
+echo "🔍 To verify the variables are set, you can run:"
+echo "    env | grep INIT_"
+echo ""

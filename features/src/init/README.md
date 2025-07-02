@@ -1,6 +1,6 @@
 # Init Feature
 
-Initialize development environment with configurable options that are set as environment variables.
+Initialize development environment with configurable options that are dynamically set as `INIT_*` environment variables.
 
 ## Usage
 
@@ -8,23 +8,42 @@ Initialize development environment with configurable options that are set as env
 {
   "features": {
     "ghcr.io/ghostmind-dev/features/init:1": {
-      "enableFeature": true
+      "loginVault": true,
+      "loginGcp": false,
+      "pythonVersion": "3.11.0"
     }
   }
 }
 ```
 
+## How It Works
+
+This feature provides a dynamic system for setting environment variables in your DevContainer. Each feature option is automatically mapped to an `INIT_*` environment variable using the following pattern:
+
+- **Option**: `loginVault: true` → **Environment Variable**: `INIT_LOGIN_VAULT=true`
+- **Option**: `baseZshrc: false` → **Environment Variable**: `INIT_BASE_ZSHRC=false`
+- **Option**: `pythonVersion: "3.11"` → **Environment Variable**: `INIT_PYTHON_VERSION=3.11`
+
 ## Options
 
-| Option          | Type    | Default | Description             |
-| --------------- | ------- | ------- | ----------------------- |
-| `enableFeature` | boolean | `false` | Enable the init feature |
-
-## Environment Variables
-
-This feature sets the following environment variable:
-
-- `INIT_FEATURE_ENABLED`: Set to `"true"` or `"false"` based on the `enableFeature` option
+| Option            | Type    | Default   | Environment Variable    | Description                               |
+| ----------------- | ------- | --------- | ----------------------- | ----------------------------------------- |
+| `resetLive`       | boolean | `false`   | `INIT_RESET_LIVE`       | Reset live environment settings           |
+| `baseZshrc`       | boolean | `true`    | `INIT_BASE_ZSHRC`       | Configure base ZSH configuration          |
+| `denoConfig`      | boolean | `true`    | `INIT_DENO_CONFIG`      | Setup Deno configuration                  |
+| `denoJupyter`     | boolean | `false`   | `INIT_DENO_JUPYTER`     | Enable Deno Jupyter integration           |
+| `coreSecrets`     | boolean | `true`    | `INIT_CORE_SECRETS`     | Setup core secrets management             |
+| `loginNpm`        | boolean | `false`   | `INIT_LOGIN_NPM`        | Configure NPM login                       |
+| `loginGcp`        | boolean | `true`    | `INIT_LOGIN_GCP`        | Configure Google Cloud Platform login     |
+| `loginGhcr`       | boolean | `true`    | `INIT_LOGIN_GHCR`       | Configure GitHub Container Registry login |
+| `loginNvcr`       | boolean | `true`    | `INIT_LOGIN_NVCR`       | Configure NVIDIA Container Registry login |
+| `loginVault`      | boolean | `true`    | `INIT_LOGIN_VAULT`      | Configure HashiCorp Vault login           |
+| `loginCloudflare` | boolean | `true`    | `INIT_LOGIN_CLOUDFLARE` | Configure Cloudflare login                |
+| `pythonVersion`   | string  | `"3.9.7"` | `INIT_PYTHON_VERSION`   | Python version to configure               |
+| `resetDocs`       | boolean | `false`   | `INIT_RESET_DOCS`       | Reset documentation settings              |
+| `resetDocsName`   | string  | `"docs"`  | `INIT_RESET_DOCS_NAME`  | Documentation directory name              |
+| `tmuxConfig`      | boolean | `false`   | `INIT_TMUX_CONFIG`      | Setup TMUX configuration                  |
+| `quoteAi`         | boolean | `true`    | `INIT_QUOTE_AI`         | Enable AI quote feature                   |
 
 ## Examples
 

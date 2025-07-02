@@ -1,34 +1,39 @@
 {
-    "test_default": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
-        "features": {
-            "init": {}
-        }
-    },
-    "test_enabled": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
-        "features": {
-            "init": {
-                "enableFeature": true
-            }
-        }
-    },
-    "test_component_enabled": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
-        "features": {
-            "init": {
-                "enableFeature": true,
-                "installComponent": true
-            }
-        }
-    },
-    "test_component_disabled": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
-        "features": {
-            "init": {
-                "enableFeature": true,
-                "installComponent": false
-            }
-        }
+  "test_default": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+    "features": {
+      "init": {}
     }
+  },
+  "test_custom_login": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+    "features": {
+      "init": {
+        "loginVault": false,
+        "loginGcp": true,
+        "loginNpm": true
+      }
+    }
+  },
+  "test_python_config": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+    "features": {
+      "init": {
+        "pythonVersion": "3.11.5",
+        "tmuxConfig": true,
+        "denoJupyter": true
+      }
+    }
+  },
+  "test_minimal_config": {
+    "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+    "features": {
+      "init": {
+        "baseZshrc": false,
+        "denoConfig": false,
+        "coreSecrets": false,
+        "quoteAi": false
+      }
+    }
+  }
 }
