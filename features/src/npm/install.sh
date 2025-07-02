@@ -3,17 +3,15 @@
 set -e
 
 # Import feature options
-INSTALL_DEFAULT_PACKAGES=${INSTALLDEFAULTPACKAGES:-"true"}
 PACKAGES=${PACKAGES:-""}
 
 echo "==========================================================================="
 echo "Feature       : NPM Global Packages"
-echo "Description   : Installs commonly used global NPM packages"
+echo "Description   : Installs specified global NPM packages"
 echo "Id            : $(basename "$(dirname "$0")" 2>/dev/null || echo "Unknown")"
 echo "Version       : 1.0.0"
 echo "Documentation : https://docs.npmjs.com/cli/v10/commands/npm-install"
 echo "Options       :"
-echo "    INSTALLDEFAULTPACKAGES=\"${INSTALL_DEFAULT_PACKAGES}\""
 echo "    PACKAGES=\"${PACKAGES}\""
 echo "==========================================================================="
 
@@ -93,71 +91,30 @@ export PATH="$NODE_DIR:$PATH"
 echo "✅ Node.js version: $(node --version)"
 echo "✅ NPM version: $(npm --version)"
 
-# Set up NPM global directory
-echo "Setting up NPM global directory..."
-NPM_GLOBAL_DIR="${USER_HOME}/.npm-global"
-mkdir -p "${NPM_GLOBAL_DIR}/lib"
-
-# Get user ID and group ID
-USER_ID=$(id -u "${USERNAME}" 2>/dev/null || echo "1000")
-GROUP_ID=$(id -g "${USERNAME}" 2>/dev/null || echo "1000")
-
-# Set proper ownership of NPM directories
-chown -R "${USER_ID}:${GROUP_ID}" "${NPM_GLOBAL_DIR}"
-# Also fix ownership of NPM cache directory if it exists
-if [ -d "${USER_HOME}/.npm" ]; then
-    chown -R "${USER_ID}:${GROUP_ID}" "${USER_HOME}/.npm"
-fi
-
-# Configure NPM global prefix
-runuser -l "${USERNAME}" -c "npm config set prefix '${NPM_GLOBAL_DIR}'"
-
-# Update PATH to include global bin directory
-export PATH="${NPM_GLOBAL_DIR}/bin:$PATH"
-echo "✅ NPM global directory configured: ${NPM_GLOBAL_DIR}"
-
-# Install default packages if requested
-if [ "${INSTALL_DEFAULT_PACKAGES}" = "true" ]; then
-    echo "Installing default global packages..."
-    
-    DEFAULT_PACKAGES=(
-        "zx@8.1.1"
-        "nodemon@3.1.1"
-        "@anthropic-ai/claude-code"
-    )
-    
-    for package in "${DEFAULT_PACKAGES[@]}"; do
-        echo "Installing ${package}..."
-        runuser -l "${USERNAME}" -c "export PATH=\"${NPM_GLOBAL_DIR}/bin:${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
-    done
-    
-    echo "✅ Default packages installed successfully"
-else
-    echo "Skipping default packages installation"
-fi
-
-# Install additional packages if specified
+# Install packages if specified
 if [ -n "${PACKAGES}" ] && [ "${PACKAGES}" != "" ]; then
-    echo "Installing additional global packages..."
+    echo "Installing global packages..."
     
-    # Convert space-separated list to array
-    read -ra PACKAGE_ARRAY <<< "${PACKAGES}"
+    # Convert comma-separated list to array
+    IFS=',' read -ra PACKAGE_ARRAY <<< "${PACKAGES}"
     
     for package in "${PACKAGE_ARRAY[@]}"; do
         # Trim whitespace and skip empty entries
         package=$(echo "${package}" | xargs)
         if [ -n "${package}" ]; then
             echo "Installing ${package}..."
-            runuser -l "${USERNAME}" -c "export PATH=\"${NPM_GLOBAL_DIR}/bin:${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
+            runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm install --global \"${package}\""
         fi
     done
     
-    echo "✅ Additional packages installed successfully"
+    echo "✅ Packages installed successfully"
+else
+    echo "No packages specified. Use the PACKAGES option to install global NPM packages."
+    echo "Example: PACKAGES=\"zx,nodemon,typescript\""
 fi
 
 # Verify installation
 echo "Verifying NPM installation..."
-runuser -l "${USERNAME}" -c "export PATH=\"${NPM_GLOBAL_DIR}/bin:${NODE_DIR}:\${PATH}\" && npm list --global --depth=0" || true
+runuser -l "${USERNAME}" -c "export PATH=\"${NODE_DIR}:\${PATH}\" && npm list --global --depth=0" || true
 
-echo "NPM global packages installation completed successfully!"
-echo "Global packages are installed in NPM's default global location" 
+echo "NPM global packages installation completed successfully!" 

@@ -1,5 +1,5 @@
 {
-    "test_default": {
+    "test_no_packages": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
             "ghcr.io/devcontainers/features/common-utils:2": {},
@@ -7,35 +7,33 @@
             "npm": {}
         }
     },
-    "test_no_default_packages": {
+    "test_packages": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
             "ghcr.io/devcontainers/features/common-utils:2": {},
             "ghcr.io/devcontainers/features/node:1": {},
             "npm": {
-                "installDefaultPackages": false
+                "packages": "typescript,prettier"
             }
         }
     },
-    "test_custom_packages": {
+    "test_development_tools": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
             "ghcr.io/devcontainers/features/common-utils:2": {},
             "ghcr.io/devcontainers/features/node:1": {},
             "npm": {
-                "installDefaultPackages": false,
-                "packages": "typescript prettier"
+                "packages": "zx,nodemon,@types/node"
             }
         }
     },
-    "test_all_options": {
+    "test_framework_clis": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
             "ghcr.io/devcontainers/features/common-utils:2": {},
             "ghcr.io/devcontainers/features/node:1": {},
             "npm": {
-                "installDefaultPackages": true,
-                "packages": "create-react-app @angular/cli"
+                "packages": "create-react-app,@angular/cli"
             }
         }
     }

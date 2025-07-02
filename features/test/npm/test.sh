@@ -26,22 +26,19 @@ echo "Test 2: Testing NPM global installation functionality..."
 NPM_PREFIX=$(npm config get prefix)
 echo "✅ NPM global prefix: $NPM_PREFIX"
 
-# Test 3: Check if default packages are installed (if enabled)
+# Test 3: Check if packages are installed as specified
 echo "Test 3: Checking installed global packages..."
 INSTALLED_PACKAGES=$(npm list --global --depth=0 2>/dev/null || echo "")
 echo "Installed packages:"
 echo "$INSTALLED_PACKAGES"
 
-# Check for default packages if they should be installed
-# The test scenarios will determine if default packages should be present
-if [[ "$INSTALLED_PACKAGES" == *"zx@"* ]] || [[ "$INSTALLED_PACKAGES" == *"nodemon@"* ]] || [[ "$INSTALLED_PACKAGES" == *"@anthropic-ai/claude-code"* ]]; then
-    echo "✅ Default packages are installed"
-elif [[ "$INSTALLED_PACKAGES" == *"typescript"* ]] || [[ "$INSTALLED_PACKAGES" == *"prettier"* ]] || [[ "$INSTALLED_PACKAGES" == *"create-react-app"* ]] || [[ "$INSTALLED_PACKAGES" == *"@angular/cli"* ]]; then
-    echo "✅ Custom packages are installed"
-elif [[ "$INSTALLED_PACKAGES" == *"(empty)"* ]] || [[ -z "$INSTALLED_PACKAGES" ]]; then
-    echo "✅ No packages installed (expected for installDefaultPackages=false scenarios)"
+# Check for any packages that might have been installed
+if [[ "$INSTALLED_PACKAGES" == *"typescript"* ]] || [[ "$INSTALLED_PACKAGES" == *"prettier"* ]] || [[ "$INSTALLED_PACKAGES" == *"create-react-app"* ]] || [[ "$INSTALLED_PACKAGES" == *"@angular/cli"* ]]; then
+    echo "✅ User-specified packages are installed"
+elif [[ "$INSTALLED_PACKAGES" == *"(empty)"* ]] || [[ -z "$INSTALLED_PACKAGES" ]] || [[ "$INSTALLED_PACKAGES" == *"└── (empty)"* ]]; then
+    echo "✅ No packages installed (expected when no packages specified)"
 else
-    echo "✅ Global packages are installed"
+    echo "✅ Global packages are present"
 fi
 
 # Test 4: Test global package installation and execution
