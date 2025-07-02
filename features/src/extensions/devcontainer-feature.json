@@ -1,6 +1,6 @@
 {
     "id": "extensions",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "VS Code Extensions Pack",
     "description": "Adds a curated set of VS Code extensions for development productivity",
     "documentationURL": "https://github.com/ghostmind-dev/features/blob/main/features/src/extensions/README.md",
@@ -22,7 +22,6 @@
                 "equinusocio.vsc-material-theme",
                 "wesbos.theme-cobalt2",
                 "sumneko.lua",
-                "ghostmind.hide-unhide",
                 "tinkertrain.theme-panda",
                 "golang.go",
                 "yinfei.luahelper",
