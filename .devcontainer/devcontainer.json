@@ -10,9 +10,10 @@
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/ghostmind-dev/features/extensions:1.0.2": {},
-        "ghcr.io/ghostmind-dev/features/config:1.0.2": {},
-        "ghcr.io/ghostmind-dev/features/zsh:1.0.6": {
+        "ghcr.io/ghostmind-dev/features/extensions:latest": {},
+        "ghcr.io/ghostmind-dev/features/themes:latest": {},
+        "ghcr.io/ghostmind-dev/features/settings:latest": {},
+        "ghcr.io/ghostmind-dev/features/zsh:latest": {
             "theme": "codespaces"
         }
     },

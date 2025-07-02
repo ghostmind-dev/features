@@ -15,9 +15,32 @@
     "**/.npmignore": true
   },
   "deno.disablePaths": [],
-  "material-icon-theme.folders.associations": {},
+  "material-icon-theme.folders.associations": {
+    "cloudflared": "contract",
+    "act": "contract",
+    "aws": "contract",
+    "gcloud": "contract",
+    "kubernetes": "contract",
+    "postgresql": "contract",
+    "deno": "contract",
+    "bun": "contract",
+    "npm": "contract",
+    "uv": "contract",
+    "run": "contract",
+    "init": "contract",
+    "settings": "contract",
+    "themes": "contract",
+    "extensions": "contract",
+    "chromium": "contract",
+    "zsh": "contract",
+    "vault": "contract",
+    "terraform": "contract",
+    "docker": "contract",
+    "app": "contract",
+    "features": "content"
+  },
   "material-icon-theme.files.associations": {},
   "workbench.colorCustomizations": {
-    "gitDecoration.ignoredResourceForeground": "#d8bf20"
+    "gitDecoration.ignoredResourceForeground": "#b1a86d"
   }
 }
