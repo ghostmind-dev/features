@@ -4,25 +4,25 @@ A collection of development container features for enhanced development environm
 
 ## 🚀 Available Features
 
-| Feature                                   | Description                                            | Registry                                     |
-| ----------------------------------------- | ------------------------------------------------------ | -------------------------------------------- |
-| [act](./features/src/act)                 | Act - run GitHub Actions locally                       | `ghcr.io/ghostmind-dev/features/act`         |
-| [aws](./features/src/aws)                 | AWS v2 for managing AWS services                       | `ghcr.io/ghostmind-dev/features/aws`         |
-| [bun](./features/src/bun)                 | Bun - fast all-in-one JavaScript runtime and toolkit   | `ghcr.io/ghostmind-dev/features/bun`         |
-| [chromium](./features/src/chromium)       | Chromium browser for web development and testing       | `ghcr.io/ghostmind-dev/features/chromium`    |
-| [cloudflared](./features/src/cloudflared) | Cloudflare Tunnel for secure localhost tunneling       | `ghcr.io/ghostmind-dev/features/cloudflared` |
-| [config](./features/src/config)           | Configure VS Code settings for development environment | `ghcr.io/ghostmind-dev/features/config`      |
-| [deno](./features/src/deno)               | Deno - modern runtime for JavaScript and TypeScript    | `ghcr.io/ghostmind-dev/features/deno`        |
-| [gcloud](./features/src/gcloud)           | Google Cloud CLI with authentication and tools         | `ghcr.io/ghostmind-dev/features/gcloud`      |
-| [init](./features/src/init)               | Initialize development environment with options        | `ghcr.io/ghostmind-dev/features/init`        |
-| [kubernetes](./features/src/kubernetes)   | Kubernetes toolkit with kubectl, kind, k9s, and more   | `ghcr.io/ghostmind-dev/features/kubernetes`  |
-| [npm](./features/src/npm)                 | NPM global configuration and package management        | `ghcr.io/ghostmind-dev/features/npm`         |
-| [postgresql](./features/src/postgresql)   | PostgreSQL client tools for database management        | `ghcr.io/ghostmind-dev/features/postgresql`  |
-| [run](./features/src/run)                 | Run CLI for development automation and scripting       | `ghcr.io/ghostmind-dev/features/run`         |
-| [uv](./features/src/uv)                   | UV - extremely fast Python package manager             | `ghcr.io/ghostmind-dev/features/uv`          |
-| [vault](./features/src/vault)             | HashiCorp Vault CLI for secrets management             | `ghcr.io/ghostmind-dev/features/vault`       |
-| [zsh](./features/src/zsh)                 | ZSH with Oh My Zsh, themes, and useful plugins         | `ghcr.io/ghostmind-dev/features/zsh`         |
-| [extensions](./features/src/extensions)   | VS Code Extensions Pack for development productivity   | `ghcr.io/ghostmind-dev/features/extensions`  |
+| Feature                                             | Description                                            | Registry                                     |
+| --------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------- |
+| [act](./features/src/act/README.md)                 | Act - run GitHub Actions locally                       | `ghcr.io/ghostmind-dev/features/act`         |
+| [aws](./features/src/aws/README.md)                 | AWS v2 for managing AWS services                       | `ghcr.io/ghostmind-dev/features/aws`         |
+| [bun](./features/src/bun/README.md)                 | Bun - fast all-in-one JavaScript runtime and toolkit   | `ghcr.io/ghostmind-dev/features/bun`         |
+| [chromium](./features/src/chromium/README.md)       | Chromium browser for web development and testing       | `ghcr.io/ghostmind-dev/features/chromium`    |
+| [cloudflared](./features/src/cloudflared/README.md) | Cloudflare Tunnel for secure localhost tunneling       | `ghcr.io/ghostmind-dev/features/cloudflared` |
+| [config](./features/src/config/README.md)           | Configure VS Code settings for development environment | `ghcr.io/ghostmind-dev/features/config`      |
+| [deno](./features/src/deno/README.md)               | Deno - modern runtime for JavaScript and TypeScript    | `ghcr.io/ghostmind-dev/features/deno`        |
+| [gcloud](./features/src/gcloud/README.md)           | Google Cloud CLI with authentication and tools         | `ghcr.io/ghostmind-dev/features/gcloud`      |
+| [init](./features/src/init/README.md)               | Initialize development environment with options        | `ghcr.io/ghostmind-dev/features/init`        |
+| [kubernetes](./features/src/kubernetes/README.md)   | Kubernetes toolkit with kubectl, kind, k9s, and more   | `ghcr.io/ghostmind-dev/features/kubernetes`  |
+| [npm](./features/src/npm/README.md)                 | NPM global configuration and package management        | `ghcr.io/ghostmind-dev/features/npm`         |
+| [postgresql](./features/src/postgresql/README.md)   | PostgreSQL client tools for database management        | `ghcr.io/ghostmind-dev/features/postgresql`  |
+| [run](./features/src/run/README.md)                 | Run CLI for development automation and scripting       | `ghcr.io/ghostmind-dev/features/run`         |
+| [uv](./features/src/uv/README.md)                   | UV - extremely fast Python package manager             | `ghcr.io/ghostmind-dev/features/uv`          |
+| [vault](./features/src/vault/README.md)             | HashiCorp Vault CLI for secrets management             | `ghcr.io/ghostmind-dev/features/vault`       |
+| [zsh](./features/src/zsh/README.md)                 | ZSH with Oh My Zsh, themes, and useful plugins         | `ghcr.io/ghostmind-dev/features/zsh`         |
+| [extensions](./features/src/extensions/README.md)   | VS Code Extensions Pack for development productivity   | `ghcr.io/ghostmind-dev/features/extensions`  |
 
 ## 📖 Usage
 
@@ -76,480 +76,133 @@ Add features to your `.devcontainer/devcontainer.json`:
 }
 ```
 
-## 🔧 Features
-
-### Act (`act`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/act`
-
-Installs [act](https://github.com/nektos/act) - a tool to run GitHub Actions locally for testing and development with:
-
-- Multi-architecture support (amd64, arm64)
-- Configurable version installation
-- Automatic PATH configuration
-- Clean installation process
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/act:1": {}
-```
-
-**With Custom Version:**
-
-```json
-"ghcr.io/ghostmind-dev/features/act:1": {
-  "version": "0.2.60"
-}
-```
-
-[📚 Full Documentation](./features/src/act/README.md)
-
-### AWS (`aws`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/aws`
-
-Installs the AWS CLI v2 for managing AWS services with:
-
-- Multi-architecture support (amd64, arm64)
-- Latest AWS v2 installation
-- Automatic PATH configuration
-- Clean installation process
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/aws:1": {}
-```
-
-[📚 Full Documentation](./features/src/aws/README.md)
-
-### Bun (`bun`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/bun`
-
-Installs Bun, the fast all-in-one JavaScript runtime and toolkit with:
-
-- Drop-in replacement for Node.js
-- Fast npm-compatible package manager
-- Built-in bundler and transpiler
-- Built-in test runner and development server
-- Multi-architecture support (amd64, arm64)
-- Optional global package installation
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/bun:1": {}
-```
-
-**With Custom Version and Packages:**
-
-```json
-"ghcr.io/ghostmind-dev/features/bun:1": {
-  "version": "1.0.20",
-  "installGlobalPackages": true,
-  "packages": "eslint,vite,react"
-}
-```
-
-[📚 Full Documentation](./features/src/bun/README.md)
-
-### Chromium (`chromium`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/chromium`
-
-Installs Chromium browser and required libraries for headless browser automation with:
-
-- Chromium web browser
-- Network Security Services tools for certificate management
-- Support for web scraping and browser automation
-- Testing web applications
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/chromium:1": {}
-```
-
-[📚 Full Documentation](./features/src/chromium/README.md)
-
-### Cloudflared (`cloudflared`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/cloudflared`
-
-Installs Cloudflared for creating secure tunnels to your localhost with:
-
-- Multi-architecture support (amd64, arm64)
-- Configurable version installation
-- Secure tunnel creation capabilities
-- Integration with Cloudflare services
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/cloudflared:1": {}
-```
-
-**With Custom Version:**
-
-```json
-"ghcr.io/ghostmind-dev/features/cloudflared:1": {
-  "version": "2023.8.2"
-}
-```
-
-[📚 Full Documentation](./features/src/cloudflared/README.md)
-
-### Deno (`deno`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/deno`
-
-Installs Deno, a modern runtime for JavaScript and TypeScript with:
-
-- Secure by default (no file, network, or environment access unless explicitly enabled)
-- TypeScript support out of the box
-- Built-in utilities like bundler, formatter, test runner, and linter
-- V8 JavaScript engine with Rust implementation
-- Configurable version installation
-- Environment variables setup (DENO_INSTALL, DENO_DIR, PATH)
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/deno:1": {}
-```
-
-**With Custom Version:**
-
-```json
-"ghcr.io/ghostmind-dev/features/deno:1": {
-  "version": "v1.45.5"
-}
-```
-
-[📚 Full Documentation](./features/src/deno/README.md)
-
-### Google Cloud CLI (`gcloud`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/gcloud`
-
-Installs the Google Cloud CLI with support for:
-
-- Multiple architectures (amd64, arm64)
-- Configurable version installation
-- Optional beta components
-- GKE authentication plugin
-- Automatic PATH configuration
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/gcloud:1": {}
-```
-
-**With Options:**
-
-```json
-"ghcr.io/ghostmind-dev/features/gcloud:1": {
-  "version": "latest",
-  "installBeta": true,
-  "installGkeAuthPlugin": true
-}
-```
-
-[📚 Full Documentation](./features/src/gcloud/README.md)
-
-### Init (`init`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/init`
-
-Initializes development environment with configurable options that are set as environment variables with:
-
-- Boolean option to enable/disable features
-- Boolean option to install additional components
-- Environment variable `INIT_FEATURE_ENABLED` available system-wide
-- Environment variable `INIT_INSTALL_COMPONENT` available system-wide
-- Multi-shell support (bash, zsh, system-wide)
-- Persistent environment variable configuration
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/init:1": {}
-```
-
-**Enable the feature:**
-
-```json
-"ghcr.io/ghostmind-dev/features/init:1": {
-  "enableFeature": true
-}
-```
-
-**Enable with component installation:**
-
-```json
-"ghcr.io/ghostmind-dev/features/init:1": {
-  "enableFeature": true,
-  "installComponent": true
-}
-```
-
-[📚 Full Documentation](./features/src/init/README.md)
-
-### Kubernetes Toolkit (`kubernetes`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/kubernetes`
-
-Provides a comprehensive Kubernetes toolkit for development containers with:
-
-- **kubectl** - Kubernetes command-line tool
-- **kind** - Kubernetes in Docker for local clusters
-- **k9s** - Terminal-based UI for managing clusters
-- Optional **Skaffold** for continuous development
-- Optional **Kustomize** for configuration management
-- Multi-architecture support (amd64, arm64)
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/kubernetes:1": {}
-```
-
-**With All Tools:**
-
-```json
-"ghcr.io/ghostmind-dev/features/kubernetes:1": {
-  "installSkaffold": true,
-  "installKustomize": true,
-  "skaffoldVersion": "2.8.0",
-  "kustomizeVersion": "latest"
-}
-```
-
-[📚 Full Documentation](./features/src/kubernetes/README.md)
-
-### NPM Global Packages (`npm`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/npm`
-
-Sets up NPM global configuration and installs commonly used global packages with:
-
-- Custom global directory (`~/.npm-global`)
-- Automatic PATH and environment configuration
-- Default development packages (zx, npm-run-all, nodemon, @anthropic-ai/claude-code)
-- Support for additional custom packages
-- Shell profile integration (.bashrc, .zshrc, .profile)
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/npm:1": {}
-```
-
-**With Custom Packages:**
-
-```json
-"ghcr.io/ghostmind-dev/features/npm:1": {
-  "installDefaultPackages": true,
-  "packages": "typescript,prettier,eslint"
-}
-```
-
-**Prerequisites:** Requires Node.js (use `ghcr.io/devcontainers/features/node:1`)
-
-[📚 Full Documentation](./features/src/npm/README.md)
-
-### PostgreSQL Client (`postgresql`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/postgresql`
-
-Installs PostgreSQL client tools for connecting to and managing PostgreSQL databases with:
-
-- **psql** - PostgreSQL interactive terminal
-- **pg_dump** - Database backup utility
-- **pg_restore** - Database restore utility
-- Other PostgreSQL client utilities
-- Multi-architecture support (amd64, arm64)
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/postgresql:1": {}
-```
-
-**With Specific Version:**
-
-```json
-"ghcr.io/ghostmind-dev/features/postgresql:1": {
-  "version": "15"
-}
-```
-
-[📚 Full Documentation](./features/src/postgresql/README.md)
-
-### Run Development Utility (`run`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/run`
-
-Installs the run CLI for development automation and scripting with:
-
-- TypeScript script execution with standardized patterns
-- Rich context with environment variables and utilities
-- Built-in argument parsing and type safety
-- ZX integration for shell operations
-- Powerful development automation capabilities
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/run:1": {}
-```
-
-**Prerequisites:** Requires Deno to be installed first.
-
-[📚 Full Documentation](./features/src/run/README.md)
-
-### UV Python Package Manager (`uv`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/uv`
-
-Installs uv, an extremely fast Python package and project manager with:
-
-- 10-100x faster than pip and pip-tools
-- Drop-in replacement for pip, pip-tools, pipx, poetry, and more
-- Python version management capabilities
-- Virtual environment management
-- Project management features
-- Cross-platform support
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/uv:1": {}
-```
-
-**With Python and Global Tools:**
-
-```json
-"ghcr.io/ghostmind-dev/features/uv:1": {
-  "installPython": true,
-  "globalPackages": "ruff,black,mypy"
-}
-```
-
-[📚 Full Documentation](./features/src/uv/README.md)
-
-### HashiCorp Vault (`vault`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/vault`
-
-Installs HashiCorp Vault CLI for secrets management and encryption as a service with:
-
-- Official HashiCorp APT repository
-- Multi-architecture support (amd64, arm64)
-- Configurable version installation
-- Automatic PATH configuration
-- Useful aliases and environment setup
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/vault:1": {}
-```
-
-**With Specific Version:**
-
-```json
-"ghcr.io/ghostmind-dev/features/vault:1": {
-  "version": "1.15.0"
-}
-```
-
-[📚 Full Documentation](./features/src/vault/README.md)
-
-### ZSH with Oh My Zsh (`zsh`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/zsh`
-
-Installs ZSH with Oh My Zsh and enhances your shell experience with:
-
-- Popular themes (Spaceship, Agnoster, codespaces)
-- Useful plugins (autosuggestions, syntax highlighting, completions)
-- Automatic shell configuration
-- Support for multiple architectures
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/zsh:1": {}
-```
-
-**With Custom Theme:**
-
-```json
-"ghcr.io/ghostmind-dev/features/zsh:1": {
-  "theme": "agnoster",
-  "plugins": "git,docker,kubectl,aws"
-}
-```
-
-[📚 Full Documentation](./features/src/zsh/README.md)
-
-### VS Code Extensions Pack (`extensions`)
-
-**Registry:** `ghcr.io/ghostmind-dev/features/extensions`
-
-Adds a curated set of VS Code extensions for development productivity.
-
-**Quick Start:**
-
-```json
-"ghcr.io/ghostmind-dev/features/extensions:1": {}
-```
-
-[📚 Full Documentation](./features/src/extensions/README.md)
+Click on any feature name in the table above to view detailed documentation and configuration options.
 
 ## 🏗️ Development
 
-This repository uses a custom development utility system built with **`run custom`** for automating project tasks.
+This repository uses the **`run custom`** development utility system for automating project tasks. All scripts are TypeScript modules executed with rich context and standardized patterns.
 
-### Testing Features
+### 🔧 Development Scripts
+
+All scripts use the format: `run custom <script-name> [arguments...] [--flags]`
+
+#### Testing Features _(DevContainer)_
+
+Test DevContainer features locally using the comprehensive testing system:
 
 ```bash
-# Test all features
+# List all available features for testing
 run custom test
 
-# Test specific feature
+# Test all scenarios for a specific feature
 run custom test npm
 
-# Test specific scenario
+# Test a specific scenario
 run custom test npm test_default
 
-# List available features
-run custom test --list-features
+# List available scenarios for a feature
+run custom test npm list-scenarios
 
-# List scenarios for a feature
-run custom test npm --list-scenarios
+# Test with verbose output and debugging
+run custom test npm verbose no-cleanup
 
-# Run with verbose output
-run custom test npm verbose
-
-# Keep containers after test (for debugging)
-run custom test npm no-cleanup
+# Available options (as arguments, not flags):
+# - verbose: Show detailed output during testing
+# - no-cleanup: Keep containers after test for debugging
+# - no-common-utils: Skip installing common utilities
 ```
 
-### Publishing Features
+**Example Testing Session:**
 
 ```bash
-# Publish all features
+# Start by seeing what features are testable
+run custom test
+
+# List scenarios for the npm feature
+run custom test npm list-scenarios
+
+# Test the npm feature with verbose output
+run custom test npm verbose
+
+# Test specific scenario with debugging enabled
+run custom test npm test_default verbose no-cleanup
+```
+
+#### Publishing Features _(DevContainer)_
+
+Publish all features to the GitHub Container Registry:
+
+```bash
+# Publish all features to ghcr.io/ghostmind-dev/features/
 run custom publish
 
-# The script will:
-# 1. Discover all features in features/src/
-# 2. Publish each to ghcr.io/ghostmind-dev/features/
-# 3. Create versioned tags (1, 1.0, 1.0.0, latest)
+# The script automatically:
+# 1. Discovers all features in features/src/
+# 2. Publishes each to ghcr.io/ghostmind-dev/features/
+# 3. Creates versioned tags (1, 1.0, 1.0.0, latest)
+```
+
+#### Live Development Environment _(Host System)_
+
+**⚠️ Important: This script must be run on the host system, outside of any DevContainer.**
+
+Create a temporary DevContainer environment for testing local feature development:
+
+```bash
+# Create live environment for a feature
+run custom live <feature-name>
+
+# Create and auto-open in VS Code
+run custom live <feature-name> --open
+```
+
+**How it works:**
+
+1. Creates a temporary directory with your feature's DevContainer configuration
+2. Copies local feature files (`devcontainer-feature.json`, `install.sh`)
+3. Starts a DevContainer with your local changes
+4. Provides connection instructions for VS Code/Cursor
+
+**Example:**
+
+```bash
+# Test the 'npm' feature locally on host system
+run custom live npm
+
+# Output provides container connection details:
+# 📦 Container Name: amazing_feature_container
+# 💻 Connect with: code --remote=containers+amazing_feature_container
+```
+
+**Requirements:**
+
+- Must be run on host system (not inside a DevContainer)
+- Requires DevContainer CLI (`devcontainer up`)
+- Feature must have `.devcontainer/devcontainer.json` in source directory
+
+### 🛠️ Run Custom System
+
+The `run custom` tool provides:
+
+- **TypeScript Execution**: All scripts are TypeScript with full type safety
+- **Rich Context**: Access to environment variables, project metadata, and utilities
+- **Argument Parsing**: Easy access to positional arguments and flags
+- **ZX Integration**: Built-in shell command execution with `$` from npm:zx
+- **Standardized Patterns**: Consistent script structure across the project
+
+**Script Structure:**
+
+```typescript
+import type { CustomArgs, CustomOptions } from 'jsr:@ghostmind/run';
+import { $ } from 'npm:zx';
+
+export default async function (args: CustomArgs, opts: CustomOptions) {
+  // args[0] = first argument, args[1] = second argument, etc.
+  // opts.has('flag-name') = check for boolean flags
+  // opts.extract('key') = extract key-value flags
+  // opts.env = environment variables
+  // opts.currentPath = current working directory
+}
 ```
 
 ## 📋 Feature Structure
