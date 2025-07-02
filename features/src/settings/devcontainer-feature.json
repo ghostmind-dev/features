@@ -47,7 +47,7 @@
                 ],
                 "material-icon-theme.folders.associations": {
                     ".cursor": "resource",
-                    ".devcontainer": "base",
+                    ".devcontainer": "cluster",
                     "app": "app",
                     "docker": "docker",
                     "infra": "terraform",
