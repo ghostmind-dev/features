@@ -19,6 +19,7 @@ A collection of development container features for enhanced development environm
 | [npm](./features/src/npm/README.md)                 | NPM global configuration and package management        | `ghcr.io/ghostmind-dev/features/npm`         |
 | [postgresql](./features/src/postgresql/README.md)   | PostgreSQL client tools for database management        | `ghcr.io/ghostmind-dev/features/postgresql`  |
 | [run](./features/src/run/README.md)                 | Run CLI for development automation and scripting       | `ghcr.io/ghostmind-dev/features/run`         |
+| [themes](./features/src/themes/README.md)           | VS Code themes and icon packs for visual customization | `ghcr.io/ghostmind-dev/features/themes`      |
 | [uv](./features/src/uv/README.md)                   | UV - extremely fast Python package manager             | `ghcr.io/ghostmind-dev/features/uv`          |
 | [vault](./features/src/vault/README.md)             | HashiCorp Vault CLI for secrets management             | `ghcr.io/ghostmind-dev/features/vault`       |
 | [zsh](./features/src/zsh/README.md)                 | ZSH with Oh My Zsh, themes, and useful plugins         | `ghcr.io/ghostmind-dev/features/zsh`         |
@@ -63,6 +64,7 @@ Add features to your `.devcontainer/devcontainer.json`:
     },
     "ghcr.io/ghostmind-dev/features/postgresql:1": {},
     "ghcr.io/ghostmind-dev/features/run:1": {},
+    "ghcr.io/ghostmind-dev/features/themes:1": {},
     "ghcr.io/ghostmind-dev/features/uv:1": {
       "installPython": true,
       "globalPackages": "ruff,black"
