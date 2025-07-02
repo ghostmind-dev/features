@@ -1,4 +1,4 @@
-# Config Feature
+# Settings Feature
 
 Configure VS Code settings for enhanced development environment with predefined configurations through DevContainer customizations.
 
@@ -7,7 +7,7 @@ Configure VS Code settings for enhanced development environment with predefined 
 ```json
 {
   "features": {
-    "ghcr.io/ghostmind-dev/features/config:1": {
+    "ghcr.io/ghostmind-dev/features/settings:1": {
       "enableFeature": true
     }
   }
@@ -16,9 +16,9 @@ Configure VS Code settings for enhanced development environment with predefined 
 
 ## Options
 
-| Option          | Type    | Default | Description                                       |
-| --------------- | ------- | ------- | ------------------------------------------------- |
-| `enableFeature` | boolean | `true`  | Enable the config feature to set VS Code settings |
+| Option          | Type    | Default | Description                                         |
+| --------------- | ------- | ------- | --------------------------------------------------- |
+| `enableFeature` | boolean | `true`  | Enable the settings feature to set VS Code settings |
 
 ## What It Does
 
@@ -58,7 +58,7 @@ This feature automatically configures VS Code settings through DevContainer cust
 ```json
 {
   "features": {
-    "ghcr.io/ghostmind-dev/features/config:1": {}
+    "ghcr.io/ghostmind-dev/features/settings:1": {}
   }
 }
 ```
@@ -70,7 +70,7 @@ This will configure VS Code settings through DevContainer customizations.
 ```json
 {
   "features": {
-    "ghcr.io/ghostmind-dev/features/config:1": {
+    "ghcr.io/ghostmind-dev/features/settings:1": {
       "enableFeature": false
     }
   }

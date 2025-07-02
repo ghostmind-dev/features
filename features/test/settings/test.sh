@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Test script for config feature
+# Test script for settings feature
 set -e
 
-echo "🧪 Testing config feature installation..."
+echo "🧪 Testing settings feature installation..."
 
 # Check if feature is disabled by checking environment variable
 if [ "${ENABLEFEATURE}" = "false" ]; then
@@ -11,17 +11,17 @@ if [ "${ENABLEFEATURE}" = "false" ]; then
     
     # Test 1: Check that feature installation completes when disabled
     echo "Test 1: Verifying feature installation completes when disabled..."
-    echo "✅ Config feature correctly handles disabled state"
+    echo "✅ Settings feature correctly handles disabled state"
     
     echo ""
-    echo "🎉 All tests passed! Config feature correctly disabled."
+    echo "🎉 All tests passed! Settings feature correctly disabled."
     
 else
     echo "Testing enabled scenario (default or explicit)..."
     
     # Test 1: Check that feature installation completes successfully
     echo "Test 1: Verifying feature installation completes successfully..."
-    echo "✅ Config feature installation completed"
+    echo "✅ Settings feature installation completed"
 
     # Test 2: Verify that settings are configured through devcontainer feature
     echo "Test 2: Verifying settings are configured through devcontainer customizations..."
@@ -42,6 +42,6 @@ else
     echo "✅ Configuration acknowledgment completed"
 
     echo ""
-    echo "🎉 All tests passed! Config feature is working correctly."
+    echo "🎉 All tests passed! Settings feature is working correctly."
     echo "VS Code settings are configured through devcontainer customizations."
 fi 

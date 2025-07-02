@@ -1,9 +1,9 @@
 {
-    "name": "Test Config Feature",
+    "name": "Test Settings Feature",
     "image": "ghcr.io/ghostmind-dev/dvc:dev",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
-        "ghcr.io/ghostmind-dev/features/config": {}
+        "ghcr.io/ghostmind-dev/features/settings": {}
     },
     "remoteUser": "vscode",
     "customizations": {

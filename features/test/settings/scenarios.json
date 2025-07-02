@@ -2,13 +2,13 @@
     "test_default": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
-            "config": {}
+            "settings": {}
         }
     },
     "test_enabled": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
-            "config": {
+            "settings": {
                 "enableFeature": true
             }
         }
@@ -16,7 +16,7 @@
     "test_disabled": {
         "image": "mcr.microsoft.com/devcontainers/base:debian-11",
         "features": {
-            "config": {
+            "settings": {
                 "enableFeature": false
             }
         }
