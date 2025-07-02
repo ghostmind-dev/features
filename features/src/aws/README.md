@@ -1,6 +1,7 @@
+
 # AWS (aws)
 
-Installs the AWS CLI v2 for managing AWS services from the command line.
+Installs the AWS CLI v2 for managing AWS services from the command line
 
 ## Example Usage
 
@@ -12,14 +13,12 @@ Installs the AWS CLI v2 for managing AWS services from the command line.
 
 ## Options
 
-| Options Id | Description               | Type   | Default Value |
-| ---------- | ------------------------- | ------ | ------------- |
-| version    | Version of AWS to install | string | latest        |
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Version of AWS CLI to install (default: latest) | string | latest |
 
-## Supported platforms
 
-`linux/amd64` and `linux/arm64` platforms are supported.
 
-## References
+---
 
-- [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ghostmind-dev/features/blob/main/features/src/aws/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
