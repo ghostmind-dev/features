@@ -12,7 +12,7 @@
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/ghostmind-dev/features/extensions:latest": {},
         "ghcr.io/ghostmind-dev/features/themes:latest": {},
-        "ghcr.io/ghostmind-dev/features/settings:latest": {},
+        "ghcr.io/ghostmind-dev/features/settings:1.0.4": {},
         "ghcr.io/ghostmind-dev/features/zsh:latest": {
             "theme": "codespaces"
         }
