@@ -1,6 +1,6 @@
 {
     "id": "settings",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "name": "Settings",
     "description": "Configure VS Code settings for development environment",
     "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/features/src/settings",
@@ -18,6 +18,21 @@
                 "editor.formatOnSave": true,
                 "terminal.integrated.defaultProfile.linux": "zsh",
                 "prettier.singleQuote": true,
+                "files.exclude": {
+                    "**/.gitignore": true,
+                    "**/.git": true,
+                    "**/.terraform": true,
+                    "**/.tfstate": true,
+                    "**/.npmrc": true,
+                    "**/.dockerignore": true,
+                    "**/package-lock.json": true,
+                    "**/node_modules": true,
+                    "**/__pycache__": true,
+                    "**/.next": true,
+                    "**/dist": true,
+                    "**/.terraform.lock.hcl": true,
+                    "**/.npmignore": true
+                },
                 "files.associations": {
                     "*.json": "jsonc",
                     "**/meta.json": "json"
