@@ -1,5 +1,8 @@
 {
-  "files.exclude": {},
+  "files.exclude": {
+    "**/LICENSE": true,
+    "**/dev": true
+  },
   "deno.disablePaths": [],
   "material-icon-theme.folders.associations": {
     "cloudflared": "contract",
