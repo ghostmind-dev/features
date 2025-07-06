@@ -31,5 +31,14 @@
   "material-icon-theme.files.associations": {},
   "workbench.colorCustomizations": {
     "gitDecoration.ignoredResourceForeground": "#b1a86d"
-  }
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "**/devcontainer.json",
+        "**/.devcontainer/devcontainer.json"
+      ],
+      "url": "./config/schema.json"
+    }
+  ]
 }

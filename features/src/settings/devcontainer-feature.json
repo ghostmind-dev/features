@@ -49,6 +49,12 @@
                             "**/meta.json"
                         ],
                         "url": "https://raw.githubusercontent.com/ghostmind-dev/config/main/config/meta/schema.json"
+                    },
+                    {
+                        "fileMatch": [
+                            "**/devcontainer.json"
+                        ],
+                        "url": "https://raw.githubusercontent.com/ghostmind-dev/config/main/config/meta/schema.json"
                     }
                 ],
                 "json.validate.enable": true,

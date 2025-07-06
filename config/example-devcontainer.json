@@ -1,0 +1,90 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ghostmind-dev/features/main/config/schema.json",
+    "name": "Full Stack Development Environment",
+    "image": "ghcr.io/ghostmind-dev/dvc:dev",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/ghostmind-dev/features/init": {
+            "resetLive": false,
+            "baseZshrc": true,
+            "denoConfig": true,
+            "denoJupyter": false,
+            "coreSecrets": true,
+            "loginNpm": false,
+            "loginGcp": true,
+            "loginGhcr": true,
+            "loginVault": true,
+            "pythonVersion": "3.11.0",
+            "tmuxConfig": false,
+            "quoteAi": true
+        },
+        "ghcr.io/ghostmind-dev/features/aws": {
+            "version": "latest"
+        },
+        "ghcr.io/ghostmind-dev/features/gcloud": {
+            "version": "405.0.0",
+            "installBeta": false,
+            "installGkeAuthPlugin": true
+        },
+        "ghcr.io/ghostmind-dev/features/kubernetes": {
+            "installKubectl": true,
+            "installKind": true,
+            "kindVersion": "v0.26.0",
+            "installK9s": true,
+            "installSkaffold": false,
+            "installKustomize": false
+        },
+        "ghcr.io/ghostmind-dev/features/deno": {
+            "version": "v2.0.3"
+        },
+        "ghcr.io/ghostmind-dev/features/bun": {
+            "version": "latest",
+            "installGlobalPackages": false,
+            "packages": ""
+        },
+        "ghcr.io/ghostmind-dev/features/uv": {
+            "version": "latest",
+            "installPython": false,
+            "globalPackages": "ruff,black,mypy"
+        },
+        "ghcr.io/ghostmind-dev/features/npm": {
+            "packages": "typescript,@types/node,prettier"
+        },
+        "ghcr.io/ghostmind-dev/features/zsh": {
+            "installFeature": true,
+            "theme": "spaceship"
+        },
+        "ghcr.io/ghostmind-dev/features/vault": {
+            "version": "latest"
+        },
+        "ghcr.io/ghostmind-dev/features/postgresql": {
+            "version": "latest"
+        },
+        "ghcr.io/ghostmind-dev/features/cloudflared": {
+            "version": "latest"
+        },
+        "ghcr.io/ghostmind-dev/features/act": {
+            "version": "0.2.61"
+        },
+        "ghcr.io/ghostmind-dev/features/chromium": {},
+        "ghcr.io/ghostmind-dev/features/extensions": {},
+        "ghcr.io/ghostmind-dev/features/themes": {},
+        "ghcr.io/ghostmind-dev/features/settings": {
+            "enableFeature": true
+        },
+        "ghcr.io/ghostmind-dev/features/run": {}
+    },
+    "remoteUser": "vscode",
+    "forwardPorts": [
+        3000,
+        8080
+    ],
+    "postCreateCommand": "echo 'DevContainer setup complete! 🎉'",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-json"
+            ]
+        }
+    }
+}

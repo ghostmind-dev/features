@@ -1,0 +1,470 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dev Container Configuration with Ghostmind Features",
+  "description": "Enhanced DevContainer configuration with auto-completion support for ghostmind-dev features",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.base.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "features": {
+          "type": "object",
+          "description": "Features to add to the dev container",
+          "additionalProperties": true,
+          "properties": {
+            "ghcr.io/ghostmind-dev/features/act": {
+              "$ref": "#/definitions/actFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/act:1": {
+              "$ref": "#/definitions/actFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/aws": {
+              "$ref": "#/definitions/awsFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/aws:1": {
+              "$ref": "#/definitions/awsFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/bun": {
+              "$ref": "#/definitions/bunFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/bun:1": {
+              "$ref": "#/definitions/bunFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/chromium": {
+              "$ref": "#/definitions/chromiumFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/chromium:1": {
+              "$ref": "#/definitions/chromiumFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/cloudflared": {
+              "$ref": "#/definitions/cloudflaredFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/cloudflared:1": {
+              "$ref": "#/definitions/cloudflaredFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/deno": {
+              "$ref": "#/definitions/denoFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/deno:1": {
+              "$ref": "#/definitions/denoFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/extensions": {
+              "$ref": "#/definitions/extensionsFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/extensions:1": {
+              "$ref": "#/definitions/extensionsFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/gcloud": {
+              "$ref": "#/definitions/gcloudFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/gcloud:1": {
+              "$ref": "#/definitions/gcloudFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/init": {
+              "$ref": "#/definitions/initFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/init:1": {
+              "$ref": "#/definitions/initFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/kubernetes": {
+              "$ref": "#/definitions/kubernetesFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/kubernetes:1": {
+              "$ref": "#/definitions/kubernetesFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/npm": {
+              "$ref": "#/definitions/npmFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/npm:1": {
+              "$ref": "#/definitions/npmFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/postgresql": {
+              "$ref": "#/definitions/postgresqlFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/postgresql:1": {
+              "$ref": "#/definitions/postgresqlFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/run": {
+              "$ref": "#/definitions/runFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/run:1": {
+              "$ref": "#/definitions/runFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/settings": {
+              "$ref": "#/definitions/settingsFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/settings:1": {
+              "$ref": "#/definitions/settingsFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/themes": {
+              "$ref": "#/definitions/themesFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/themes:1": {
+              "$ref": "#/definitions/themesFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/uv": {
+              "$ref": "#/definitions/uvFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/uv:1": {
+              "$ref": "#/definitions/uvFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/vault": {
+              "$ref": "#/definitions/vaultFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/vault:1": {
+              "$ref": "#/definitions/vaultFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/zsh": {
+              "$ref": "#/definitions/zshFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/zsh:1": {
+              "$ref": "#/definitions/zshFeature"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "actFeature": {
+      "type": "object",
+      "description": "Installs act - a tool to run GitHub Actions locally",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of act to install (default: 0.2.61)",
+          "default": "0.2.61"
+        }
+      }
+    },
+    "awsFeature": {
+      "type": "object",
+      "description": "Installs the AWS CLI v2 for managing AWS services from the command line",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of AWS CLI to install (default: latest)",
+          "default": "latest"
+        }
+      }
+    },
+    "bunFeature": {
+      "type": "object",
+      "description": "Installs Bun, the fast all-in-one JavaScript runtime and toolkit",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Select or enter a Bun version to install",
+          "default": "latest"
+        },
+        "installGlobalPackages": {
+          "type": "boolean",
+          "description": "Install commonly used global packages",
+          "default": false
+        },
+        "packages": {
+          "type": "string",
+          "description": "Comma-separated list of additional global packages to install",
+          "default": ""
+        }
+      }
+    },
+    "chromiumFeature": {
+      "type": "object",
+      "description": "Installs Chromium browser and required libraries for headless browser automation",
+      "additionalProperties": false
+    },
+    "cloudflaredFeature": {
+      "type": "object",
+      "description": "Installs Cloudflared (cloudflare tunnel daemon) for creating secure tunnels to your localhost",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of Cloudflared to install (default: latest from repository)",
+          "default": "latest"
+        }
+      }
+    },
+    "denoFeature": {
+      "type": "object",
+      "description": "Installs Deno, a modern runtime for JavaScript and TypeScript",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of Deno to install (default: v2.0.3)",
+          "default": "v2.0.3"
+        }
+      }
+    },
+    "extensionsFeature": {
+      "type": "object",
+      "description": "Adds a curated set of VS Code extensions for development productivity and functionality",
+      "additionalProperties": false
+    },
+    "gcloudFeature": {
+      "type": "object",
+      "description": "Installs the Google Cloud CLI (gcloud) and related components",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of Google Cloud CLI to install",
+          "default": "405.0.0"
+        },
+        "installBeta": {
+          "type": "boolean",
+          "description": "Install beta components",
+          "default": false
+        },
+        "installGkeAuthPlugin": {
+          "type": "boolean",
+          "description": "Install GKE gcloud auth plugin",
+          "default": true
+        }
+      }
+    },
+    "initFeature": {
+      "type": "object",
+      "description": "Initialize development environment with configurable options",
+      "additionalProperties": false,
+      "properties": {
+        "resetLive": {
+          "type": "boolean",
+          "description": "Reset live environment settings (default: false)",
+          "default": false
+        },
+        "baseZshrc": {
+          "type": "boolean",
+          "description": "Configure base ZSH configuration (default: true)",
+          "default": true
+        },
+        "denoConfig": {
+          "type": "boolean",
+          "description": "Setup Deno configuration (default: true)",
+          "default": true
+        },
+        "denoJupyter": {
+          "type": "boolean",
+          "description": "Enable Deno Jupyter integration (default: false)",
+          "default": false
+        },
+        "coreSecrets": {
+          "type": "boolean",
+          "description": "Setup core secrets management (default: true)",
+          "default": true
+        },
+        "loginNpm": {
+          "type": "boolean",
+          "description": "Configure NPM login (default: false)",
+          "default": false
+        },
+        "loginGcp": {
+          "type": "boolean",
+          "description": "Configure Google Cloud Platform login (default: true)",
+          "default": true
+        },
+        "loginGhcr": {
+          "type": "boolean",
+          "description": "Configure GitHub Container Registry login (default: true)",
+          "default": true
+        },
+        "loginNvcr": {
+          "type": "boolean",
+          "description": "Configure NVIDIA Container Registry login (default: true)",
+          "default": true
+        },
+        "loginVault": {
+          "type": "boolean",
+          "description": "Configure HashiCorp Vault login (default: true)",
+          "default": true
+        },
+        "loginCloudflare": {
+          "type": "boolean",
+          "description": "Configure Cloudflare login (default: true)",
+          "default": true
+        },
+        "pythonVersion": {
+          "type": "string",
+          "description": "Python version to configure (default: 3.9.7)",
+          "default": "3.9.7"
+        },
+        "resetDocs": {
+          "type": "boolean",
+          "description": "Reset documentation settings (default: false)",
+          "default": false
+        },
+        "resetDocsName": {
+          "type": "string",
+          "description": "Documentation directory name (default: docs)",
+          "default": "docs"
+        },
+        "tmuxConfig": {
+          "type": "boolean",
+          "description": "Setup TMUX configuration (default: false)",
+          "default": false
+        },
+        "quoteAi": {
+          "type": "boolean",
+          "description": "Enable AI quote feature (default: true)",
+          "default": true
+        }
+      }
+    },
+    "kubernetesFeature": {
+      "type": "object",
+      "description": "Comprehensive Kubernetes toolkit including kubectl, kind, k9s, and optional tools like skaffold and kustomize",
+      "additionalProperties": false,
+      "properties": {
+        "installKubectl": {
+          "type": "boolean",
+          "description": "Install kubectl CLI tool",
+          "default": true
+        },
+        "installKind": {
+          "type": "boolean",
+          "description": "Install kind (Kubernetes in Docker)",
+          "default": true
+        },
+        "kindVersion": {
+          "type": "string",
+          "description": "Version of kind to install (default: v0.26.0)",
+          "default": "v0.26.0"
+        },
+        "installK9s": {
+          "type": "boolean",
+          "description": "Install k9s (Kubernetes cluster management tool)",
+          "default": true
+        },
+        "installSkaffold": {
+          "type": "boolean",
+          "description": "Install Skaffold for Kubernetes development workflows",
+          "default": false
+        },
+        "skaffoldVersion": {
+          "type": "string",
+          "description": "Version of Skaffold to install (default: 2.8.0)",
+          "default": "2.8.0"
+        },
+        "installKustomize": {
+          "type": "boolean",
+          "description": "Install Kustomize for Kubernetes configuration management",
+          "default": false
+        },
+        "kustomizeVersion": {
+          "type": "string",
+          "description": "Version of Kustomize to install (default: latest)",
+          "default": "latest"
+        }
+      }
+    },
+    "npmFeature": {
+      "type": "object",
+      "description": "Installs specified global NPM packages",
+      "additionalProperties": false,
+      "properties": {
+        "packages": {
+          "type": "string",
+          "description": "Comma-separated list of global packages to install",
+          "default": ""
+        }
+      }
+    },
+    "postgresqlFeature": {
+      "type": "object",
+      "description": "Installs the PostgreSQL client tools for connecting to and managing PostgreSQL databases",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of PostgreSQL client to install (default: latest from apt)",
+          "default": "latest"
+        }
+      }
+    },
+    "runFeature": {
+      "type": "object",
+      "description": "Installs the run command line utility for development automation",
+      "additionalProperties": false
+    },
+    "settingsFeature": {
+      "type": "object",
+      "description": "Configure VS Code settings for development environment",
+      "additionalProperties": false,
+      "properties": {
+        "enableFeature": {
+          "type": "boolean",
+          "description": "Enable the settings feature to set VS Code settings (default: true)",
+          "default": true
+        }
+      }
+    },
+    "themesFeature": {
+      "type": "object",
+      "description": "Adds a curated set of VS Code themes and icon packs for visual customization",
+      "additionalProperties": false
+    },
+    "uvFeature": {
+      "type": "object",
+      "description": "Installs uv, an extremely fast Python package and project manager",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Select or enter a uv version to install",
+          "default": "latest"
+        },
+        "installPython": {
+          "type": "boolean",
+          "description": "Install Python using uv if not already available",
+          "default": false
+        },
+        "globalPackages": {
+          "type": "string",
+          "description": "Comma-separated list of global packages to install with uv",
+          "default": ""
+        }
+      }
+    },
+    "vaultFeature": {
+      "type": "object",
+      "description": "Installs HashiCorp Vault CLI for secrets management and encryption as a service",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of Vault to install (default: latest from repository)",
+          "default": "latest"
+        }
+      }
+    },
+    "zshFeature": {
+      "type": "object",
+      "description": "Installs ZSH with Oh My Zsh, themes, and hardcoded useful plugins",
+      "additionalProperties": false,
+      "properties": {
+        "installFeature": {
+          "type": "boolean",
+          "description": "Install ZSH, Oh My Zsh, and plugins. If false, only sets environment variables.",
+          "default": true
+        },
+        "theme": {
+          "type": "string",
+          "description": "Oh My Zsh theme to use",
+          "default": "codespaces",
+          "enum": [
+            "spaceship",
+            "agnoster",
+            "codespaces"
+          ]
+        }
+      }
+    }
+  }
+}

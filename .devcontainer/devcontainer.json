@@ -12,13 +12,16 @@
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/ghostmind-dev/features/extensions:latest": {},
         "ghcr.io/ghostmind-dev/features/themes:latest": {},
+        "ghcr.io/ghostmind-dev/features/init:latest": {
+            "resetLive": "true"
+        },
         "ghcr.io/ghostmind-dev/features/settings:latest": {},
         "ghcr.io/ghostmind-dev/features/zsh:latest": {
             "theme": "codespaces"
         }
     },
-    "postCreateCommand": "deno run --allow-all --reload https://raw.githubusercontent.com/ghostmind-dev/init/main/init/main.ts",
-    "postStartCommand": "deno run --allow-all /usr/local/share/post-start.ts",
+    "postStartCommand": "deno run -A -r jsr:@ghostmind/init",
+    "postCreateCommand": "deno run -A /usr/local/share/post-create.ts",
     "remoteEnv": {
         "SRC": "${containerWorkspaceFolder}",
         "LOCALHOST_SRC": "${env:HOME}${env:USERPROFILE}/projects/container/features",
@@ -26,18 +29,13 @@
         "VAULT_ROOT_TOKEN": "${localEnv:VAULT_ROOT_TOKEN}",
         "VAULT_ADDR": "${localEnv:VAULT_ADDR}"
     },
-    "containerEnv": {
-        "INIT_RESET_LIVE": "true",
-        "INIT_LOGIN_NPM": "true",
-        "INIT_LOGIN_GCP": "true",
-        "INIT_LOGIN_CLOUDFLARED": "true",
-        "INIT_LOGIN_VAULT": "true",
-        "INIT_QUOTE_AI": "true"
-    },
+    "containerEnv": {},
     "mounts": [
         "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
         "source=ghostmind-features-history,target=/commandhistory,type=volume",
-        "source=${env:HOME}${env:USERPROFILE}/projects/container/features,target=/Users/francoisseguin/projects/container/features,type=bind"
+        "source=${env:HOME}${env:USERPROFILE}/projects/container/features,target=/Users/francoisseguin/projects/container/features,type=bind",
+        "source=${env:HOME}${env:USERPROFILE}/.cursor/mcp.json,target=/home/vscode/.cursor/mcp.json,type=bind",
+        "source=${env:HOME}${env:USERPROFILE}/projects/container/mcps,target=/Users/francoisseguin/projects/container/mcps,type=bind"
     ],
     "runArgs": [
         "--cap-add=CAP_IPC_LOCK",
