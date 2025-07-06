@@ -52,9 +52,10 @@
                     },
                     {
                         "fileMatch": [
-                            "**/devcontainer.json"
+                            "**/devcontainer.json",
+                            "**/.devcontainer/devcontainer.json"
                         ],
-                        "url": "https://raw.githubusercontent.com/ghostmind-dev/config/main/config/meta/schema.json"
+                        "url": "https://raw.githubusercontent.com/ghostmind-dev/features/main/config/schema.json"
                     }
                 ],
                 "json.validate.enable": true,
