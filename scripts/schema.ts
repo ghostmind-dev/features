@@ -65,7 +65,7 @@ export default async function (args: CustomArgs, opts: CustomOptions) {
 }
 
 function generateSchema(features: FeatureConfig[]) {
-  const featureProperties: Record<string, any> = {};
+  const patternProperties: Record<string, any> = {};
   const definitions: Record<string, any> = {};
 
   // Process each feature
@@ -73,11 +73,10 @@ function generateSchema(features: FeatureConfig[]) {
     const featureId = feature.id;
     const definitionName = `${featureId}Feature`;
 
-    // Add feature properties (both versioned and non-versioned)
-    featureProperties[`ghcr.io/ghostmind-dev/features/${featureId}`] = {
-      $ref: `#/definitions/${definitionName}`,
-    };
-    featureProperties[`ghcr.io/ghostmind-dev/features/${featureId}:1`] = {
+    // Add pattern property for feature (supports any tag or no tag)
+    // Pattern: ^ghcr\.io/ghostmind-dev/features/FEATURE_ID(:.+)?$
+    const pattern = `^ghcr\\\\.io/ghostmind-dev/features/${featureId}(:.+)?$`;
+    patternProperties[pattern] = {
       $ref: `#/definitions/${definitionName}`,
     };
 
@@ -129,7 +128,7 @@ function generateSchema(features: FeatureConfig[]) {
             type: 'object',
             description: 'Features to add to the dev container',
             additionalProperties: true,
-            properties: featureProperties,
+            patternProperties: patternProperties,
           },
         },
       },

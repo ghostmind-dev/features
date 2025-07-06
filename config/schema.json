@@ -13,113 +13,59 @@
           "type": "object",
           "description": "Features to add to the dev container",
           "additionalProperties": true,
-          "properties": {
-            "ghcr.io/ghostmind-dev/features/act": {
+          "patternProperties": {
+            "^ghcr\\\\.io/ghostmind-dev/features/act(:.+)?$": {
               "$ref": "#/definitions/actFeature"
             },
-            "ghcr.io/ghostmind-dev/features/act:1": {
-              "$ref": "#/definitions/actFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/aws": {
+            "^ghcr\\\\.io/ghostmind-dev/features/aws(:.+)?$": {
               "$ref": "#/definitions/awsFeature"
             },
-            "ghcr.io/ghostmind-dev/features/aws:1": {
-              "$ref": "#/definitions/awsFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/bun": {
+            "^ghcr\\\\.io/ghostmind-dev/features/bun(:.+)?$": {
               "$ref": "#/definitions/bunFeature"
             },
-            "ghcr.io/ghostmind-dev/features/bun:1": {
-              "$ref": "#/definitions/bunFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/chromium": {
+            "^ghcr\\\\.io/ghostmind-dev/features/chromium(:.+)?$": {
               "$ref": "#/definitions/chromiumFeature"
             },
-            "ghcr.io/ghostmind-dev/features/chromium:1": {
-              "$ref": "#/definitions/chromiumFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/cloudflared": {
+            "^ghcr\\\\.io/ghostmind-dev/features/cloudflared(:.+)?$": {
               "$ref": "#/definitions/cloudflaredFeature"
             },
-            "ghcr.io/ghostmind-dev/features/cloudflared:1": {
-              "$ref": "#/definitions/cloudflaredFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/deno": {
+            "^ghcr\\\\.io/ghostmind-dev/features/deno(:.+)?$": {
               "$ref": "#/definitions/denoFeature"
             },
-            "ghcr.io/ghostmind-dev/features/deno:1": {
-              "$ref": "#/definitions/denoFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/extensions": {
+            "^ghcr\\\\.io/ghostmind-dev/features/extensions(:.+)?$": {
               "$ref": "#/definitions/extensionsFeature"
             },
-            "ghcr.io/ghostmind-dev/features/extensions:1": {
-              "$ref": "#/definitions/extensionsFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/gcloud": {
+            "^ghcr\\\\.io/ghostmind-dev/features/gcloud(:.+)?$": {
               "$ref": "#/definitions/gcloudFeature"
             },
-            "ghcr.io/ghostmind-dev/features/gcloud:1": {
-              "$ref": "#/definitions/gcloudFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/init": {
+            "^ghcr\\\\.io/ghostmind-dev/features/init(:.+)?$": {
               "$ref": "#/definitions/initFeature"
             },
-            "ghcr.io/ghostmind-dev/features/init:1": {
-              "$ref": "#/definitions/initFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/kubernetes": {
+            "^ghcr\\\\.io/ghostmind-dev/features/kubernetes(:.+)?$": {
               "$ref": "#/definitions/kubernetesFeature"
             },
-            "ghcr.io/ghostmind-dev/features/kubernetes:1": {
-              "$ref": "#/definitions/kubernetesFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/npm": {
+            "^ghcr\\\\.io/ghostmind-dev/features/npm(:.+)?$": {
               "$ref": "#/definitions/npmFeature"
             },
-            "ghcr.io/ghostmind-dev/features/npm:1": {
-              "$ref": "#/definitions/npmFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/postgresql": {
+            "^ghcr\\\\.io/ghostmind-dev/features/postgresql(:.+)?$": {
               "$ref": "#/definitions/postgresqlFeature"
             },
-            "ghcr.io/ghostmind-dev/features/postgresql:1": {
-              "$ref": "#/definitions/postgresqlFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/run": {
+            "^ghcr\\\\.io/ghostmind-dev/features/run(:.+)?$": {
               "$ref": "#/definitions/runFeature"
             },
-            "ghcr.io/ghostmind-dev/features/run:1": {
-              "$ref": "#/definitions/runFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/settings": {
+            "^ghcr\\\\.io/ghostmind-dev/features/settings(:.+)?$": {
               "$ref": "#/definitions/settingsFeature"
             },
-            "ghcr.io/ghostmind-dev/features/settings:1": {
-              "$ref": "#/definitions/settingsFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/themes": {
+            "^ghcr\\\\.io/ghostmind-dev/features/themes(:.+)?$": {
               "$ref": "#/definitions/themesFeature"
             },
-            "ghcr.io/ghostmind-dev/features/themes:1": {
-              "$ref": "#/definitions/themesFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/uv": {
+            "^ghcr\\\\.io/ghostmind-dev/features/uv(:.+)?$": {
               "$ref": "#/definitions/uvFeature"
             },
-            "ghcr.io/ghostmind-dev/features/uv:1": {
-              "$ref": "#/definitions/uvFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/vault": {
+            "^ghcr\\\\.io/ghostmind-dev/features/vault(:.+)?$": {
               "$ref": "#/definitions/vaultFeature"
             },
-            "ghcr.io/ghostmind-dev/features/vault:1": {
-              "$ref": "#/definitions/vaultFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/zsh": {
-              "$ref": "#/definitions/zshFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/zsh:1": {
+            "^ghcr\\\\.io/ghostmind-dev/features/zsh(:.+)?$": {
               "$ref": "#/definitions/zshFeature"
             }
           }
