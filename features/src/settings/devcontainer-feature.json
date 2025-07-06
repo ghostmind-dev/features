@@ -1,6 +1,6 @@
 {
     "id": "settings",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "name": "Settings",
     "description": "Configure VS Code settings for development environment",
     "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/features/src/settings",
@@ -14,7 +14,7 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "files.autoSave": "off",
+                "files.autoSave": "on",
                 "editor.formatOnSave": true,
                 "terminal.integrated.defaultProfile.linux": "zsh",
                 "prettier.singleQuote": true,
