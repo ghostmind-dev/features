@@ -13,7 +13,7 @@
         "ghcr.io/ghostmind-dev/features/extensions:latest": {},
         "ghcr.io/ghostmind-dev/features/themes:latest": {},
         "ghcr.io/ghostmind-dev/features/init:latest": {
-            "resetLive": "true"
+            "resetLive": true
         },
         "ghcr.io/ghostmind-dev/features/settings:latest": {},
         "ghcr.io/ghostmind-dev/features/zsh:latest": {
