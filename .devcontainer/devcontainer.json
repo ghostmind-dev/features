@@ -31,16 +31,14 @@
     },
     "containerEnv": {},
     "mounts": [
-        "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
-        "source=ghostmind-features-history,target=/commandhistory,type=volume",
-        "source=${env:HOME}${env:USERPROFILE}/projects/container/features,target=/Users/francoisseguin/projects/container/features,type=bind",
-        "source=${env:HOME}${env:USERPROFILE}/.cursor/mcp.json,target=/home/vscode/.cursor/mcp.json,type=bind",
-        "source=${env:HOME}${env:USERPROFILE}/projects/container/mcps,target=/Users/francoisseguin/projects/container/mcps,type=bind"
+        "source=terminal-history-features,target=/commandhistory,type=volume",
+        "source=${env:HOME}${env:USERPROFILE}/projects,target=/Users/francoisseguin/projects,type=bind",
+        "source=${env:HOME}${env:USERPROFILE}/.cursor,target=/home/vscode/.cursor,type=bind"
     ],
     "runArgs": [
         "--cap-add=CAP_IPC_LOCK",
         "--cap-add=NET_ADMIN",
-        "--name=features-container",
+        "--name=feature",
         "--privileged"
     ],
     "customizations": {
