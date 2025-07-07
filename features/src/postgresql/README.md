@@ -1,6 +1,7 @@
+
 # PostgreSQL Client (postgresql)
 
-Installs the PostgreSQL client tools for connecting to and managing PostgreSQL databases.
+Installs the PostgreSQL client tools for connecting to and managing PostgreSQL databases
 
 ## Example Usage
 
@@ -12,21 +13,12 @@ Installs the PostgreSQL client tools for connecting to and managing PostgreSQL d
 
 ## Options
 
-| Options Id | Description                      | Type   | Default Value |
-| ---------- | -------------------------------- | ------ | ------------- |
-| version    | Version of PostgreSQL to install | string | latest        |
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Version of PostgreSQL client to install (default: latest from apt) | string | latest |
 
-## Supported platforms
 
-`linux/amd64` and `linux/arm64` platforms are supported.
 
-## What's Included
+---
 
-- `psql` - PostgreSQL interactive terminal
-- `pg_dump` - PostgreSQL database backup utility
-- `pg_restore` - PostgreSQL database restore utility
-- Other PostgreSQL client utilities
-
-## References
-
-- [PostgreSQL documentation](https://www.postgresql.org/docs/current/app-psql.html)
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ghostmind-dev/features/blob/main/features/src/postgresql/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
