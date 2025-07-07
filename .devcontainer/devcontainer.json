@@ -1,10 +1,7 @@
 {
     "name": "features",
     "build": {
-        "dockerfile": "Dockerfile",
-        "args": {
-            "PROJECT_DIR": "${env:HOME}${env:USERPROFILE}/projects/container/features"
-        }
+        "dockerfile": "Dockerfile"
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
