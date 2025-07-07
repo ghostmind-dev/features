@@ -405,16 +405,6 @@
           "description": "Python version to configure (default: 3.9.7)",
           "default": "3.9.7"
         },
-        "resetDocs": {
-          "type": "boolean",
-          "description": "Reset documentation settings (default: false)",
-          "default": false
-        },
-        "resetDocsName": {
-          "type": "string",
-          "description": "Documentation directory name (default: docs)",
-          "default": "docs"
-        },
         "tmuxConfig": {
           "type": "boolean",
           "description": "Setup TMUX configuration (default: false)",

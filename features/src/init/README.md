@@ -40,10 +40,9 @@ This feature provides a dynamic system for setting environment variables in your
 | `loginVault`      | boolean | `true`    | `INIT_LOGIN_VAULT`      | Configure HashiCorp Vault login           |
 | `loginCloudflare` | boolean | `true`    | `INIT_LOGIN_CLOUDFLARE` | Configure Cloudflare login                |
 | `pythonVersion`   | string  | `"3.9.7"` | `INIT_PYTHON_VERSION`   | Python version to configure               |
-| `resetDocs`       | boolean | `false`   | `INIT_RESET_DOCS`       | Reset documentation settings              |
-| `resetDocsName`   | string  | `"docs"`  | `INIT_RESET_DOCS_NAME`  | Documentation directory name              |
-| `tmuxConfig`      | boolean | `false`   | `INIT_TMUX_CONFIG`      | Setup TMUX configuration                  |
-| `quoteAi`         | boolean | `true`    | `INIT_QUOTE_AI`         | Enable AI quote feature                   |
+
+| `tmuxConfig` | boolean | `false` | `INIT_TMUX_CONFIG` | Setup TMUX configuration |
+| `quoteAi` | boolean | `true` | `INIT_QUOTE_AI` | Enable AI quote feature |
 
 ## Examples
 
