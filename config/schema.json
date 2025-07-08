@@ -104,6 +104,15 @@
             "ghcr.io/ghostmind-dev/features/kubernetes:latest": {
               "$ref": "#/definitions/kubernetesFeature"
             },
+            "ghcr.io/ghostmind-dev/features/mounts": {
+              "$ref": "#/definitions/mountsFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/mounts:1": {
+              "$ref": "#/definitions/mountsFeature"
+            },
+            "ghcr.io/ghostmind-dev/features/mounts:latest": {
+              "$ref": "#/definitions/mountsFeature"
+            },
             "ghcr.io/ghostmind-dev/features/npm": {
               "$ref": "#/definitions/npmFeature"
             },
@@ -207,6 +216,9 @@
             },
             "^ghcr\\.io/ghostmind-dev/features/kubernetes:.+$": {
               "$ref": "#/definitions/kubernetesFeature"
+            },
+            "^ghcr\\.io/ghostmind-dev/features/mounts:.+$": {
+              "$ref": "#/definitions/mountsFeature"
             },
             "^ghcr\\.io/ghostmind-dev/features/npm:.+$": {
               "$ref": "#/definitions/npmFeature"
@@ -463,6 +475,11 @@
           "default": "latest"
         }
       }
+    },
+    "mountsFeature": {
+      "type": "object",
+      "description": "Enables terminal history, projects volume, and cursor settings mounts for development containers",
+      "additionalProperties": false
     },
     "npmFeature": {
       "type": "object",

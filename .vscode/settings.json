@@ -26,7 +26,8 @@
     "terraform": "contract",
     "docker": "contract",
     "app": "contract",
-    "features": "content"
+    "features": "content",
+    "mounts": "contract"
   },
   "material-icon-theme.files.associations": {},
   "workbench.colorCustomizations": {

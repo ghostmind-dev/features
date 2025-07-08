@@ -1,0 +1,27 @@
+{
+    "id": "mounts",
+    "version": "1.0.0",
+    "name": "Container Mounts",
+    "description": "Enables terminal history, projects volume, and cursor settings mounts for development containers",
+    "documentationURL": "https://containers.dev/implementors/features/",
+    "mounts": [
+        {
+            "source": "terminal-history",
+            "target": "/commandhistory",
+            "type": "volume"
+        },
+        {
+            "source": "/Volumes/Projects",
+            "target": "/Volumes/Projects",
+            "type": "bind"
+        },
+        {
+            "source": "${env:HOME}${env:USERPROFILE}/.cursor",
+            "target": "/home/vscode/.cursor",
+            "type": "bind"
+        }
+    ],
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils:2"
+    ]
+}

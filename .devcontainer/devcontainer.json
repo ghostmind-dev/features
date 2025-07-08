@@ -21,21 +21,21 @@
     "postCreateCommand": "deno run -A /usr/local/share/post-create.ts",
     "remoteEnv": {
         "SRC": "${containerWorkspaceFolder}",
-        "LOCALHOST_SRC": "${env:HOME}${env:USERPROFILE}/projects/container/features",
+        "LOCALHOST_SRC": "/Volumes/Projects/container/features",
         "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
         "VAULT_ROOT_TOKEN": "${localEnv:VAULT_ROOT_TOKEN}",
         "VAULT_ADDR": "${localEnv:VAULT_ADDR}"
     },
     "containerEnv": {},
     "mounts": [
-        "source=terminal-history-features,target=/commandhistory,type=volume",
-        "source=${env:HOME}${env:USERPROFILE}/projects,target=/Users/francoisseguin/projects,type=bind",
+        "source=terminal-history,target=/commandhistory,type=volume",
+        "source=/Volumes/Projects,target=/Volumes/Projects,type=bind",
         "source=${env:HOME}${env:USERPROFILE}/.cursor,target=/home/vscode/.cursor,type=bind"
     ],
     "runArgs": [
         "--cap-add=CAP_IPC_LOCK",
         "--cap-add=NET_ADMIN",
-        "--name=feature",
+        "--name=features",
         "--privileged"
     ],
     "customizations": {
