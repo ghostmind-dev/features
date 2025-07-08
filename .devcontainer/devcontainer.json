@@ -8,6 +8,7 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/ghostmind-dev/features/extensions:latest": {},
+        "ghcr.io/ghostmind-dev/features/mounts:latest": {},
         "ghcr.io/ghostmind-dev/features/themes:latest": {},
         "ghcr.io/ghostmind-dev/features/init:latest": {
             "resetLive": true
@@ -27,11 +28,7 @@
         "VAULT_ADDR": "${localEnv:VAULT_ADDR}"
     },
     "containerEnv": {},
-    "mounts": [
-        "source=terminal-history,target=/commandhistory,type=volume",
-        "source=/Volumes/Projects,target=/Volumes/Projects,type=bind",
-        "source=${env:HOME}${env:USERPROFILE}/.cursor,target=/home/vscode/.cursor,type=bind"
-    ],
+    "mounts": [],
     "runArgs": [
         "--cap-add=CAP_IPC_LOCK",
         "--cap-add=NET_ADMIN",
