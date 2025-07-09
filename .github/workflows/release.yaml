@@ -1,10 +1,10 @@
-name: 'release'
+name: "release"
 on:
   workflow_dispatch:
 env:
   SRC: ${{github.workspace}}
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
-  VAULT_ROOT_TOKEN: ${{ secrets.VAULT_ROOT_TOKEN }}
+  VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
   VAULT_ADDR: ${{ secrets.VAULT_ADDR}}
 jobs:
   release:
@@ -17,12 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 'Publish Features'
+      - name: "Publish Features"
         uses: devcontainers/action@v1
         with:
-          publish-features: 'true'
-          base-path-to-features: './features/src'
-          generate-docs: 'true'
+          publish-features: "true"
+          base-path-to-features: "./features/src"
+          generate-docs: "true"
 
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
