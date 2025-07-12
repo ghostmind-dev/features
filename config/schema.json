@@ -149,15 +149,6 @@
             "ghcr.io/ghostmind-dev/features/settings:latest": {
               "$ref": "#/definitions/settingsFeature"
             },
-            "ghcr.io/ghostmind-dev/features/themes": {
-              "$ref": "#/definitions/themesFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/themes:1": {
-              "$ref": "#/definitions/themesFeature"
-            },
-            "ghcr.io/ghostmind-dev/features/themes:latest": {
-              "$ref": "#/definitions/themesFeature"
-            },
             "ghcr.io/ghostmind-dev/features/uv": {
               "$ref": "#/definitions/uvFeature"
             },
@@ -231,9 +222,6 @@
             },
             "^ghcr\\.io/ghostmind-dev/features/settings:.+$": {
               "$ref": "#/definitions/settingsFeature"
-            },
-            "^ghcr\\.io/ghostmind-dev/features/themes:.+$": {
-              "$ref": "#/definitions/themesFeature"
             },
             "^ghcr\\.io/ghostmind-dev/features/uv:.+$": {
               "$ref": "#/definitions/uvFeature"
@@ -522,11 +510,6 @@
         }
       }
     },
-    "themesFeature": {
-      "type": "object",
-      "description": "Adds a curated set of VS Code themes and icon packs for visual customization",
-      "additionalProperties": false
-    },
     "uvFeature": {
       "type": "object",
       "description": "Installs uv, an extremely fast Python package and project manager",
@@ -575,11 +558,7 @@
           "type": "string",
           "description": "Oh My Zsh theme to use",
           "default": "codespaces",
-          "enum": [
-            "spaceship",
-            "agnoster",
-            "codespaces"
-          ]
+          "enum": ["spaceship", "agnoster", "codespaces"]
         }
       }
     }

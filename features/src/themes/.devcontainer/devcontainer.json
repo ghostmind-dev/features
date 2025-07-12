@@ -1,9 +1,0 @@
-{
-    "name": "Test Extensions Feature",
-    "image": "ghcr.io/ghostmind-dev/dvc:dev",
-    "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {},
-        "ghcr.io/ghostmind-dev/features/extensions": {}
-    },
-    "remoteUser": "vscode"
-}

@@ -7,13 +7,10 @@
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/ghostmind-dev/features/extensions:latest": {},
         "ghcr.io/ghostmind-dev/features/mounts:latest": {},
-        "ghcr.io/ghostmind-dev/features/themes:latest": {},
         "ghcr.io/ghostmind-dev/features/init:latest": {
             "resetLive": true
         },
-        "ghcr.io/ghostmind-dev/features/settings:latest": {},
         "ghcr.io/ghostmind-dev/features/zsh:latest": {
             "theme": "codespaces"
         }
@@ -38,7 +35,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ghostmind.hide-unhide@0.0.12"
+                "ghostmind.hide-unhide@0.0.12",
+                "denoland.vscode-deno@6.1.0"
             ]
         }
     }
