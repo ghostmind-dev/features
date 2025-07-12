@@ -9,7 +9,9 @@
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/ghostmind-dev/features/mounts:latest": {},
         "ghcr.io/ghostmind-dev/features/init:latest": {
-            "resetLive": true
+            "resetLive": true,
+            "devcontainerExtensions": true,
+            "devcontainerSettings": true
         },
         "ghcr.io/ghostmind-dev/features/zsh:latest": {
             "theme": "codespaces"
@@ -24,7 +26,6 @@
         "VAULT_TOKEN": "${localEnv:VAULT_TOKEN}",
         "VAULT_ADDR": "${localEnv:VAULT_ADDR}"
     },
-    "containerEnv": {},
     "mounts": [],
     "runArgs": [
         "--cap-add=CAP_IPC_LOCK",
@@ -35,8 +36,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ghostmind.hide-unhide@0.0.12",
-                "denoland.vscode-deno@6.1.0"
+                "ghostmind.hide-unhide@0.0.12"
             ]
         }
     }
