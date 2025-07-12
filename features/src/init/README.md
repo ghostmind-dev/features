@@ -1,110 +1,39 @@
-# Init Feature
 
-Initialize development environment with configurable options that are dynamically set as `INIT_*` environment variables.
+# Init (init)
 
-## Usage
+Initialize development environment with configurable options
+
+## Example Usage
 
 ```json
-{
-  "features": {
-    "ghcr.io/ghostmind-dev/features/init:1": {
-      "loginVault": true,
-      "loginGcp": false,
-      "pythonVersion": "3.11.0"
-    }
-  }
+"features": {
+    "ghcr.io/ghostmind-dev/features/init:1": {}
 }
 ```
-
-## How It Works
-
-This feature provides a dynamic system for setting environment variables in your DevContainer. Each feature option is automatically mapped to an `INIT_*` environment variable using the following pattern:
-
-- **Option**: `loginVault: true` → **Environment Variable**: `INIT_LOGIN_VAULT=true`
-- **Option**: `baseZshrc: false` → **Environment Variable**: `INIT_BASE_ZSHRC=false`
-- **Option**: `pythonVersion: "3.11"` → **Environment Variable**: `INIT_PYTHON_VERSION=3.11`
 
 ## Options
 
-| Option            | Type    | Default   | Environment Variable    | Description                               |
-| ----------------- | ------- | --------- | ----------------------- | ----------------------------------------- |
-| `resetLive`       | boolean | `false`   | `INIT_RESET_LIVE`       | Reset live environment settings           |
-| `baseZshrc`       | boolean | `true`    | `INIT_BASE_ZSHRC`       | Configure base ZSH configuration          |
-| `denoConfig`      | boolean | `true`    | `INIT_DENO_CONFIG`      | Setup Deno configuration                  |
-| `denoJupyter`     | boolean | `false`   | `INIT_DENO_JUPYTER`     | Enable Deno Jupyter integration           |
-| `coreSecrets`     | boolean | `true`    | `INIT_CORE_SECRETS`     | Setup core secrets management             |
-| `loginNpm`        | boolean | `false`   | `INIT_LOGIN_NPM`        | Configure NPM login                       |
-| `loginGcp`        | boolean | `true`    | `INIT_LOGIN_GCP`        | Configure Google Cloud Platform login     |
-| `loginGhcr`       | boolean | `true`    | `INIT_LOGIN_GHCR`       | Configure GitHub Container Registry login |
-| `loginNvcr`       | boolean | `true`    | `INIT_LOGIN_NVCR`       | Configure NVIDIA Container Registry login |
-| `loginVault`      | boolean | `true`    | `INIT_LOGIN_VAULT`      | Configure HashiCorp Vault login           |
-| `loginCloudflare` | boolean | `true`    | `INIT_LOGIN_CLOUDFLARE` | Configure Cloudflare login                |
-| `pythonVersion`   | string  | `"3.9.7"` | `INIT_PYTHON_VERSION`   | Python version to configure               |
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| resetLive | Reset live environment settings (default: false) | boolean | false |
+| baseZshrc | Configure base ZSH configuration (default: true) | boolean | true |
+| denoConfig | Setup Deno configuration (default: true) | boolean | true |
+| denoJupyter | Enable Deno Jupyter integration (default: false) | boolean | false |
+| coreSecrets | Setup core secrets management (default: true) | boolean | true |
+| loginNpm | Configure NPM login (default: false) | boolean | false |
+| loginGcp | Configure Google Cloud Platform login (default: true) | boolean | true |
+| loginGhcr | Configure GitHub Container Registry login (default: true) | boolean | true |
+| loginNvcr | Configure NVIDIA Container Registry login (default: true) | boolean | true |
+| loginVault | Configure HashiCorp Vault login (default: true) | boolean | true |
+| loginCloudflare | Configure Cloudflare login (default: true) | boolean | true |
+| pythonVersion | Python version to configure (default: 3.9.7) | string | 3.9.7 |
+| tmuxConfig | Setup TMUX configuration (default: false) | boolean | false |
+| devcontainerSettings | Configure VS Code/Cursor settings from remote configuration (default: false) | boolean | false |
+| devcontainerExtensions | Install VS Code/Cursor extensions from remote configuration (default: false) | boolean | false |
+| quoteAi | Enable AI quote feature (default: true) | boolean | true |
 
-| `tmuxConfig` | boolean | `false` | `INIT_TMUX_CONFIG` | Setup TMUX configuration |
-| `quoteAi` | boolean | `true` | `INIT_QUOTE_AI` | Enable AI quote feature |
 
-## Examples
 
-### Enable the feature
+---
 
-```json
-{
-  "features": {
-    "ghcr.io/ghostmind-dev/features/init:1": {
-      "enableFeature": true
-    }
-  }
-}
-```
-
-This will set `INIT_FEATURE_ENABLED=true` in the container environment.
-
-### Use default (disabled)
-
-```json
-{
-  "features": {
-    "ghcr.io/ghostmind-dev/features/init:1": {}
-  }
-}
-```
-
-This will set `INIT_FEATURE_ENABLED=false` in the container environment.
-
-## Accessing the Environment Variable
-
-Once the container is built, you can access the environment variable:
-
-### In Shell
-
-```bash
-echo $INIT_FEATURE_ENABLED
-```
-
-### In ZSH
-
-```zsh
-echo $INIT_FEATURE_ENABLED
-```
-
-### In Scripts
-
-```bash
-if [ "$INIT_FEATURE_ENABLED" = "true" ]; then
-    echo "Init feature is enabled"
-else
-    echo "Init feature is disabled"
-fi
-```
-
-## Installation
-
-The environment variable is made available in:
-
-- Bash sessions (`/etc/bash.bashrc`)
-- ZSH sessions (`/etc/zsh/zshrc`)
-- System-wide (`/etc/environment`)
-- Profile sessions (`/etc/profile`)
-
-This ensures the variable is accessible regardless of the shell or session type.
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ghostmind-dev/features/blob/main/features/src/init/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
