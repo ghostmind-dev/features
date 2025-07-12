@@ -1,6 +1,6 @@
 {
   "id": "init",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "name": "Init",
   "description": "Initialize development environment with configurable options",
   "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/features/src/init",
@@ -74,11 +74,6 @@
       "type": "boolean",
       "default": false,
       "description": "Configure VS Code/Cursor settings from remote configuration (default: false)"
-    },
-    "devcontainerExtensions": {
-      "type": "boolean",
-      "default": false,
-      "description": "Install VS Code/Cursor extensions from remote configuration (default: false)"
     },
     "quoteAi": {
       "type": "boolean",

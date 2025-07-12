@@ -1,7 +1,7 @@
 {
   "files.exclude": {
-    "**/LICENSE": true,
-    "**/dev": true
+    "**/LICENSE": false,
+    "**/dev": false
   },
   "deno.disablePaths": [],
   "material-icon-theme.folders.associations": {
@@ -41,5 +41,6 @@
       ],
       "url": "./config/schema.json"
     }
-  ]
+  ],
+  "deno.enable": true
 }

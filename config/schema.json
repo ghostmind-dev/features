@@ -415,11 +415,6 @@
           "description": "Configure VS Code/Cursor settings from remote configuration (default: false)",
           "default": false
         },
-        "devcontainerExtensions": {
-          "type": "boolean",
-          "description": "Install VS Code/Cursor extensions from remote configuration (default: false)",
-          "default": false
-        },
         "quoteAi": {
           "type": "boolean",
           "description": "Enable AI quote feature (default: true)",
@@ -568,7 +563,11 @@
           "type": "string",
           "description": "Oh My Zsh theme to use",
           "default": "codespaces",
-          "enum": ["spaceship", "agnoster", "codespaces"]
+          "enum": [
+            "spaceship",
+            "agnoster",
+            "codespaces"
+          ]
         }
       }
     }
