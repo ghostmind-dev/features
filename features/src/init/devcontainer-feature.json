@@ -70,6 +70,16 @@
             "default": false,
             "description": "Setup TMUX configuration (default: false)"
         },
+        "devcontainerSettings": {
+            "type": "boolean",
+            "default": false,
+            "description": "Configure VS Code/Cursor settings from remote configuration (default: false)"
+        },
+        "devcontainerExtensions": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install VS Code/Cursor extensions from remote configuration (default: false)"
+        },
         "quoteAi": {
             "type": "boolean",
             "default": true,
