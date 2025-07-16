@@ -2,6 +2,8 @@
 
 Enables various mount configurations for development containers including terminal history persistence, project volume access, and editor settings synchronization.
 
+> **⚠️ Note:** This feature is part of a personal collection of Dev Container features tailored to a specific development workflow. It is not a general-purpose everyday feature—if you choose to use it, you must follow the exact setup conventions outlined below.
+
 ## Example Usage
 
 ### Basic Usage (All Mounts Enabled)
