@@ -1,0 +1,38 @@
+{
+    "test_default": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "mounts": {}
+        }
+    },
+    "test_selective": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "mounts": {
+                "terminalHistory": true,
+                "projectsMount": false,
+                "cursorSettings": true
+            }
+        }
+    },
+    "test_custom_paths": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "mounts": {
+                "projectsSource": "/custom/projects",
+                "projectsTarget": "/workspace/projects",
+                "cursorTarget": "/home/vscode/.vscode"
+            }
+        }
+    },
+    "test_disabled": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "mounts": {
+                "terminalHistory": false,
+                "projectsMount": false,
+                "cursorSettings": false
+            }
+        }
+    }
+}
