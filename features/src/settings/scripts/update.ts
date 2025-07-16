@@ -1,11 +1,9 @@
 import type { CustomArgs, CustomOptions } from "jsr:@ghostmind/run";
-import { $ } from "npm:zx@8.1.3";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { exit } from "node:process";
 
 export default async function (_args: CustomArgs, opts: CustomOptions) {
-  $.verbose = true;
-
   const { currentPath } = opts;
 
   console.log("🔄 Updating VS Code settings from remote config...");
@@ -24,7 +22,11 @@ export default async function (_args: CustomArgs, opts: CustomOptions) {
 
     const settings = await response.json();
 
-    if (typeof settings !== "object" || settings === null || Array.isArray(settings)) {
+    if (
+      typeof settings !== "object" ||
+      settings === null ||
+      Array.isArray(settings)
+    ) {
       throw new Error("Invalid settings format: expected an object");
     }
 
@@ -52,18 +54,12 @@ export default async function (_args: CustomArgs, opts: CustomOptions) {
       "✅ Successfully updated devcontainer-feature.json with new settings"
     );
     console.log(`📍 Updated file: ${featureJsonPath}`);
-
-    // Show a summary of changes
-    console.log("\n📋 Settings Summary:");
-    Object.keys(settings).forEach((key, index) => {
-      const value = typeof settings[key] === "object" 
-        ? JSON.stringify(settings[key]) 
-        : settings[key];
-      console.log(`  ${index + 1}. ${key}: ${value}`);
-    });
-    
   } catch (error) {
-    console.error("❌ Error updating settings:", error.message);
-    process.exit(1);
+    if (error instanceof Error) {
+      console.error("❌ Error updating settings:", error.message);
+    } else {
+      console.error("❌ An unknown error occurred during settings update.");
+    }
+    exit(1);
   }
 }

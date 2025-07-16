@@ -8,6 +8,7 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/ghostmind-dev/features/extensions:1.0.6": {},
+        "ghcr.io/ghostmind-dev/features/mounts:1.0.1": {},
         "ghcr.io/ghostmind-dev/features/init:1.0.4": {
             "resetLive": true,
             "devcontainerSettings": true
@@ -18,6 +19,9 @@
     },
     "postStartCommand": "deno run -A -r jsr:@ghostmind/init",
     "postCreateCommand": "deno run -A /usr/local/share/post-create.ts",
+    "mounts": [
+        "source=termina-features-features,target=/commandhistory,type=volume"
+    ],
     "remoteEnv": {
         "SRC": "${containerWorkspaceFolder}",
         "LOCALHOST_SRC": "/Volumes/Projects/container/features",
@@ -25,11 +29,6 @@
         "VAULT_TOKEN": "${localEnv:VAULT_TOKEN}",
         "VAULT_ADDR": "${localEnv:VAULT_ADDR}"
     },
-    "mounts": [
-        "source=termina-features-features,target=/commandhistory,type=volume",
-        "source=/Volumes/Projects,target=/Volumes/Projects,type=bind",
-        "source=${env:HOME}${env:USERPROFILE}/.cursor,target=/home/vscode/.cursor,type=bind"
-    ],
     "runArgs": [
         "--cap-add=CAP_IPC_LOCK",
         "--cap-add=NET_ADMIN",

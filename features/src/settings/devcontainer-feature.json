@@ -1,106 +1,97 @@
 {
-    "id": "settings",
-    "version": "1.0.6",
-    "name": "Settings",
-    "description": "Configure VS Code settings for development environment",
-    "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/features/src/settings",
-    "options": {
-        "enableFeature": {
-            "type": "boolean",
-            "default": true,
-            "description": "Enable the settings feature to set VS Code settings (default: true)"
+  "id": "settings",
+  "version": "1.0.8",
+  "name": "Settings",
+  "description": "Configure VS Code settings for development environment",
+  "documentationURL": "https://github.com/ghostmind-dev/features/tree/main/features/src/settings",
+  "options": {
+    "enableFeature": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable the settings feature to set VS Code settings (default: true)"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.autoSave": "off",
+        "editor.formatOnSave": true,
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "prettier.singleQuote": true,
+        "files.exclude": {
+          "**/.gitignore": true,
+          "**/.git": true,
+          "**/.terraform": true,
+          "**/.tfstate": true,
+          "**/.npmrc": true,
+          "**/.dockerignore": true,
+          "**/package-lock.json": true,
+          "**/node_modules": true,
+          "**/__pycache__": true,
+          "**/.next": true,
+          "**/dist": true,
+          "**/.terraform.lock.hcl": true,
+          "**/.npmignore": true
+        },
+        "files.associations": {
+          "*.json": "jsonc",
+          "**/meta.json": "json"
+        },
+        "deno.enable": true,
+        "deno.lint": true,
+        "deno.cacheOnSave": true,
+        "deno.path": "/deno/bin/deno",
+        "deno.cache": "/deno/.cache",
+        "deno.config": "/home/vscode/deno.json",
+        "json.schemas": [
+          {
+            "fileMatch": ["**/meta.json"],
+            "url": "https://raw.githubusercontent.com/ghostmind-dev/config/main/config/meta/schema.json"
+          },
+          {
+            "fileMatch": [
+              "**/devcontainer.json",
+              "**/.devcontainer/devcontainer.json"
+            ],
+            "url": "https://raw.githubusercontent.com/ghostmind-dev/features/main/config/schema.json"
+          }
+        ],
+        "json.validate.enable": true,
+        "json.schemaDownload.enable": true,
+        "[dockerfile]": {
+          "editor.formatOnSave": false
+        },
+        "shellformat.effectLanguages": ["dotenv", "gitignore"],
+        "material-icon-theme.folders.associations": {
+          ".cursor": "resource",
+          ".devcontainer": "cluster",
+          "app": "app",
+          "docker": "docker",
+          "infra": "terraform",
+          "local": "mappings"
+        },
+        "material-icon-theme.files.associations": {
+          "**.env.base": "settings",
+          "**.env.dev": "settings",
+          "**.env.local": "settings",
+          "**.env.prod": "settings"
+        },
+        "material-icon-theme.files.customClones": [
+          {
+            "name": "settings-template",
+            "base": "settings",
+            "color": "green-400",
+            "fileNames": [".env.template"]
+          }
+        ],
+        "explorer.decorations.colors": true,
+        "explorer.decorations.badges": true,
+        "git.decorations.enabled": true,
+        "workbench.colorCustomizations": {
+          "gitDecoration.ignoredResourceForeground": "#d8bf20"
         }
-    },
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "files.autoSave": "off",
-                "editor.formatOnSave": true,
-                "terminal.integrated.defaultProfile.linux": "zsh",
-                "prettier.singleQuote": true,
-                "files.exclude": {
-                    "**/.gitignore": true,
-                    "**/.git": true,
-                    "**/.terraform": true,
-                    "**/.tfstate": true,
-                    "**/.npmrc": true,
-                    "**/.dockerignore": true,
-                    "**/package-lock.json": true,
-                    "**/node_modules": true,
-                    "**/__pycache__": true,
-                    "**/.next": true,
-                    "**/dist": true,
-                    "**/.terraform.lock.hcl": true,
-                    "**/.npmignore": true
-                },
-                "files.associations": {
-                    "*.json": "jsonc",
-                    "**/meta.json": "json"
-                },
-                "deno.enable": true,
-                "deno.lint": true,
-                "deno.cacheOnSave": true,
-                "deno.path": "/deno/bin/deno",
-                "deno.cache": "/deno/.cache",
-                "deno.config": "/home/vscode/deno.json",
-                "json.schemas": [
-                    {
-                        "fileMatch": [
-                            "**/meta.json"
-                        ],
-                        "url": "https://raw.githubusercontent.com/ghostmind-dev/config/main/config/meta/schema.json"
-                    },
-                    {
-                        "fileMatch": [
-                            "**/devcontainer.json",
-                            "**/.devcontainer/devcontainer.json"
-                        ],
-                        "url": "https://raw.githubusercontent.com/ghostmind-dev/features/main/config/schema.json"
-                    }
-                ],
-                "json.validate.enable": true,
-                "json.schemaDownload.enable": true,
-                "[dockerfile]": {
-                    "editor.formatOnSave": false
-                },
-                "shellformat.effectLanguages": [
-                    "dotenv",
-                    "gitignore"
-                ],
-                "material-icon-theme.folders.associations": {
-                    ".cursor": "resource",
-                    ".devcontainer": "cluster",
-                    "app": "app",
-                    "docker": "docker",
-                    "infra": "terraform",
-                    "local": "mappings"
-                },
-                "material-icon-theme.files.associations": {
-                    "**.env.base": "settings",
-                    "**.env.dev": "settings",
-                    "**.env.local": "settings",
-                    "**.env.prod": "settings"
-                },
-                "material-icon-theme.files.customClones": [
-                    {
-                        "name": "settings-template",
-                        "base": "settings",
-                        "color": "green-400",
-                        "fileNames": [
-                            ".env.template"
-                        ]
-                    }
-                ],
-                "explorer.decorations.colors": true,
-                "explorer.decorations.badges": true,
-                "git.decorations.enabled": true,
-                "workbench.colorCustomizations": {
-                    "gitDecoration.ignoredResourceForeground": "#d8bf20"
-                }
-            }
-        }
-    },
-    "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils:2"
-    ]
+      }
+    }
+  },
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils:2"]
 }
